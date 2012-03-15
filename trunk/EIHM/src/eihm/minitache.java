@@ -6,7 +6,6 @@ import java.awt.*;
 public class minitache {
 
     public static void main(String[] args) {
-       JFrame frame = new Fenetre();
-       
+       JFrame frame = new Fenetre("Mini tache");
     }
 }
