@@ -41,6 +41,8 @@ public class Fenetre extends JFrame implements Runnable{
         //                                              //
         //////////////////////////////////////////////////
         
+        Image icone = Toolkit.getDefaultToolkit().getImage("Image/check.png");
+        this.setIconImage(icone);
         this.setLayout(new BorderLayout());
         this.add(menubar, BorderLayout.NORTH);
         this.setTitle(this.name);
