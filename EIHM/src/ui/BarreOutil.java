@@ -17,8 +17,8 @@ public class BarreOutil extends JPanel {
         
         this.setLayout(new GridLayout(0,20));
         this.setBorder(BorderFactory.createLineBorder(Color.black));
-        this.setVisible(true);
-        
+        this.setVisible(true);        
     }
+    
     
 }
