@@ -9,7 +9,6 @@ public class Fenetre extends JFrame implements Runnable{
     
     public Fenetre(String name){
           this.name = name;
-          SwingUtilities.invokeLater(this);
     }
     
     public void run(){
@@ -18,6 +17,7 @@ public class Fenetre extends JFrame implements Runnable{
         MenuBar menubar = new MenuBar();
         //ajout BarreOutil
         BarreOutil barreOutil = new BarreOutil();
+        AireDeDessin aire = new AireDeDessin();
         //ajout BarreInfo
         BarreInfo barreInfo = new BarreInfo();
         
@@ -26,7 +26,7 @@ public class Fenetre extends JFrame implements Runnable{
         //          Addaptation de l'apparence          //
         //               par rapport a l'OS             //
         //////////////////////////////////////////////////
-        try {
+        /*try {
             if (System.getProperty("os.name").equals("Mac OS X")) {
             System.setProperty ("apple.laf.useScreenMenuBar","true");
             System.setProperty("com.apple.mrj.application.apple.menu.about.name", "Test");
@@ -35,7 +35,7 @@ public class Fenetre extends JFrame implements Runnable{
             }
         } catch(Exception e) {
             System.out.println("Error setting native LAF: " + e);
-        }
+        }*/
         
         
         //////////////////////////////////////////////////
@@ -45,19 +45,24 @@ public class Fenetre extends JFrame implements Runnable{
         //////////////////////////////////////////////////
 
         Image icone = Toolkit.getDefaultToolkit().getImage("Image/check.png");
-        this.setIconImage(icone);
-        this.setJMenuBar(menubar);
-        this.add(barreOutil,BorderLayout.NORTH);
-        this.add(barreInfo,BorderLayout.SOUTH);
-        this.setTitle(this.name);
-        this.pack();
-        this.setDefaultLookAndFeelDecorated(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setExtendedState(this.MAXIMIZED_BOTH);
+        setIconImage(icone);
+
+        setJMenuBar(menubar);
+
+
+        add(barreOutil,BorderLayout.NORTH);
+        add(aire,BorderLayout.CENTER);
+        add(barreInfo,BorderLayout.SOUTH);
+
+        aire.setVisible(true);
         
-        this.setVisible(true);
+        setTitle(this.name);
+        pack();
+        //setDefaultLookAndFeelDecorated(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setExtendedState(this.MAXIMIZED_BOTH);
         
-        
+        setVisible(true);
     }
     
     
