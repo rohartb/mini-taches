@@ -9,7 +9,7 @@ public class BarreOutil extends JPanel {
         JButton sauvegarder = new JButton("S");
         JButton copier = new JButton("Cop");
         JButton coller = new JButton("Col");
-        
+               
         this.add(nouveau);
         this.add(sauvegarder);
         this.add(copier);
