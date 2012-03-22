@@ -17,7 +17,6 @@ public class Fenetre extends JFrame implements Runnable{
         //ajout MenuBar
         MenuBar menubar = new MenuBar();
         
-        
         //////////////////////////////////////////////////
         //                                              //
         //          Addaptation de l'apparence          //
@@ -40,11 +39,10 @@ public class Fenetre extends JFrame implements Runnable{
         //            Création de la fenetre            //
         //                                              //
         //////////////////////////////////////////////////
-        
+
         Image icone = Toolkit.getDefaultToolkit().getImage("Image/check.png");
         this.setIconImage(icone);
-        this.setLayout(new BorderLayout());
-        this.add(menubar, BorderLayout.NORTH);
+        this.setJMenuBar(menubar);
         this.setTitle(this.name);
         this.pack();
         this.setDefaultLookAndFeelDecorated(true);
