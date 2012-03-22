@@ -16,6 +16,8 @@ public class Fenetre extends JFrame implements Runnable{
               
         //ajout MenuBar
         MenuBar menubar = new MenuBar();
+        //ajout BarreOutil
+        BarreOutil barreOutil = new BarreOutil();
         
         //////////////////////////////////////////////////
         //                                              //
@@ -43,6 +45,7 @@ public class Fenetre extends JFrame implements Runnable{
         Image icone = Toolkit.getDefaultToolkit().getImage("Image/check.png");
         this.setIconImage(icone);
         this.setJMenuBar(menubar);
+        this.add(barreOutil,BorderLayout.NORTH);
         this.setTitle(this.name);
         this.pack();
         this.setDefaultLookAndFeelDecorated(true);
