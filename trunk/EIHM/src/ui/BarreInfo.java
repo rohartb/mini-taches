@@ -7,6 +7,8 @@ public class BarreInfo extends JPanel {
     JLabel info;
     
     public BarreInfo() {
+        info = new JLabel("Test bisounours !!!!!! LALALALALAALA");
+        this.add(info);
         this.setBorder(BorderFactory.createLineBorder(Color.green));
         this.setVisible(true);
     }
