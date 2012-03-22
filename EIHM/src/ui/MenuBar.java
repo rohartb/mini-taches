@@ -85,6 +85,11 @@ public class MenuBar extends JMenuBar {
         //                  Menu Aide                   //
         //                                              //
         //////////////////////////////////////////////////
+        JMenuItem aPropos = new JMenuItem("A propos");
+        JMenuItem aideItem = new JMenuItem("Aide");
+        aide.add(aPropos);
+        aide.add(aideItem);
+        
         
         this.add(fichier);
         this.add(edition);
