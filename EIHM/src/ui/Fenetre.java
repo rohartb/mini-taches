@@ -20,6 +20,7 @@ public class Fenetre extends JFrame implements Runnable{
         AireDeDessin aire = new AireDeDessin();
         //ajout BarreInfo
         BarreInfo barreInfo = new BarreInfo();
+        BarreLaterale barreLaterale = new BarreLaterale();
         
         //////////////////////////////////////////////////
         //                                              //
@@ -48,8 +49,10 @@ public class Fenetre extends JFrame implements Runnable{
         setIconImage(icone);
 
         setJMenuBar(menubar);
+        
 
 
+        add(barreLaterale, BorderLayout.WEST);
         add(barreOutil,BorderLayout.NORTH);
         add(aire,BorderLayout.CENTER);
         add(barreInfo,BorderLayout.SOUTH);
