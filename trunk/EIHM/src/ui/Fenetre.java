@@ -22,6 +22,7 @@ public class Fenetre extends JFrame implements Runnable{
         BarreInfo barreInfo = new BarreInfo();
         BarreLaterale barreLaterale = new BarreLaterale();
         
+        
         //////////////////////////////////////////////////
         //                                              //
         //          Addaptation de l'apparence          //
