@@ -5,9 +5,10 @@ import java.awt.event.KeyEvent;
 import javax.swing.*;
 
 public class MenuBar extends JMenuBar {
+    Fenetre f;
 
-    public MenuBar() {
-       
+    public MenuBar(Fenetre f) {
+        this.f = f;
         JMenu fichier = new JMenu("Fichier");
         JMenu edition = new JMenu("Edition");
         JMenu apparence = new JMenu("Apparence");
@@ -21,22 +22,22 @@ public class MenuBar extends JMenuBar {
         //////////////////////////////////////////////////
         
         JMenuItem nouveau = new JMenuItem("Nouveau");
-        nouveau.addActionListener(new MenuListener(this));
+        nouveau.addActionListener(new MenuListener(f));
         nouveau.setActionCommand("nouveau");
         nouveau.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, Event.CTRL_MASK));
         
         JMenuItem ouvrir = new JMenuItem("Ouvrir");
-        ouvrir.addActionListener(new MenuListener(this));
+        ouvrir.addActionListener(new MenuListener(f));
         ouvrir.setActionCommand("ouvrir");
         ouvrir.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, Event.CTRL_MASK));
         
         JMenuItem sauvegarder = new JMenuItem("Sauvegarder");
-        sauvegarder.addActionListener(new MenuListener(this));
+        sauvegarder.addActionListener(new MenuListener(f));
         sauvegarder.setActionCommand("sauvegarder");
         sauvegarder.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, Event.CTRL_MASK));
         
         JMenuItem quitter = new JMenuItem("Quitter");
-        quitter.addActionListener(new MenuListener(this));
+        quitter.addActionListener(new MenuListener(f));
         quitter.setActionCommand("quitter");
         quitter.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F4, Event.ALT_MASK));
         
@@ -53,12 +54,12 @@ public class MenuBar extends JMenuBar {
         //////////////////////////////////////////////////
         
         JMenuItem annuler = new JMenuItem("Annuler");
-        annuler.addActionListener(new MenuListener(this));
+        annuler.addActionListener(new MenuListener(f));
         annuler.setActionCommand("annuler");
         annuler.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, Event.CTRL_MASK));
         
         JMenuItem retablir = new JMenuItem("Retablir");
-        retablir.addActionListener(new MenuListener(this));
+        retablir.addActionListener(new MenuListener(f));
         retablir.setActionCommand("retablir");
         retablir.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Y, Event.CTRL_MASK));
         

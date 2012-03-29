@@ -5,22 +5,21 @@ import java.io.File;
 import javax.swing.*;
 
 class MenuListener implements ActionListener {
-    
-    MenuBar menubar;
+    Fenetre f;
 
-    public MenuListener(MenuBar menubar) {
-        this.menubar = menubar;
+    public MenuListener(Fenetre f) {
+        this.f = f;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         
         if(e.getActionCommand().equals("nouveau")){
-
+            f.changementEtat("nouveau");
         }
         if(e.getActionCommand().equals("ouvrir")){
             JFileChooser fc = new JFileChooser();
-            fc.showOpenDialog(menubar);
+            fc.showOpenDialog(f.menubar);
             File selFile = fc.getSelectedFile();
         }
         if(e.getActionCommand().equals("sauvegarder")){
