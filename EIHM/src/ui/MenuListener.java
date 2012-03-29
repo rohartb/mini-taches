@@ -1,10 +1,15 @@
 package ui;
 
 import java.awt.event.*;
+import java.io.File;
+import javax.swing.*;
 
 class MenuListener implements ActionListener {
+    
+    MenuBar menubar;
 
-    public MenuListener() {
+    public MenuListener(MenuBar menubar) {
+        this.menubar = menubar;
     }
 
     @Override
@@ -14,7 +19,9 @@ class MenuListener implements ActionListener {
 
         }
         if(e.getActionCommand().equals("ouvrir")){
-            
+            JFileChooser fc = new JFileChooser();
+            fc.showOpenDialog(menubar);
+            File selFile = fc.getSelectedFile();
         }
         if(e.getActionCommand().equals("sauvegarder")){
             
