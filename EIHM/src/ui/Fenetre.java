@@ -16,11 +16,14 @@ public class Fenetre extends JFrame implements Runnable{
         //ajout MenuBar
         MenuBar menubar = new MenuBar();
         //ajout BarreOutil
-        BarreOutil barreOutil = new BarreOutil();
+        //BarreOutil barreOutil = new BarreOutil();
         AireDeDessin aire = new AireDeDessin();
         //ajout BarreInfo
         BarreInfo barreInfo = new BarreInfo();
         BarreLaterale barreLaterale = new BarreLaterale();
+        //ajout BarrePropriete
+        //BarrePropriete barrePropriete = new BarrePropriete();
+        Barre barre = new Barre();
         
         
         //////////////////////////////////////////////////
@@ -54,7 +57,8 @@ public class Fenetre extends JFrame implements Runnable{
 
 
         add(barreLaterale, BorderLayout.WEST);
-        add(barreOutil,BorderLayout.NORTH);
+        //add(barreOutil,BorderLayout.NORTH);
+        add(barre,BorderLayout.NORTH);
         add(aire,BorderLayout.CENTER);
         add(barreInfo,BorderLayout.SOUTH);
 
