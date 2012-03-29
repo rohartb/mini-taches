@@ -12,8 +12,11 @@ import java.awt.event.ActionListener;
  * @author bastien
  */
 class BLListener implements ActionListener {
+    
+    BarreLaterale bl;
 
-    public BLListener() {
+    public BLListener(BarreLaterale bl) {
+        this.bl = bl;
     }
 
     
