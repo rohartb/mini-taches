@@ -12,6 +12,12 @@ public class BarreInfo extends JPanel {
         this.setBorder(BorderFactory.createLineBorder(Color.green));
         this.setVisible(true);
     }
+
+    void changerStatus(String status) {
+        if(status.equals("nouveau")){
+            info.setText("Nouveau projet arbre blabla");
+        }
+    }
     
 }
 

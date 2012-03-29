@@ -4,23 +4,39 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Fenetre extends JFrame implements Runnable{
-    
+    BarreInfo barreInfo;
+    BarreLaterale barreLaterale;
+    Barre barre;
+    AireDeDessin aire;
     String name;
+    MenuBar menubar;
     
     public Fenetre(String name){
           this.name = name;
     }
-    
+
+    public void changementEtat(String etat){
+        if(etat.equals("nouveau")){
+            barreInfo.changerStatus("nouveau");
+        }
+        if(etat.equals("nouveau")){
+            
+        }
+        if(etat.equals("nouveau")){
+
+        }
+    }
+
     public void run(){
               
         //ajout MenuBar
-        MenuBar menubar = new MenuBar();
+        menubar = new MenuBar(this);
         //ajout BarreOutil
         //BarreOutil barreOutil = new BarreOutil();
-        AireDeDessin aire = new AireDeDessin();
+        aire = new AireDeDessin();
         //ajout BarreInfo
-        BarreInfo barreInfo = new BarreInfo();
-        BarreLaterale barreLaterale = new BarreLaterale();
+        barreInfo = new BarreInfo();
+        barreLaterale = new BarreLaterale();
         //ajout BarrePropriete
         //BarrePropriete barrePropriete = new BarrePropriete();
         Barre barre = new Barre();
@@ -53,8 +69,6 @@ public class Fenetre extends JFrame implements Runnable{
         setIconImage(icone);
 
         setJMenuBar(menubar);
-        
-
 
         add(barreLaterale, BorderLayout.WEST);
         //add(barreOutil,BorderLayout.NORTH);
