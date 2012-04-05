@@ -19,8 +19,9 @@ public class Fenetre extends JFrame implements Runnable{
         if(etat.equals("nouveau")){
             barreInfo.changerStatus("nouveau");
         }
-        if(etat.equals("nouveau")){
-            
+        if(etat.equals("sauvegarder")){
+            Sauvegarde s = new Sauvegarde(this);
+            s.sauver();
         }
         if(etat.equals("nouveau")){
 
