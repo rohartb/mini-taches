@@ -21,7 +21,7 @@ class BLListener implements ActionListener {
 
     
     public void actionPerformed(ActionEvent e) {
-        
+        bl.center.setVisible(!bl.but.isSelected());
     }
     
 }
