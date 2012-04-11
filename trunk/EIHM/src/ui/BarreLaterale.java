@@ -40,29 +40,29 @@ class BarreLaterale extends JPanel{
         
         
         JPanel paneSud = new JPanel();
-        paneSud.setPreferredSize(new Dimension(this.getWidth()-15,100));
+        paneSud.setPreferredSize(new Dimension(this.getWidth()-15,350));
         JPanel margeGauche = new JPanel();
-        margeGauche.setPreferredSize(new Dimension(40,this.getHeight()));
+        margeGauche.setPreferredSize(new Dimension(30,this.getHeight()));
         JPanel margeDroite = new JPanel();
-        margeDroite.setPreferredSize(new Dimension(40,this.getHeight()));
+        margeDroite.setPreferredSize(new Dimension(30,this.getHeight()));
         
         
         JPanel tableCentrale = new JPanel();
                 
-        GridLayout grid=new GridLayout(2,3,50,50);
+        GridLayout grid=new GridLayout(2,3,30,30);
         
         JButton but1 = new JButton(new ImageIcon("Image/TriangleDroit.png"));
-        but1.setPreferredSize(new Dimension(50,50));
+        but1.setPreferredSize(new Dimension(30,30));
         JButton but2 = new JButton(new ImageIcon("Image/TriangleDroit.png"));
-        but2.setPreferredSize(new Dimension(50,50));
+        but2.setPreferredSize(new Dimension(30,30));
         JButton but3 = new JButton(new ImageIcon("Image/TriangleDroit.png"));
-        but3.setPreferredSize(new Dimension(50,50));
+        but3.setPreferredSize(new Dimension(30,30));
         JButton but4 = new JButton(new ImageIcon("Image/TriangleDroit.png"));
-        but4.setPreferredSize(new Dimension(50,50));
+        but4.setPreferredSize(new Dimension(30,30));
         JButton but5 = new JButton(new ImageIcon("Image/TriangleDroit.png"));
-        but5.setPreferredSize(new Dimension(50,50));
+        but5.setPreferredSize(new Dimension(30,30));
         JButton but6 = new JButton(new ImageIcon("Image/TriangleDroit.png"));
-        but6.setPreferredSize(new Dimension(50,50));
+        but6.setPreferredSize(new Dimension(30,30));
         
         tableCentrale.setLayout(grid);
         tableCentrale.add(but1);

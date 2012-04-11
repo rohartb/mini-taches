@@ -35,6 +35,7 @@ public class Fenetre extends JFrame implements Runnable{
         //ajout BarreOutil
         //BarreOutil barreOutil = new BarreOutil();
         aire = new AireDeDessin();
+        aire.addMouseListener(new EcouteurSouris(this));
         //ajout BarreInfo
         barreInfo = new BarreInfo();
         barreLaterale = new BarreLaterale();
