@@ -19,6 +19,7 @@ class EcouteurSouris implements MouseListener {
     int taille = 50;
     int rayon = 75;
     List<ElementMenu> items = new ArrayList<ElementMenu>();
+    Boolean menuOn = false;
 
     public EcouteurSouris(Fenetre aThis) {
         f=aThis;
@@ -26,13 +27,15 @@ class EcouteurSouris implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent me) {
-        if(me.getButton() == 3){
+        if(me.getButton() == 3 && menuOn==false){
             build(me.getX(), me.getY());
             f.aire.repaint();
+            menuOn=true;
         }else if (me.getButton() == 1){
             f.aire.removeAll();
             f.aire.updateUI();
             f.aire.repaint();
+            menuOn=false;
         }
     }
 
