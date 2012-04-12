@@ -40,12 +40,13 @@ class BarreLaterale extends JPanel{
         
         
         JPanel paneSud = new JPanel();
-        paneSud.setPreferredSize(new Dimension(this.getWidth()-15,350));
+        paneSud.setPreferredSize(new Dimension(this.getWidth()-15,325));
         JPanel margeGauche = new JPanel();
         margeGauche.setPreferredSize(new Dimension(30,this.getHeight()));
         JPanel margeDroite = new JPanel();
         margeDroite.setPreferredSize(new Dimension(30,this.getHeight()));
-        
+        JPanel paneNord = new JPanel();
+        paneNord.setPreferredSize(new Dimension(this.getWidth()-15, 25));
         
         JPanel tableCentrale = new JPanel();
                 
@@ -75,7 +76,7 @@ class BarreLaterale extends JPanel{
         center.add(margeGauche, BorderLayout.WEST);
         center.add(margeDroite, BorderLayout.EAST);
         center.add(paneSud, BorderLayout.SOUTH);
-        
+        center.add(paneNord, BorderLayout.NORTH);
         
         this.setLayout(new BorderLayout());
         this.add(center, BorderLayout.CENTER);
