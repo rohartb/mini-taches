@@ -24,8 +24,11 @@ class BarreLaterale extends JPanel{
     JToggleButton but;
     JPanel center;
     JPanel right;
-    public BarreLaterale(){
+    Fenetre f;
+    
+    public BarreLaterale(Fenetre f){
         
+        this.f=f;
         but = new JToggleButton("!");
         but.setPreferredSize(new Dimension(15,this.getHeight()));
 
@@ -34,7 +37,7 @@ class BarreLaterale extends JPanel{
         right = new JPanel(new BorderLayout());
         right.add(but);
         
-        ActionListener ecouteur = new BLListener(this);
+        ActionListener ecouteur = new BLListener(this,f);
         
         but.addActionListener(ecouteur);
         

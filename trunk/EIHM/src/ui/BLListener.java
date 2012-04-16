@@ -14,14 +14,20 @@ import java.awt.event.ActionListener;
 class BLListener implements ActionListener {
     
     BarreLaterale bl;
+    Fenetre f;
 
-    public BLListener(BarreLaterale bl) {
+    public BLListener(BarreLaterale bl,Fenetre f) {
         this.bl = bl;
+        this.f=f;
     }
 
     
     public void actionPerformed(ActionEvent e) {
         bl.center.setVisible(!bl.but.isSelected());
+        f.aire.removeAll();
+        f.aire.updateUI();
+        f.aire.repaint();
+        f.menuOn=false;
     }
     
 }
