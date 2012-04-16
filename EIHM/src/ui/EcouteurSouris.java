@@ -16,6 +16,7 @@ import java.util.List;
  */
 class EcouteurSouris implements MouseListener {
 
+
     public EcouteurSouris() {}
 
     @Override
