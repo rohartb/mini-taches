@@ -2,6 +2,7 @@ package ui;
 
 import javax.swing.*;
 import java.awt.*;
+import javax.swing.border.LineBorder;
 
 public class Fenetre extends JFrame implements Runnable{
     BarreInfo barreInfo;
@@ -41,7 +42,8 @@ public class Fenetre extends JFrame implements Runnable{
         barreLaterale = new BarreLaterale();
         //ajout BarrePropriete
         //BarrePropriete barrePropriete = new BarrePropriete();
-        Barre barre = new Barre();
+        barre = new Barre();
+        
         
         
         //////////////////////////////////////////////////
@@ -71,13 +73,12 @@ public class Fenetre extends JFrame implements Runnable{
         setIconImage(icone);
 
         setJMenuBar(menubar);
-
+        
         add(barreLaterale, BorderLayout.WEST);
         //add(barreOutil,BorderLayout.NORTH);
         add(barre,BorderLayout.NORTH);
         add(aire,BorderLayout.CENTER);
         add(barreInfo,BorderLayout.SOUTH);
-
         aire.setVisible(true);
         
         setTitle(this.name);
