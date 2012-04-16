@@ -5,10 +5,10 @@ import javax.swing.*;
 public class BarreOutil extends JPanel {
     
     public BarreOutil(){
-        JButton nouveau = new JButton("N");
-        JButton sauvegarder = new JButton("S");
-        JButton copier = new JButton("Cop");
-        JButton coller = new JButton("Col");
+        JButton nouveau = new JButton(new ImageIcon("Image/nouveau.jpg"));
+        JButton sauvegarder = new JButton(new ImageIcon("Image/sauvegarder.jpg"));
+        JButton copier = new JButton(new ImageIcon("Image/copier.jpg"));
+        JButton coller = new JButton(new ImageIcon("Image/coller.jpg"));
                
         this.add(nouveau);
         this.add(sauvegarder);
