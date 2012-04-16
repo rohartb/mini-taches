@@ -12,20 +12,23 @@ import java.util.ArrayList;
  */
 public class Noeud {
     ArrayList<Noeud> fils = new ArrayList<Noeud>();
-    String type;
-    int priorite;
+    Noeud papa;
+    String nom;
+    int type;
+    int liaison;
+    int propriete;
     
-    public Noeud(String t, int p){
+    
+    public Noeud(Noeud dad, String n, int t, int l, int p){
+        papa=dad;
+        nom=n;
         type=t;
-        priorite=p;
+        liaison=l;
+        propriete=p;
     }
     
     public int getNbFils(){
-        int size=0;
-        for(Noeud n : fils){
-            size++;
-        }
-        return size;
+        return fils.size();
     }
     
     
