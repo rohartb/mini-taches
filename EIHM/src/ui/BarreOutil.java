@@ -9,6 +9,11 @@ public class BarreOutil extends JPanel {
         JButton sauvegarder = new JButton(new ImageIcon("Image/sauvegarder.jpg"));
         JButton copier = new JButton(new ImageIcon("Image/copier.jpg"));
         JButton coller = new JButton(new ImageIcon("Image/coller.jpg"));
+        
+        nouveau.setToolTipText("Nouveau");
+        sauvegarder.setToolTipText("Sauvegarder");
+        copier.setToolTipText("Copier");
+        coller.setToolTipText("Coller");
                
         this.add(nouveau);
         this.add(sauvegarder);
