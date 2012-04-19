@@ -56,8 +56,8 @@ public class Fenetre extends JFrame implements Runnable{
         n1.ajouterFils(new Noeud(null, "fils6",0,0,0));
         n1.ajouterFils(new Noeud(null, "fils6",0,0,0));
         n2.ajouterFils(new Noeud(null, "fils6",0,0,0));
-        //n2.ajouterFils(new Noeud(null, "fils6",0,0,0));
-        //n2.ajouterFils(new Noeud(null, "fils6",0,0,0));
+        n2.ajouterFils(new Noeud(null, "fils6",0,0,0));
+        n2.ajouterFils(new Noeud(null, "fils6",0,0,0));
         arbre.root.ajouterFils(n2);
         arbre.root.ajouterFils(new Noeud(null, "fils3",0,0,0));
         arbre.root.ajouterFils(new Noeud(null, "fils4",0,0,0));
