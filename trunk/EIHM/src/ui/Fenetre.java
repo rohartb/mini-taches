@@ -116,7 +116,7 @@ public class Fenetre extends JFrame implements Runnable{
         setExtendedState(this.MAXIMIZED_BOTH);
         
         setVisible(true);
-        //fd.setVisible(true);        
+        fd.setVisible(true);        
     }
     
     
