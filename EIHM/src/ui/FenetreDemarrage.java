@@ -17,6 +17,15 @@ public class FenetreDemarrage extends JDialog{
         label.setText("Bienvenue sur Mini Tache, le logiciel de gestion de tache");
         label.setBounds(10, 10, 350, 20);
         
+        JLabel label2 = new JLabel();
+        label2.setBorder(BorderFactory.createLineBorder(Color.black));
+        label2.setText("Vous pouvez :");
+        label2.setBounds(10, 30, 350, 20);
+        
+        JButton ouvrir = new JButton("Ouvrir");
+        ouvrir.setBounds(10,50, 80, 20);  
+        
+        
         JCheckBox checkBox = new JCheckBox();
         checkBox.setBorder(BorderFactory.createLineBorder(Color.red));
         checkBox.setText("Ne plus afficher cette fenêtre au démarrage");
@@ -24,7 +33,9 @@ public class FenetreDemarrage extends JDialog{
 
         
         this.add(label);
+        this.add(label2);
         this.add(checkBox);
+        this.add(ouvrir);
         //fenetre centré
         this.setLocationRelativeTo(null);
     }
