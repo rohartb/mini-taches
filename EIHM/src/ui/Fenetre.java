@@ -12,6 +12,7 @@ public class Fenetre extends JFrame implements Runnable{
     String name;
     MenuBar menubar;
     Boolean menuOn = false;
+    Arbre arbre;
     
     public Fenetre(String name){
           this.name = name;
@@ -36,8 +37,22 @@ public class Fenetre extends JFrame implements Runnable{
         menubar = new MenuBar(this);
         //ajout BarreOutil
         //BarreOutil barreOutil = new BarreOutil();
-        aire = new AireDeDessin();
-        aire.addMouseListener(new EcouteurNoeud(this));
+        Noeud n1 = new Noeud(null, "fils1",0,0,0);
+        Noeud n2= new Noeud(null, "fils1",0,0,0);
+        arbre = new Arbre(new Noeud(null, "Papa", 0,0,0));
+        arbre.root.ajouterFils(n1);
+        n1.ajouterFils(new Noeud(null, "fils6",0,0,0));
+        n1.ajouterFils(new Noeud(null, "fils6",0,0,0));
+        n1.ajouterFils(new Noeud(null, "fils6",0,0,0));
+        //n2.ajouterFils(new Noeud(null, "fils6",0,0,0));
+        //n2.ajouterFils(new Noeud(null, "fils6",0,0,0));
+        //n2.ajouterFils(new Noeud(null, "fils6",0,0,0));
+        arbre.root.ajouterFils(n2);
+        arbre.root.ajouterFils(new Noeud(null, "fils3",0,0,0));
+        arbre.root.ajouterFils(new Noeud(null, "fils4",0,0,0));
+        arbre.root.ajouterFils(new Noeud(null, "fils5",0,0,0));
+        aire = new AireDeDessin(this);
+        //aire.addMouseListener(new EcouteurNoeud(this));
         //ajout BarreInfo
         barreInfo = new BarreInfo();
         barreLaterale = new BarreLaterale(this);
