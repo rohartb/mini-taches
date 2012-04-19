@@ -18,15 +18,10 @@ class MenuListener implements ActionListener {
             f.changementEtat("nouveau");
         }
         if(e.getActionCommand().equals("ouvrir")){
-            JFileChooser fc = new JFileChooser();
-            fc.showOpenDialog(f.menubar);
-            File selFile = fc.getSelectedFile();
+            f.changementEtat("ouvrir");
         }
         if(e.getActionCommand().equals("sauvegarder")){
-            //f.changementEtat("sauvegarder");
-            JFileChooser fc = new JFileChooser();
-            fc.showSaveDialog(f.menubar);
-            File selFile = fc.getSelectedFile();
+            f.changementEtat("sauvegarder");
         }
         if(e.getActionCommand().equals("quitter")){
             System.exit(0);

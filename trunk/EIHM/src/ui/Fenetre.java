@@ -2,6 +2,7 @@ package ui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 import javax.swing.border.LineBorder;
 
 public class Fenetre extends JFrame implements Runnable{
@@ -23,11 +24,14 @@ public class Fenetre extends JFrame implements Runnable{
             barreInfo.changerStatus("nouveau");
         }
         if(etat.equals("sauvegarder")){
-            Sauvegarde s = new Sauvegarde(this);
-            s.sauver();
+            JFileChooser fc = new JFileChooser();
+            fc.showSaveDialog(menubar);
+            File selFile = fc.getSelectedFile();
         }
-        if(etat.equals("nouveau")){
-
+        if(etat.equals("ouvrir")){
+            JFileChooser fc = new JFileChooser();
+            fc.showOpenDialog(menubar);
+            File selFile = fc.getSelectedFile();
         }
     }
 
@@ -58,7 +62,7 @@ public class Fenetre extends JFrame implements Runnable{
         barreLaterale = new BarreLaterale(this);
         //ajout BarrePropriete
         //BarrePropriete barrePropriete = new BarrePropriete();
-        barre = new Barre();
+        barre = new Barre(this);
         
         
         
