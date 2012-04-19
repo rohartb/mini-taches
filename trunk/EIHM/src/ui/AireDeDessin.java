@@ -17,7 +17,6 @@ public class AireDeDessin extends JComponent {
     int y = 50;
     Noeud noeud;
     int nb;
-    int i=1;
     Fenetre f;
 
     public AireDeDessin(Fenetre f) {
@@ -38,33 +37,30 @@ public class AireDeDessin extends JComponent {
         draw.fillRect(0, 0,(int)width,(int)height);
         draw.setPaint(Color.black);
         
-        dessinerArbre(draw, noeud);
+        dessinerArbre(draw, noeud, 0, this.getWidth());
+        y=50;
         
         
     }
-
-    private void dessinerArbre(Graphics2D draw, Noeud n) {
+    
+    private void dessinerArbre(Graphics2D draw, Noeud n, int wTreeD, int wTreeF) {
         Iterator it;
+        int width = wTreeF-wTreeD;
+        x=wTreeD + width/2;
         draw.drawRect(x-20, y, 40, 40);
         it = n.fils.iterator();
         
-        if(n.getNbFils()!=0){
+        
+        nb=width/(n.getNbFils()+1);
+        
+        int a=0;
+        while(it.hasNext()){
             y+=70;
-            if (n.getNbFils()>1)
-                nb=nb/(n.getNbFils()+1);
+            x=nb*(a+1);
+            int taille=width/n.getNbFils();
+            dessinerArbre(draw,(Noeud)it.next(),wTreeD+taille*a,wTreeD+taille*(a+1));
+            a++;
         }
-        while (it.hasNext()){
-            
-            x=nb*i;
-            draw.drawRect(x-20, y, 40, 40);
-            i++;
-            it.next();
-        }
-        i=1;
-        x=nb;
-        it = n.fils.iterator();
-        while (it.hasNext()){
-            dessinerArbre(draw, (Noeud)it.next());
-        }
+        y-=70;
     }
 }
