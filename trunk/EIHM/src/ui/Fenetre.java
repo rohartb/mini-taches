@@ -9,6 +9,7 @@ public class Fenetre extends JFrame implements Runnable{
     BarreInfo barreInfo;
     BarreLaterale barreLaterale;
     Barre barre;
+    Aide aide;
     AireDeDessin aire;
     String name;
     MenuBar menubar;
@@ -33,6 +34,9 @@ public class Fenetre extends JFrame implements Runnable{
             fc.showOpenDialog(menubar);
             File selFile = fc.getSelectedFile();
         }
+        if(etat.equals("aide")){
+            aide.setVisible(true);
+        }
     }
 
     public void run(){
@@ -56,6 +60,7 @@ public class Fenetre extends JFrame implements Runnable{
         arbre.root.ajouterFils(new Noeud(null, "fils4",0,0,0));
         arbre.root.ajouterFils(new Noeud(null, "fils5",0,0,0));
         aire = new AireDeDessin(this);
+        aide = new Aide(this);
         //aire.addMouseListener(new EcouteurNoeud(this));
         //ajout BarreInfo
         barreInfo = new BarreInfo();

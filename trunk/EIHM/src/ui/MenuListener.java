@@ -29,8 +29,12 @@ class MenuListener implements ActionListener {
         if(e.getActionCommand().equals("annuler")){
             
         }
-        if(e.getActionCommand().equals("restorer")){
+        if(e.getActionCommand().equals("restaurer")){
             
+        }
+
+        if(e.getActionCommand().equals("aide")){
+            f.changementEtat("aide");
         }
         
     }
