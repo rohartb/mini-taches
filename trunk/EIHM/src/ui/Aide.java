@@ -33,7 +33,6 @@ public class Aide extends JDialog{
 
         this.setResizable(false);
         //this.addWindowListener(eas);
-	this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 	lesAides = new JLabel();
 
 
