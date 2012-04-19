@@ -15,6 +15,7 @@ public class Fenetre extends JFrame implements Runnable{
     MenuBar menubar;
     Boolean menuOn = false;
     Arbre arbre;
+    FenetreDemarrage fd;
     
     public Fenetre(String name){
           this.name = name;
@@ -39,7 +40,9 @@ public class Fenetre extends JFrame implements Runnable{
         }
     }
 
-    public void run(){
+    public void run(){        
+        
+        fd = new FenetreDemarrage();
               
         //ajout MenuBar
         menubar = new MenuBar(this);
@@ -113,6 +116,7 @@ public class Fenetre extends JFrame implements Runnable{
         setExtendedState(this.MAXIMIZED_BOTH);
         
         setVisible(true);
+        //fd.setVisible(true);        
     }
     
     

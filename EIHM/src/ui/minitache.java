@@ -9,7 +9,6 @@ public class minitache {
     }
 
     public minitache() {
-
        Fenetre fenetre = new Fenetre("Mini tache");
        SwingUtilities.invokeLater(fenetre);
     }

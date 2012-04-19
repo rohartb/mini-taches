@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-class EcouteurDAide implements ActionListener,WindowListener {
+class EcouteurDAide implements ActionListener {
 
     private Aide a;
     private int nb;
@@ -116,34 +116,5 @@ class EcouteurDAide implements ActionListener,WindowListener {
 
     }
 
-    public void windowClosing(WindowEvent e) {
-        a.setVisible(false);
-    }
-
-    public void windowClosed(WindowEvent e) {
-    }
-
-    public void windowOpened(WindowEvent e) {
-    }
-
-    public void windowIconified(WindowEvent e) {
-    }
-
-    public void windowDeiconified(WindowEvent e) {
-    }
-
-    public void windowActivated(WindowEvent e) {
-    }
-
-    public void windowDeactivated(WindowEvent e) {
-    }
-
-    public void windowGainedFocus(WindowEvent e) {
-    }
-
-    public void windowLostFocus(WindowEvent e) {
-    }
-
-    public void windowStateChanged(WindowEvent e) {
-    }
+   
 }
