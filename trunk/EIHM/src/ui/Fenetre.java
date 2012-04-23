@@ -2,7 +2,7 @@ package ui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
+import java.io.*;
 import javax.swing.border.LineBorder;
 
 public class Fenetre extends JFrame implements Runnable{
@@ -116,7 +116,33 @@ public class Fenetre extends JFrame implements Runnable{
         setExtendedState(this.MAXIMIZED_BOTH);
         
         setVisible(true);
-        fd.setVisible(true);        
+        
+        // On vérifie si il faut afficher la fenetre de démarrage
+	String fichier ="config.txt";
+        File config = new File(fichier);                        
+        if(config.exists()){
+            //lecture du fichier texte	
+            try{
+                InputStream ips=new FileInputStream(fichier); 
+                InputStreamReader ipsr=new InputStreamReader(ips);
+                BufferedReader br=new BufferedReader(ipsr);
+                String valeurCheckBox;
+                while ((valeurCheckBox=br.readLine())!=null){
+                    if (valeurCheckBox.equals("false")){
+                        fd.setVisible(true);
+                    }
+                }
+                br.close(); 
+            }catch (Exception e){
+                System.out.println(e.toString());
+            }  
+        }else{
+            //Dans le cas du premier lancement de l'application, le fichier config n'existe pas
+            //donc on affiche obligatoirement la fenetre
+            //Et dans le cas aussi que même si au premier lancement on ne clique pas sur la checkBox
+            //on doit afficher la fenetre au prochain démarrage de l'application
+            fd.setVisible(true);
+        }
     }
     
     

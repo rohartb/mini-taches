@@ -1,6 +1,6 @@
 package ui;
-import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class FenetreDemarrage extends JDialog{
@@ -30,6 +30,9 @@ public class FenetreDemarrage extends JDialog{
         checkBox.setBorder(BorderFactory.createLineBorder(Color.red));
         checkBox.setText("Ne plus afficher cette fenêtre au démarrage");
         checkBox.setBounds(10, 100, 350, 20);
+        
+        ActionListener ecouteurChekBox = new EcouteurCheckBox();
+        checkBox.addActionListener(ecouteurChekBox);
 
         
         this.add(label);
