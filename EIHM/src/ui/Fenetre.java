@@ -119,7 +119,7 @@ public class Fenetre extends JFrame implements Runnable {
         menubar = new MenuBar(this);
         //ajout BarreOutil
         //BarreOutil barreOutil = new BarreOutil();
-        arbre = new Arbre(new Noeud(null, "Papa", 0, 0, 0));
+        arbre = new Arbre(new Noeud(null, "Root", 0, 0, 0));
         EcouteurNoeud souris = new EcouteurNoeud(this, arbre.root);
         arbre.root.panel.addMouseListener(souris);
         arbre.root.panel.addMouseMotionListener(souris);
