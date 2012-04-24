@@ -29,6 +29,10 @@ class EcouteurFenetreDemarrage implements ActionListener {
             this.fd.setVisible(false);
             f.changementEtat("astuce");
         }
+        
+        if(e.getActionCommand().equals("annuler")){
+            this.fd.setVisible(false);
+        }
     }
     
 }
