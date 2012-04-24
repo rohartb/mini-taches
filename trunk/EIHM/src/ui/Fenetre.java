@@ -38,11 +38,13 @@ public class Fenetre extends JFrame implements Runnable{
         if(etat.equals("aide")){
             aide.setVisible(true);
         }
+        /*if(etat.equals("demo")){
+        }*/
     }
 
     public void run(){        
         
-        fd = new FenetreDemarrage();
+        fd = new FenetreDemarrage(this);
               
         //ajout MenuBar
         menubar = new MenuBar(this);
