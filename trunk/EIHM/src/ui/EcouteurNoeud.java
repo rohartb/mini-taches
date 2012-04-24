@@ -7,26 +7,28 @@ import java.util.ArrayList;
 
 public class EcouteurNoeud implements MouseListener {
     Fenetre f;
-    int taille = 50;
-    int rayon = 75;
+    int taille = 40;
+    int rayon = 50;
     java.util.List<ElementMenu> items = new ArrayList<ElementMenu>();
-    Boolean menuOn = false;
+    Noeud noeud;
     
-    public EcouteurNoeud(Fenetre aThis) {
+    public EcouteurNoeud(Fenetre aThis, Noeud n) {
         f=aThis;
+        noeud = n;
     }
     
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(e.getButton() == 3 && menuOn==false){
-            build(e.getX(), e.getY());
+        f.barreLaterale.bl.setPapa(noeud);
+        if(e.getButton() == 3 && f.aire.menuOn==false){
+            build(noeud.x+20, noeud.y+20);
             f.aire.repaint();
-            menuOn=true;
+            f.aire.menuOn=true;
         }else if (e.getButton() == 1){
             f.aire.removeAll();
             f.aire.updateUI();
             f.aire.repaint();
-            menuOn=false;
+            f.aire.menuOn=false;
         }
     }
 

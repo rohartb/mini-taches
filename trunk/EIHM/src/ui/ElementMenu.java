@@ -24,7 +24,7 @@ import javax.swing.JPanel;
 /**
 * Classe qui definit une bulle
 *
-* @author julien
+* @author bastien
 *
 */
 public class ElementMenu extends JPanel {
