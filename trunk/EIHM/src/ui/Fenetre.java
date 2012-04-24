@@ -12,6 +12,7 @@ public class Fenetre extends JFrame implements Runnable {
     BarreLaterale barreLaterale;
     Barre barre;
     Aide aide;
+    Propos propos;
     AireDeDessin aire;
     String name;
     MenuBar menubar;
@@ -67,6 +68,29 @@ public class Fenetre extends JFrame implements Runnable {
         if (etat.equals("aide")) {
             aide.setVisible(true);
         }
+
+        if(etat.equals("propos")){
+            propos = new Propos(this);
+        }
+
+        if(etat.equals("quitter")){
+           // if(arbre.root.getNbFils()!=0){
+                 String[] options = {"Sauvegarder", "Continuer sans sauvegarder", "Annuler"};
+                int choix = JOptionPane.showOptionDialog(this, "\nVoulez-vous quitter sans sauvegarder ?", "Quitter", 0, JOptionPane.QUESTION_MESSAGE, new ImageIcon("./images/question.png"), options, options[0]);
+
+                if (choix == JOptionPane.YES_OPTION) {
+                    changementEtat("sauvegarder");
+                    arbre = new Arbre(new Noeud(null, "papa", 0, 0, 0));
+                    aire.repaint();
+                    barreInfo.info.setText("Nouveau");
+                } else if (choix == JOptionPane.NO_OPTION) {
+                    arbre = new Arbre(new Noeud(null, "papa", 0, 0, 0));
+                    aire.repaint();
+                    barreInfo.info.setText("Nouveau");
+                }
+            //}
+        }
+
         if (etat.equals("preference")) {
             p = new Preference();
         }
