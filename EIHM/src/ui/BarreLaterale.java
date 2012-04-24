@@ -62,8 +62,12 @@ class BarreLaterale extends JPanel{
         but1.setPreferredSize(new Dimension(30,30));
         but1.setActionCommand("type1");
         but1.addActionListener(ecouteur);
+        
         JButton but2 = new JButton(new ImageIcon("Image/TriangleDroit.png"));
         but2.setPreferredSize(new Dimension(30,30));
+        but2.setActionCommand("supp");
+        but2.addActionListener(ecouteur);
+        
         JButton but3 = new JButton(new ImageIcon("Image/TriangleDroit.png"));
         but3.setPreferredSize(new Dimension(30,30));
         JButton but4 = new JButton(new ImageIcon("Image/TriangleDroit.png"));

@@ -37,11 +37,15 @@ class BLListener implements ActionListener {
                 Noeud fils = new Noeud(papa,"sans_nom",1,0,0);
                 // 1: type, 0: pas de liaison, 0: pas de propriete
                 papa.ajouterFils(fils);
+                f.aire.removeAll();
+                f.aire.updateUI();
                 f.aire.repaint();
             }else if(cmd.equals("type2")){
                 Noeud fils = new Noeud(papa,"sans_nom",2,0,0);
                 // 2: type, 0: pas de liaison, 0: pas de propriete
                 papa.ajouterFils(fils);
+                f.aire.removeAll();
+                f.aire.updateUI();
                 f.aire.repaint();
             }else if(cmd.equals("type3")){
                 Noeud fils = new Noeud(papa,"sans_nom",3,0,0);
@@ -52,6 +56,13 @@ class BLListener implements ActionListener {
                 Noeud fils = new Noeud(papa,"sans_nom",4,0,0);
                 // 4: type, 0: pas de liaison, 0: pas de propriete
                 papa.ajouterFils(fils);
+                f.aire.removeAll();
+                f.aire.updateUI();
+                f.aire.repaint();
+            }else if(cmd.equals("supp")){
+                papa.supprimerNoeud(papa);
+                f.aire.removeAll();
+                f.aire.updateUI();
                 f.aire.repaint();
             }
         }
