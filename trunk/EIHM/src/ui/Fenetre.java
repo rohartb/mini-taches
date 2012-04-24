@@ -87,8 +87,11 @@ public class Fenetre extends JFrame implements Runnable {
         }
 
         if (etat.equals("supprimer")) {
-            arbre.supprimerArbre(barreLaterale.bl.papa);
-            aire.repaint();
+            if(barreLaterale.bl.papa!=arbre.root){
+                aire.removePanel(barreLaterale.bl.papa);
+                arbre.supprimerArbre(barreLaterale.bl.papa);
+                aire.repaint();
+            }
         }
         if (etat.equals("quitter")) {
             // if(arbre.root.getNbFils()!=0){
@@ -127,6 +130,7 @@ public class Fenetre extends JFrame implements Runnable {
         EcouteurNoeud souris = new EcouteurNoeud(this, arbre.root);
         arbre.root.panel.addMouseListener(souris);
         arbre.root.panel.addMouseMotionListener(souris);
+        arbre.root.panel.add(new JLabel(new ImageIcon("Image/user.png")));
         aire = new AireDeDessin(this);
         aire.addMouseListener(new EcouteurSouris(this));
         

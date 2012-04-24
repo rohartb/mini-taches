@@ -43,7 +43,6 @@ public class EcouteurNoeud implements MouseListener,MouseMotionListener {
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        //f.aire.drag = false;
     }
 
     @Override

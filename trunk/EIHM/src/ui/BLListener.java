@@ -6,6 +6,8 @@ package ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -27,10 +29,7 @@ class BLListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String cmd = e.getActionCommand();
         if(cmd.equals("afficher")){             
-            bl.center.setVisible(!bl.but.isSelected());
-            f.aire.repaint();
-            f.aire.menuOn=false;
-            
+            bl.center.setVisible(!bl.but.isSelected());  
         }else if(papa!=null){ //il y a un noeud selectionné
             
             if(cmd.equals("user")){
@@ -40,8 +39,7 @@ class BLListener implements ActionListener {
                 EcouteurNoeud souris = new EcouteurNoeud(f, fils);
                 fils.panel.addMouseListener(souris);
                 fils.panel.addMouseMotionListener(souris);
-                f.aire.repaint();
-                
+                fils.panel.add(new JLabel(new ImageIcon("Image/user.png")));
             }else if(cmd.equals("abstract")){
                 Noeud fils = new Noeud(papa,"sans_nom",2,0,0);
                 // 2: type, 0: pas de liaison, 0: pas de propriete
@@ -49,7 +47,7 @@ class BLListener implements ActionListener {
                 EcouteurNoeud souris = new EcouteurNoeud(f, fils);
                 fils.panel.addMouseListener(souris);
                 fils.panel.addMouseMotionListener(souris);
-                f.aire.repaint();
+                fils.panel.add(new JLabel(new ImageIcon("Image/abstract.png")));
             }else if(cmd.equals("application")){
                 Noeud fils = new Noeud(papa,"sans_nom",3,0,0);
                 // 3: type, 0: pas de liaison, 0: pas de propriete
@@ -57,8 +55,7 @@ class BLListener implements ActionListener {
                 EcouteurNoeud souris = new EcouteurNoeud(f, fils);
                 fils.panel.addMouseListener(souris);
                 fils.panel.addMouseMotionListener(souris);
-                
-                f.aire.repaint();
+                fils.panel.add(new JLabel(new ImageIcon("Image/application.png")));
             }else if(cmd.equals("interaction")){
                 Noeud fils = new Noeud(papa,"sans_nom",4,0,0);
                 // 4: type, 0: pas de liaison, 0: pas de propriete
@@ -66,11 +63,12 @@ class BLListener implements ActionListener {
                 EcouteurNoeud souris = new EcouteurNoeud(f, fils);
                 fils.panel.addMouseListener(souris);
                 fils.panel.addMouseMotionListener(souris);
-                f.aire.repaint();
+                fils.panel.add(new JLabel(new ImageIcon("Image/interaction.png")));
             }else if(cmd.equals("supp")){
                 
             }
         }
+        f.aire.repaint();
     }
     
     public void setPapa(Noeud n){
