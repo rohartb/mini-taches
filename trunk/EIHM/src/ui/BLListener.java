@@ -45,12 +45,12 @@ class BLListener implements ActionListener {
                 f.aire.repaint();
             }else if(cmd.equals("type3")){
                 Noeud fils = new Noeud(papa,"sans_nom",3,0,0);
-                // 2: type, 0: pas de liaison, 0: pas de propriete
+                // 3: type, 0: pas de liaison, 0: pas de propriete
                 papa.ajouterFils(fils);
                 f.aire.repaint();
             }else if(cmd.equals("type4")){
                 Noeud fils = new Noeud(papa,"sans_nom",4,0,0);
-                // 2: type, 0: pas de liaison, 0: pas de propriete
+                // 4: type, 0: pas de liaison, 0: pas de propriete
                 papa.ajouterFils(fils);
                 f.aire.repaint();
             }
