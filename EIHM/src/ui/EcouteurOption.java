@@ -59,6 +59,10 @@ public class EcouteurOption implements ActionListener {
         else if(ae.getActionCommand().equals("ob")){
             f.changementEtat("ouvrir");
         }
+        
+         else if(ae.getActionCommand().equals("suppb")){
+            f.changementEtat("supprimer");
+        }
     }
     
     

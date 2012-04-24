@@ -65,24 +65,28 @@ class BarreLaterale extends JPanel{
         but1.setActionCommand("user");
         but1.addActionListener(ecouteur);  
         but1.setBackground(Color.white);
+        but1.setToolTipText("Utilisateur");
         
         JButton but2 = new JButton(new ImageIcon("Image/abstract.png"));
         but2.setPreferredSize(new Dimension(50,50));
         but2.setActionCommand("abstract");
         but2.addActionListener(ecouteur);
         but2.setBackground(Color.white);
+        but2.setToolTipText("Abstraction");
         
         JButton but3 = new JButton(new ImageIcon("Image/application.png"));
         but3.setPreferredSize(new Dimension(50,50));
         but3.setActionCommand("application");
         but3.addActionListener(ecouteur);
         but3.setBackground(Color.white);
+        but3.setToolTipText("Application");
         
         JButton but4 = new JButton(new ImageIcon("Image/interaction.png"));
         but4.setPreferredSize(new Dimension(50,50));
         but4.setActionCommand("interaction");
         but4.addActionListener(ecouteur);
         but4.setBackground(Color.white); 
+        but4.setToolTipText("Interaction");
 
         paneSud.add(but1);
         paneSud.add(but2);
@@ -181,7 +185,7 @@ class BarreLaterale extends JPanel{
         //Panel du bas
         
         JPanel paneauSud = new JPanel();
-        paneauSud.setPreferredSize(new Dimension(this.getWidth(),580));
+        paneauSud.setPreferredSize(new Dimension(this.getWidth(),620));
         paneauSud.setBackground(new Color(102 ,153 ,204));
         
         

@@ -13,8 +13,8 @@ public class Barre extends JPanel {
          BarrePropriete barrePropriete = new BarrePropriete();
          BarreZoom barreZ = new BarreZoom(f);
          
-         this.add(barreOutil, BorderLayout.NORTH);
-         this.add(barrePropriete, BorderLayout.WEST);
+         this.add(barreOutil, BorderLayout.WEST);
+         this.add(barrePropriete, BorderLayout.CENTER);
          this.add(barreZ, BorderLayout.EAST);
 
          this.setVisible(true);

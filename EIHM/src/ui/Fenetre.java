@@ -86,6 +86,10 @@ public class Fenetre extends JFrame implements Runnable {
             propos = new Propos(this);
         }
 
+        if (etat.equals("supprimer")) {
+            arbre.supprimerArbre(barreLaterale.bl.papa);
+            aire.repaint();
+        }
         if (etat.equals("quitter")) {
             // if(arbre.root.getNbFils()!=0){
             String[] options = {"Sauvegarder", "Continuer sans sauvegarder", "Annuler"};
