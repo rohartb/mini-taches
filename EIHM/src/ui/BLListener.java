@@ -30,8 +30,10 @@ class BLListener implements ActionListener {
             bl.center.setVisible(!bl.but.isSelected());
             f.aire.repaint();
             f.aire.menuOn=false;
+            
         }else if(papa!=null){ //il y a un noeud selectionné
-            if(cmd.equals("type1")){
+            
+            if(cmd.equals("user")){
                 Noeud fils = new Noeud(papa,"sans_nom",1,0,0);
                 // 1: type, 0: pas de liaison, 0: pas de propriete
                 papa.ajouterFils(fils);
@@ -39,7 +41,8 @@ class BLListener implements ActionListener {
                 fils.panel.addMouseListener(souris);
                 fils.panel.addMouseMotionListener(souris);
                 f.aire.repaint();
-            }else if(cmd.equals("type2")){
+                
+            }else if(cmd.equals("abstract")){
                 Noeud fils = new Noeud(papa,"sans_nom",2,0,0);
                 // 2: type, 0: pas de liaison, 0: pas de propriete
                 papa.ajouterFils(fils);
@@ -47,7 +50,7 @@ class BLListener implements ActionListener {
                 fils.panel.addMouseListener(souris);
                 fils.panel.addMouseMotionListener(souris);
                 f.aire.repaint();
-            }else if(cmd.equals("type3")){
+            }else if(cmd.equals("application")){
                 Noeud fils = new Noeud(papa,"sans_nom",3,0,0);
                 // 3: type, 0: pas de liaison, 0: pas de propriete
                 papa.ajouterFils(fils);
@@ -56,7 +59,7 @@ class BLListener implements ActionListener {
                 fils.panel.addMouseMotionListener(souris);
                 
                 f.aire.repaint();
-            }else if(cmd.equals("type4")){
+            }else if(cmd.equals("interaction")){
                 Noeud fils = new Noeud(papa,"sans_nom",4,0,0);
                 // 4: type, 0: pas de liaison, 0: pas de propriete
                 papa.ajouterFils(fils);
