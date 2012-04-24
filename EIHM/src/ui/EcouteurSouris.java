@@ -7,6 +7,7 @@ package ui;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,7 @@ import java.util.List;
  *
  * @author bastien
  */
-class EcouteurSouris implements MouseListener {
+class EcouteurSouris implements MouseListener{
     Fenetre f;
 
     public EcouteurSouris(Fenetre f) {
@@ -23,9 +24,9 @@ class EcouteurSouris implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent me) {
+        
         if (me.getButton() == 1){
-            f.aire.removeAll();
-            f.aire.updateUI();
+            f.aire.destroyBulles();
             f.aire.repaint();
             f.aire.menuOn=false;
         }
@@ -46,7 +47,5 @@ class EcouteurSouris implements MouseListener {
     @Override
     public void mouseExited(MouseEvent me) {
     }
-    
-
     
 }

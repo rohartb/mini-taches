@@ -3,46 +3,67 @@ package ui;
 import java.awt.event.MouseListener;
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
+import javax.swing.JPanel;
 
-public class EcouteurNoeud implements MouseListener {
+public class EcouteurNoeud implements MouseListener,MouseMotionListener {
     Fenetre f;
     int taille = 40;
     int rayon = 50;
     java.util.List<ElementMenu> items = new ArrayList<ElementMenu>();
     Noeud noeud;
+    JPanel pane;
     
     public EcouteurNoeud(Fenetre aThis, Noeud n) {
         f=aThis;
         noeud = n;
+        pane = noeud.panel;
     }
     
     @Override
     public void mouseClicked(MouseEvent e) {
+            f.aire.destroyBulles();
+            f.aire.repaint();
+            f.aire.menuOn=false;
         f.barreLaterale.bl.setPapa(noeud);
         if(e.getButton() == 3 && f.aire.menuOn==false){
             build(noeud.x+20, noeud.y+20);
             f.aire.repaint();
             f.aire.menuOn=true;
         }else if (e.getButton() == 1){
-            f.aire.removeAll();
-            f.aire.updateUI();
+            f.aire.destroyBulles();
             f.aire.repaint();
             f.aire.menuOn=false;
         }
     }
 
     @Override
-    public void mousePressed(MouseEvent e) {}
+    public void mousePressed(MouseEvent e) {
+        //f.aire.drag=true;
+    }
 
     @Override
-    public void mouseReleased(MouseEvent e) {}
+    public void mouseReleased(MouseEvent e) {
+        //f.aire.drag = false;
+    }
 
     @Override
     public void mouseEntered(MouseEvent e) {}
 
     @Override
     public void mouseExited(MouseEvent e) {}
+    
+
+    @Override
+    public void mouseDragged(MouseEvent me) {
+            f.aire.deplacer(me.getX(), me.getY(), noeud, pane);
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent me) {
+        
+    }
     
     private void build(int xCentre, int yCentre){
         if(items.size() == 0){
@@ -59,6 +80,7 @@ public class EcouteurNoeud implements MouseListener {
             for(int i=0; i<items.size(); i++){
                 ElementMenu bulle = new ElementMenu(items.get(i).getNom(), items.get(i).getCouleurNormal(), items.get(i).getCouleurActif(), taille);
                 bulle.setBounds((int)(xCentre-taille/2+rayon*Math.cos(i*angle)), (int)(yCentre-taille/2+rayon*Math.sin(i*angle)), taille+10, taille+10);
+                f.aire.dest.add(bulle);
                 f.aire.add(bulle);
             }
         }

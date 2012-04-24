@@ -32,6 +32,7 @@ public class ElementMenu extends JPanel {
 * largeur de la bulle
 */
 private int largeur; 
+public String menu="rien";
 
 /**
 * couleur de la bulle
@@ -63,7 +64,11 @@ public ElementMenu(String texte, Color couleurNormal, Color couleurActif, int ta
 }
 private void ajouterListener(){
 addMouseListener(new MouseListener() {
-public void mouseClicked(MouseEvent e) {}
+public void mouseClicked(MouseEvent e) {
+    if(menu.equals("Supprimer")){
+        
+    }
+}
 public void mouseReleased(MouseEvent e) {}
 public void mousePressed(MouseEvent e) {}
 public void mouseExited(MouseEvent e) {
