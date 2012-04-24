@@ -4,10 +4,10 @@ import java.awt.event.*;
 import java.io.File;
 import javax.swing.*;
 
-class MenuListener implements ActionListener {
+class EcouteurDeMenu implements ActionListener {
     Fenetre f;
 
-    public MenuListener(Fenetre f) {
+    public EcouteurDeMenu(Fenetre f) {
         this.f = f;
     }
 
