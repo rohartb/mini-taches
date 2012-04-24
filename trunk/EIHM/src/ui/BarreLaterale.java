@@ -25,6 +25,7 @@ class BarreLaterale extends JPanel{
     JPanel center;
     JPanel right;
     Fenetre f;
+    BLListener bl;
     
     public BarreLaterale(Fenetre f){
         
@@ -37,8 +38,10 @@ class BarreLaterale extends JPanel{
         right = new JPanel(new BorderLayout());
         right.add(but);
         
-        ActionListener ecouteur = new BLListener(this,f);
+        bl = new BLListener(this,f);
+        ActionListener ecouteur = bl;
         
+        but.setActionCommand("afficher");
         but.addActionListener(ecouteur);
         
         
