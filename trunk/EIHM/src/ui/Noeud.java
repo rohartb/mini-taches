@@ -5,6 +5,7 @@
 package ui;
 
 import java.util.ArrayList;
+import javax.swing.JPanel;
 
 /**
  *
@@ -19,6 +20,9 @@ public class Noeud {
     int propriete;
     int x;
     int y;
+    Boolean bouge=false;
+    JPanel panel;
+    
     
     public Noeud(Noeud dad, String n, int t, int l, int p){
         papa=dad;
@@ -26,6 +30,9 @@ public class Noeud {
         type=t;
         liaison=l;
         propriete=p;
+        
+        panel = new JPanel();
+        
     }
     
     public int getNbFils(){

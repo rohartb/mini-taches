@@ -120,8 +120,12 @@ public class Fenetre extends JFrame implements Runnable {
         //ajout BarreOutil
         //BarreOutil barreOutil = new BarreOutil();
         arbre = new Arbre(new Noeud(null, "Papa", 0, 0, 0));
+        EcouteurNoeud souris = new EcouteurNoeud(this, arbre.root);
+        arbre.root.panel.addMouseListener(souris);
+        arbre.root.panel.addMouseMotionListener(souris);
         aire = new AireDeDessin(this);
         aire.addMouseListener(new EcouteurSouris(this));
+        
         aide = new Aide(this);
         //aire.addMouseListener(new EcouteurNoeud(this));
         //ajout BarreInfo

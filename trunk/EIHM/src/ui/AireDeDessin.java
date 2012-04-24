@@ -1,10 +1,8 @@
 
 package ui;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.*;
+import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
@@ -16,11 +14,13 @@ public class AireDeDessin extends JComponent {
     int width;
     int x;
     int y = 50;
+    int xAncien=0, yAncien=0;
     Noeud noeud;
     int nb;
     Fenetre f;
+    java.util.List<ElementMenu> dest = new ArrayList<ElementMenu>();
     Boolean menuOn = false;
-
+    
     public AireDeDessin(Fenetre f) {
         this.f = f;
         noeud = f.arbre.root;
@@ -47,19 +47,17 @@ public class AireDeDessin extends JComponent {
     
     private void dessinerArbre(Graphics2D draw, Noeud n, int wTreeD, int wTreeF) {
         Iterator it;
-        JPanel noeudCourant = new JPanel();
-        noeudCourant.addMouseListener(new EcouteurNoeud(f, n));
         
         int width = wTreeF-wTreeD;
         x=wTreeD + width/2;
         int yLien;
         int xLien=x;
-        noeudCourant.setBounds(x-20, y, 40, 40);
-        draw.drawRect(x-20, y, 40, 40);
+        n.panel.setBounds(x-20, y, 40, 40);
         draw.drawString(n.nom, x-20, y+50);
         n.setX(x-20);
         n.setY(y);
-        this.add(noeudCourant);    
+            
+        this.add(n.panel);
         it = n.fils.iterator();
         
         
@@ -78,5 +76,22 @@ public class AireDeDessin extends JComponent {
             a++;
         }
         y-=70;
+    }
+    
+    public void deplacer(int x, int y, Noeud n, JPanel p){
+        int diffX=x-xAncien;
+        int diffY=y-yAncien;
+        
+        n.setX(n.getX()-diffX);
+        n.setY(n.getY()+diffY);
+        p.setBounds(n.getX(), n.getY(), 40, 40);
+        repaint();
+    }
+    
+    public void destroyBulles(){
+        for(int i=0; i<dest.size(); i++){
+            Component c=f.aire.getComponentAt(dest.get(i).getX(), dest.get(i).getY());
+            f.aire.remove(c);
+        }
     }
 }
