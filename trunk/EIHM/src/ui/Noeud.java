@@ -17,7 +17,8 @@ public class Noeud {
     int type;
     int liaison;
     int propriete;
-    
+    int x;
+    int y;
     
     public Noeud(Noeud dad, String n, int t, int l, int p){
         papa=dad;
@@ -35,5 +36,9 @@ public class Noeud {
     
     public void ajouterFils(Noeud n){
         fils.add(n);
+    }
+    
+    public void setX(int x){
+        this.x=x;
     }
 }

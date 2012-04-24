@@ -3,7 +3,6 @@ package ui;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
-import javax.swing.border.LineBorder;
 
 public class Fenetre extends JFrame implements Runnable{
     BarreInfo barreInfo;
@@ -50,20 +49,7 @@ public class Fenetre extends JFrame implements Runnable{
         menubar = new MenuBar(this);
         //ajout BarreOutil
         //BarreOutil barreOutil = new BarreOutil();
-        Noeud n1 = new Noeud(null, "fils1",0,0,0);
-        Noeud n2= new Noeud(null, "fils1",0,0,0);
         arbre = new Arbre(new Noeud(null, "Papa", 0,0,0));
-        arbre.root.ajouterFils(n1);
-        n1.ajouterFils(new Noeud(null, "fils6",0,0,0));
-        n1.ajouterFils(new Noeud(null, "fils6",0,0,0));
-        n1.ajouterFils(new Noeud(null, "fils6",0,0,0));
-        n2.ajouterFils(new Noeud(null, "fils6",0,0,0));
-        n2.ajouterFils(new Noeud(null, "fils6",0,0,0));
-        n2.ajouterFils(new Noeud(null, "fils6",0,0,0));
-        arbre.root.ajouterFils(n2);
-        arbre.root.ajouterFils(new Noeud(null, "fils3",0,0,0));
-        arbre.root.ajouterFils(new Noeud(null, "fils4",0,0,0));
-        arbre.root.ajouterFils(new Noeud(null, "fils5",0,0,0));
         aire = new AireDeDessin(this);
         aide = new Aide(this);
         //aire.addMouseListener(new EcouteurNoeud(this));

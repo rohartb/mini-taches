@@ -50,6 +50,7 @@ public class AireDeDessin extends JComponent {
         int yLien;
         int xLien=x;
         draw.drawRect(x-20, y, 40, 40);
+        draw.drawString(n.nom, x-20, y+50);
         it = n.fils.iterator();
         
         
@@ -62,7 +63,7 @@ public class AireDeDessin extends JComponent {
             x=nb*(a+1);
             int taille=width/n.getNbFils();
             int xSuivant =  (wTreeD+taille*a)+((wTreeD+taille*(a+1)-(wTreeD+taille*a)))/2;
-            draw.drawLine(xLien, yLien, xSuivant, y);
+            draw.drawLine(xLien, yLien+10, xSuivant, y);
             
             dessinerArbre(draw,(Noeud)it.next(),wTreeD+taille*a,wTreeD+taille*(a+1));
             a++;
