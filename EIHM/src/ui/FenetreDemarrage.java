@@ -28,10 +28,10 @@ public class FenetreDemarrage extends JDialog{
         ouvrir.addActionListener(new EcouteurFenetreDemarrage(this, this.f));
         ouvrir.setActionCommand("ouvrir");
         
-        JButton demo = new JButton("Démonstration");
-        demo.setBounds(150,50, 130, 30);
-        //demo.addActionListener(new EcouteurFenetreDemarrage(this, this.f));
-        //demo.setActionCommand("demo");
+        JButton astuce = new JButton("Astuce");
+        astuce.setBounds(150,50, 130, 30);
+        //astuce.addActionListener(new EcouteurFenetreDemarrage(this, this.f));
+        //astuce.setActionCommand("astuce");
         
         JButton aide = new JButton("Aide");
         aide.setBounds(290,50, 130, 30);
@@ -46,17 +46,21 @@ public class FenetreDemarrage extends JDialog{
         
         ActionListener ecouteurChekBox = new EcouteurCheckBox();
         checkBox.addActionListener(ecouteurChekBox);
+        
+        this.f.setFocusable(false);
 
         
         add(label);
         add(label2);
         add(checkBox);
         add(ouvrir);
-        add(demo);
+        add(astuce);
         add(aide);
         
         //fenetre centré
         setLocationRelativeTo(null);
+        setResizable(false);
     }
-    
+
+        
 }

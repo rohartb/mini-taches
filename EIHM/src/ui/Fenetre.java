@@ -2,6 +2,8 @@ package ui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.*;
 
 public class Fenetre extends JFrame implements Runnable {
@@ -131,6 +133,8 @@ public class Fenetre extends JFrame implements Runnable {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setExtendedState(this.MAXIMIZED_BOTH);
 
+        addWindowListener(new EcouteurFenetreIcone(this,fd));
+        
         setVisible(true);
 
         // On vérifie si il faut afficher la fenetre de démarrage
@@ -145,6 +149,7 @@ public class Fenetre extends JFrame implements Runnable {
                 String valeurCheckBox;
                 while ((valeurCheckBox = br.readLine()) != null) {
                     if (valeurCheckBox.equals("false")) {
+                        fd.setAlwaysOnTop(true);
                         fd.setVisible(true);
                     }
                 }
@@ -157,6 +162,7 @@ public class Fenetre extends JFrame implements Runnable {
             //donc on affiche obligatoirement la fenetre
             //Et dans le cas aussi que même si au premier lancement on ne clique pas sur la checkBox
             //on doit afficher la fenetre au prochain démarrage de l'application
+            fd.setAlwaysOnTop(true);
             fd.setVisible(true);
         }
     }
