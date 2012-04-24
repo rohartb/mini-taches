@@ -25,7 +25,8 @@ public class Arbre {
         if(n.fils.isEmpty()){
             if(n.papa!=null){
                 n.nom=null;
-                n.papa=null;
+                n.papa.fils.remove(n);
+                n = null;
             } else {
                 root = null;
             }

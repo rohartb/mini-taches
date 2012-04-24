@@ -10,6 +10,7 @@ public class BarreOutil extends JPanel {
         JButton nouveau = new JButton(new ImageIcon("Image/nouveau.jpg"));
         JButton ouvrir = new JButton(new ImageIcon("Image/ouvrir.png"));
         JButton sauvegarder = new JButton(new ImageIcon("Image/sauvegarder.jpg"));
+        JButton couper = new JButton(new ImageIcon("Image/couper.jpg"));
         JButton copier = new JButton(new ImageIcon("Image/copier.jpg"));
         JButton coller = new JButton(new ImageIcon("Image/coller.jpg"));
         
@@ -27,17 +28,22 @@ public class BarreOutil extends JPanel {
         sauvegarder.setActionCommand("sb");
         sauvegarder.addActionListener(eo);
                 
+        couper.setToolTipText("Couper");
+        couper.setActionCommand("coupb");
+        couper.addActionListener(eo);
+        
         copier.setToolTipText("Copier");
         copier.setActionCommand("copb");
         copier.addActionListener(eo);
                 
         coller.setToolTipText("Coller");
-        coller.setActionCommand("colb");
+        coller.setActionCommand("collb");
         coller.addActionListener(eo);       
                
         this.add(nouveau);
         this.add(ouvrir);
         this.add(sauvegarder);
+        this.add(couper);
         this.add(copier);
         this.add(coller);
         

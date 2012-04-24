@@ -65,7 +65,7 @@ class BLListener implements ActionListener {
                 fils.panel.addMouseMotionListener(souris);
                 f.aire.repaint();
             }else if(cmd.equals("supp")){
-                papa.supprimerNoeud(papa);
+                f.arbre.supprimerArbre(papa);
                 f.aire.repaint();
             }
         }
