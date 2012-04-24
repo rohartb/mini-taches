@@ -24,7 +24,7 @@ class EcouteurDeMenu implements ActionListener {
             f.changementEtat("sauvegarder");
         }
         if(e.getActionCommand().equals("quitter")){
-            System.exit(0);
+            f.changementEtat("quitter");
         }
         if(e.getActionCommand().equals("annuler")){
             
@@ -35,6 +35,10 @@ class EcouteurDeMenu implements ActionListener {
 
         if(e.getActionCommand().equals("aide")){
             f.changementEtat("aide");
+        }
+
+        if(e.getActionCommand().equals("propos")){
+            f.changementEtat("propos");
         }
         
         if(e.getActionCommand().equals("preference")){

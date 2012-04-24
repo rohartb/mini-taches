@@ -7,7 +7,7 @@ public class BarreInfo extends JPanel {
     JLabel info;
     
     public BarreInfo() {
-        info = new JLabel("Nouveau projet");
+        info = new JLabel("Nouvel arbre des taches");
         this.add(info);
         this.setBorder(BorderFactory.createLineBorder(Color.green));
         this.setVisible(true);
