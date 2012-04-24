@@ -32,7 +32,9 @@ public class Noeud {
         return fils.size();
     }
     
-    
+    public Noeud getPapa(Noeud n){
+        return papa; 
+    }
     
     public void ajouterFils(Noeud n){
         fils.add(n);
