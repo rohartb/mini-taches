@@ -31,7 +31,7 @@ class BLListener implements ActionListener {
             f.aire.removeAll();
             f.aire.updateUI();
             f.aire.repaint();
-            f.menuOn=false;
+            f.aire.menuOn=false;
         }else if(papa!=null){ //il y a un noeud selectionné
             if(cmd.equals("type1")){
                 Noeud fils = new Noeud(papa,"sans_nom",1,0,0);

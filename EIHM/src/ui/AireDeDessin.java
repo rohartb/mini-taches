@@ -8,6 +8,7 @@ import java.awt.Graphics2D;
 import java.util.Iterator;
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 public class AireDeDessin extends JComponent {
@@ -18,6 +19,7 @@ public class AireDeDessin extends JComponent {
     Noeud noeud;
     int nb;
     Fenetre f;
+    Boolean menuOn = false;
 
     public AireDeDessin(Fenetre f) {
         this.f = f;
@@ -45,12 +47,19 @@ public class AireDeDessin extends JComponent {
     
     private void dessinerArbre(Graphics2D draw, Noeud n, int wTreeD, int wTreeF) {
         Iterator it;
+        JPanel noeudCourant = new JPanel();
+        noeudCourant.addMouseListener(new EcouteurNoeud(f, n));
+        
         int width = wTreeF-wTreeD;
         x=wTreeD + width/2;
         int yLien;
         int xLien=x;
+        noeudCourant.setBounds(x-20, y, 40, 40);
         draw.drawRect(x-20, y, 40, 40);
         draw.drawString(n.nom, x-20, y+50);
+        n.setX(x-20);
+        n.setY(y);
+        this.add(noeudCourant);    
         it = n.fils.iterator();
         
         

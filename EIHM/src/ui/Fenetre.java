@@ -15,7 +15,6 @@ public class Fenetre extends JFrame implements Runnable {
     AireDeDessin aire;
     String name;
     MenuBar menubar;
-    Boolean menuOn = false;
     Arbre arbre;
     FenetreDemarrage fd;
 
@@ -81,6 +80,7 @@ public class Fenetre extends JFrame implements Runnable {
         //BarreOutil barreOutil = new BarreOutil();
         arbre = new Arbre(new Noeud(null, "Papa", 0, 0, 0));
         aire = new AireDeDessin(this);
+        aire.addMouseListener(new EcouteurSouris(this));
         aide = new Aide(this);
         //aire.addMouseListener(new EcouteurNoeud(this));
         //ajout BarreInfo

@@ -15,12 +15,20 @@ import java.util.List;
  * @author bastien
  */
 class EcouteurSouris implements MouseListener {
+    Fenetre f;
 
-
-    public EcouteurSouris() {}
+    public EcouteurSouris(Fenetre f) {
+        this.f=f;
+    }
 
     @Override
     public void mouseClicked(MouseEvent me) {
+        if (me.getButton() == 1){
+            f.aire.removeAll();
+            f.aire.updateUI();
+            f.aire.repaint();
+            f.aire.menuOn=false;
+        }
     }
 
     @Override
