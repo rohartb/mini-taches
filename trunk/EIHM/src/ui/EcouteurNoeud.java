@@ -23,6 +23,7 @@ public class EcouteurNoeud implements MouseListener,MouseMotionListener {
     
     @Override
     public void mouseClicked(MouseEvent e) {
+        f.barreInfo.info.setText("Modification du noeud");
             f.aire.destroyBulles();
             f.aire.repaint();
             f.aire.menuOn=false;
