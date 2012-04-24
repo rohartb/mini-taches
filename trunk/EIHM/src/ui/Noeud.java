@@ -40,6 +40,14 @@ public class Noeud {
         fils.add(n);
     }
     
+    public void supprimerNoeud(Noeud n){
+        if(n.papa==null){
+            n.fils.clear();
+        }else{
+            n.papa.fils.remove(n);
+        }
+    }
+    
     public void setX(int x){
         this.x=x;
     }
