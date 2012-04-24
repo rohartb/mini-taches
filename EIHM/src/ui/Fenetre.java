@@ -49,9 +49,10 @@ public class Fenetre extends JFrame implements Runnable {
             JFileChooser fc = new JFileChooser();
             fc.showOpenDialog(menubar);
             File selFile = fc.getSelectedFile();
+            
             if (selFile != null && arbre.root.getNbFils()!=0) {
                 String[] options = {"Sauvegarder", "Continuer sans sauvegarder", "Annuler"};
-                int choix = JOptionPane.showOptionDialog(this, "Nouvel arbre :\n Voulez-vous sauvegarder l'arbre actuel", "Ouvrir", 0, JOptionPane.QUESTION_MESSAGE, new ImageIcon("./images/question.png"), options, options[0]);
+                int choix = JOptionPane.showOptionDialog(this, "Ouverture de fichier :\nVoulez-vous sauvegarder l'arbre actuel", "Ouvrir", 0, JOptionPane.QUESTION_MESSAGE, new ImageIcon("./images/question.png"), options, options[0]);
 
                 if (choix == JOptionPane.YES_OPTION) {
                     changementEtat("sauvegarder");
