@@ -17,6 +17,7 @@ public class Fenetre extends JFrame implements Runnable {
     MenuBar menubar;
     Arbre arbre;
     FenetreDemarrage fd;
+    Preference p;
 
     public Fenetre(String name) {
         this.name = name;
@@ -65,6 +66,9 @@ public class Fenetre extends JFrame implements Runnable {
         }
         if (etat.equals("aide")) {
             aide.setVisible(true);
+        }
+        if (etat.equals("preference")) {
+            p = new Preference();
         }
         /*if(etat.equals("demo")){
         }*/
