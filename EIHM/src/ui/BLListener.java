@@ -20,7 +20,7 @@ class BLListener implements ActionListener {
     public BLListener(BarreLaterale bl,Fenetre f) {
         this.bl = bl;
         this.f=f;
-        papa=null;
+        papa = f.arbre.root;
     }
 
     
