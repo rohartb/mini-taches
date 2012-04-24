@@ -23,7 +23,6 @@ public class Noeud {
     Boolean bouge=false;
     JPanel panel;
     
-    
     public Noeud(Noeud dad, String n, int t, int l, int p){
         papa=dad;
         nom=n;
@@ -39,20 +38,12 @@ public class Noeud {
         return fils.size();
     }
     
-    public Noeud getPapa(Noeud n){
+    public Noeud getPapa(){
         return papa; 
     }
     
     public void ajouterFils(Noeud n){
         fils.add(n);
-    }
-    
-    public void supprimerNoeud(Noeud n){
-        if(n.papa==null){
-            n.fils.clear();
-        }else{
-            n.papa.fils.remove(n);
-        }
     }
     
     public void setX(int x){
