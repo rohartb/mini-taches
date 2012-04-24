@@ -1,7 +1,10 @@
 package ui;
 
+import java.awt.BorderLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 class Propos extends JDialog{
     Fenetre f;
@@ -11,12 +14,14 @@ class Propos extends JDialog{
 
         this.setTitle("A propos");
         this.setModal(true);
+        setLayout(new BorderLayout());
 
         this.setResizable(false);
+        JLabel team = new JLabel(new ImageIcon("Image/roux.jpg"));
+        JLabel texte = new JLabel("Développation par la team Cahuet -- Version 12.4");
 
-        JLabel texte = new JLabel("Team Cahuet");
-
-        this.add(texte);
+        this.add(team,BorderLayout.CENTER);
+        this.add(texte,BorderLayout.SOUTH);
         this.setSize(500,410);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
