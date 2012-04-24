@@ -23,7 +23,7 @@ public class BarrePropriete extends JPanel {
         this.add(bouton2);
         this.add(bouton3);
         this.add(bouton4);
-        this.setBorder(BorderFactory.createLineBorder(Color.red));
+        this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         this.setVisible(true);  
     }
     

@@ -24,7 +24,7 @@ public class AireDeDessin extends JComponent {
     public AireDeDessin(Fenetre f) {
         this.f = f;
         noeud = f.arbre.root;
-        this.setBorder(BorderFactory.createLineBorder(Color.pink));
+        //this.setBorder(BorderFactory.createLineBorder(Color.pink));
     }
 
     @Override
@@ -35,7 +35,7 @@ public class AireDeDessin extends JComponent {
         nb = this.getWidth();
         height = this.getHeight();
         width = this.getWidth();
-        draw.setColor(Color.pink);
+        draw.setColor(Color.WHITE);
         draw.fillRect(0, 0,(int)width,(int)height);
         draw.setPaint(Color.black);
         

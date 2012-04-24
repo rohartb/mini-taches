@@ -9,7 +9,7 @@ public class BarreInfo extends JPanel {
     public BarreInfo() {
         info = new JLabel("Nouvel arbre des taches");
         this.add(info);
-        this.setBorder(BorderFactory.createLineBorder(Color.green));
+        this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         this.setVisible(true);
     }
 
