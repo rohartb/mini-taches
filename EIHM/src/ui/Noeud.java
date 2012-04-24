@@ -21,6 +21,7 @@ public class Noeud {
     private int x;
     private int y;
     Boolean select=false;
+    Boolean deplace=false;
     JPanel panel;
     
     public Noeud(Noeud dad, String n, int t, int l, int p){

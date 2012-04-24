@@ -40,6 +40,7 @@ public class AireDeDessin extends JComponent {
         draw.setPaint(Color.black);
         
         dessinerArbre(draw, noeud, 0, this.getWidth());
+        dessinerLien(draw, noeud);
         y=50;
         
         
@@ -50,45 +51,61 @@ public class AireDeDessin extends JComponent {
         
         int width = wTreeF-wTreeD;
         x=wTreeD + width/2;
-        int yLien;
-        int xLien=x;
+ 
+        if(n.deplace){
+            x=n.getX();
+            y=n.getY();
+        }
+
         n.panel.setBounds(x-20, y, 40, 40);
-        draw.drawString(n.nom, x-20, y+50);
+        draw.drawString(n.nom, x-20, y+55);
+        n.setX(x);
+        n.setY(y);
+        
         if(n.select==true){
             draw.setColor(Color.red);
             draw.drawRect(x-21, y-1, 42, 42);
             draw.setColor(Color.black);
         }
-        n.setX(x-20);
-        n.setY(y);
-            
+        
         this.add(n.panel);
         it = n.fils.iterator();
-        
-        
         nb=width/(n.getNbFils()+1);
-        
         int a=0;
         while(it.hasNext()){
-            yLien=y+40;
             y+=70;
             x=nb*(a+1);
             int taille=width/n.getNbFils();
-            int xSuivant =  (wTreeD+taille*a)+((wTreeD+taille*(a+1)-(wTreeD+taille*a)))/2;
-            draw.drawLine(xLien, yLien+10, xSuivant, y);
             dessinerArbre(draw,(Noeud)it.next(),wTreeD+taille*a,wTreeD+taille*(a+1));
             a++;
         }
         y-=70;
     }
     
+    public void dessinerLien(Graphics2D draw, Noeud n){
+        Iterator it = n.fils.iterator();
+        int xDep = n.getX();
+        int yDep = n.getY()+55;
+        while(it.hasNext()){
+            Noeud noeud = (Noeud) it.next();
+            int xArr = noeud.getX();
+            int yArr = noeud.getY();
+            draw.drawLine(xDep, yDep, xArr, yArr);
+        }
+        Iterator it2 = n.fils.iterator();
+        
+        while(it2.hasNext()){
+            dessinerLien(draw,(Noeud) it2.next());
+        }
+    }
+    
     public void deplacer(int x, int y, Noeud n, JPanel p){
         int diffX=x-xAncien;
         int diffY=y-yAncien;
         
-        n.setX(n.getX()-diffX);
+        n.setX(n.getX()+diffX);
         n.setY(n.getY()+diffY);
-        p.setBounds(n.getX(), n.getY(), 40, 40);
+        n.deplace=true;
         repaint();
     }
     
@@ -96,6 +113,15 @@ public class AireDeDessin extends JComponent {
         for(int i=0; i<dest.size(); i++){
             Component c=f.aire.getComponentAt(dest.get(i).getX(), dest.get(i).getY());
             f.aire.remove(c);
+        }
+    }
+    
+    public void removePanel(Noeud n){
+        Iterator it = n.fils.iterator();
+        this.remove(n.panel);
+        
+        while(it.hasNext()){
+            removePanel((Noeud) it.next());
         }
     }
 }
