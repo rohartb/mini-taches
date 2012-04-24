@@ -4,6 +4,8 @@
  */
 package ui;
 
+import java.util.Iterator;
+
 /**
  *
  * @author bastien
@@ -23,10 +25,9 @@ public class Arbre {
  
     public void supprimerArbre(Noeud n){
         if(n.fils.isEmpty()){
-            if(n.papa!=null){
+            if(n.getPapa()!=null){
                 n.nom=null;
-                n.papa.fils.remove(n);
-                n = null;
+                n.getPapa().fils.remove(n);
             } else {
                 root = null;
             }
@@ -38,6 +39,14 @@ public class Arbre {
             i=0;
             n.fils.clear();
             supprimerArbre(n);
+        }
+    }
+    
+    public void deselect(Noeud n){
+        Iterator it = n.fils.iterator();
+        n.select=false;
+        while(it.hasNext()){
+            deselect((Noeud) it.next());
         }
     }
 }

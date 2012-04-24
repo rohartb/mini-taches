@@ -82,7 +82,7 @@ public class EcouteurOption implements ActionListener {
             while(i<cop.fils.size()){
                 res = copie(cop.fils.get(i));
                 p.fils.add(res);
-                res.papa=p;
+                res.setPapa(p);
                 i++;
             }
             i=0;

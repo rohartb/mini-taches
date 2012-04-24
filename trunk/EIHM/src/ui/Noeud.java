@@ -13,14 +13,14 @@ import javax.swing.JPanel;
  */
 public class Noeud {
     ArrayList<Noeud> fils = new ArrayList<Noeud>();
-    Noeud papa;
+    private Noeud papa;
     String nom;
     int type;
     int liaison;
     int propriete;
-    int x;
-    int y;
-    Boolean bouge=false;
+    private int x;
+    private int y;
+    Boolean select=false;
     JPanel panel;
     
     public Noeud(Noeud dad, String n, int t, int l, int p){
@@ -36,6 +36,10 @@ public class Noeud {
     
     public int getNbFils(){
         return fils.size();
+    }
+    
+    public void setPapa(Noeud p){
+        papa = p;
     }
     
     public Noeud getPapa(){

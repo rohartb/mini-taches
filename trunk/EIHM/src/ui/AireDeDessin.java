@@ -54,6 +54,11 @@ public class AireDeDessin extends JComponent {
         int xLien=x;
         n.panel.setBounds(x-20, y, 40, 40);
         draw.drawString(n.nom, x-20, y+50);
+        if(n.select==true){
+            draw.setColor(Color.red);
+            draw.drawRect(x-21, y-1, 42, 42);
+            draw.setColor(Color.black);
+        }
         n.setX(x-20);
         n.setY(y);
             
@@ -71,7 +76,6 @@ public class AireDeDessin extends JComponent {
             int taille=width/n.getNbFils();
             int xSuivant =  (wTreeD+taille*a)+((wTreeD+taille*(a+1)-(wTreeD+taille*a)))/2;
             draw.drawLine(xLien, yLien+10, xSuivant, y);
-            
             dessinerArbre(draw,(Noeud)it.next(),wTreeD+taille*a,wTreeD+taille*(a+1));
             a++;
         }

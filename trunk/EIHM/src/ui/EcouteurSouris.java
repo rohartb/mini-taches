@@ -4,12 +4,8 @@
  */
 package ui;
 
-import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -24,12 +20,9 @@ class EcouteurSouris implements MouseListener{
 
     @Override
     public void mouseClicked(MouseEvent me) {
-        
-        if (me.getButton() == 1){
-            f.aire.destroyBulles();
-            f.aire.repaint();
-            f.aire.menuOn=false;
-        }
+        f.arbre.deselect(f.arbre.root);
+        f.aire.destroyBulles();
+        f.aire.repaint();
     }
 
     @Override
