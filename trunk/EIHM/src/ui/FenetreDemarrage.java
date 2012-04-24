@@ -10,7 +10,7 @@ public class FenetreDemarrage extends JDialog{
     public FenetreDemarrage(Fenetre f) {
         this.f = f;
         setTitle("MiniTache");
-        setSize(450, 180);
+        setSize(435, 195);
         setLayout(null);
         
         JLabel label = new JLabel();
@@ -40,9 +40,15 @@ public class FenetreDemarrage extends JDialog{
         
         
         JCheckBox checkBox = new JCheckBox();
-        checkBox.setBorder(BorderFactory.createLineBorder(Color.red));
+        //checkBox.setBorder(BorderFactory.createLineBorder(Color.red));
         checkBox.setText("Ne plus afficher cette fenêtre au démarrage");
         checkBox.setBounds(10, 100, 350, 20);
+        
+        JButton annuler = new JButton("Annuler");
+        annuler.setBounds(290, 130, 130, 30);
+        annuler.addActionListener(new EcouteurFenetreDemarrage(this, this.f));
+        annuler.setActionCommand("annuler");
+        
         
         ActionListener ecouteurChekBox = new EcouteurCheckBox();
         checkBox.addActionListener(ecouteurChekBox);
@@ -56,6 +62,7 @@ public class FenetreDemarrage extends JDialog{
         add(ouvrir);
         add(astuce);
         add(aide);
+        add(annuler);
         
         //fenetre centré
         setLocationRelativeTo(null);
