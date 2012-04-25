@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 public class EcouteurNoeud implements MouseListener,MouseMotionListener {
     Fenetre f;
-    int taille = 40;
+    int taille = 42;
     int rayon = 64;
     java.util.List<ElementMenu> items = new ArrayList<ElementMenu>();
     Noeud noeud;
@@ -97,20 +97,19 @@ public class EcouteurNoeud implements MouseListener,MouseMotionListener {
         
     }
     
-    private void build(int xCentre, int yCentre){
+    public void build(int xCentre, int yCentre){
         if(items.isEmpty()){
-            items.add(new ElementMenu("Ça", new Color(153,204,255), new Color(102 ,153 ,204), 100));
-            items.add(new ElementMenu("marche", new Color(153,204,255), new Color(102 ,153 ,204), 100));
-            items.add(new ElementMenu("pas", new Color(153,204,255), new Color(102 ,153 ,204), 100));
-            items.add(new ElementMenu("cette", new Color(153,204,255), new Color(102 ,153 ,204), 100));
-            items.add(new ElementMenu("merde", new Color(153,204,255), new Color(102 ,153 ,204), 100));
-            items.add(new ElementMenu("bordel", new Color(153,204,255), new Color(102 ,153 ,204), 100));
-            items.add(new ElementMenu("!!", new Color(153,204,255), new Color(102 ,153 ,204), 100));
+            items.add(new ElementMenu("propriété", new Color(153,204,255), new Color(102 ,153 ,204), 100,f));
+            items.add(new ElementMenu("couper", new Color(153,204,255), new Color(102 ,153 ,204), 100,f));
+            items.add(new ElementMenu("copier", new Color(153,204,255), new Color(102 ,153 ,204), 100,f));
+            items.add(new ElementMenu("coller", new Color(153,204,255), new Color(102 ,153 ,204), 100,f));
+            items.add(new ElementMenu("supprimer", new Color(153,204,255), new Color(102 ,153 ,204), 100,f));
+            items.add(new ElementMenu("replacer", new Color(153,204,255), new Color(102 ,153 ,204), 100,f));
         }
         if(items!=null && items.size()>0){
             double angle=2*Math.PI/(items.size());
             for(int i=0; i<items.size(); i++){
-                ElementMenu bulle = new ElementMenu(items.get(i).getNom(), items.get(i).getCouleurNormal(), items.get(i).getCouleurActif(), taille);
+                ElementMenu bulle = new ElementMenu(items.get(i).getNom(), items.get(i).getCouleurNormal(), items.get(i).getCouleurActif(), taille,f);
                 bulle.setBounds((int)(xCentre-taille/2+rayon*Math.cos(i*angle)), (int)(yCentre-taille/2+rayon*Math.sin(i*angle)), taille+10, taille+10);
                 f.aire.dest.add(bulle);
                 f.aire.add(bulle);

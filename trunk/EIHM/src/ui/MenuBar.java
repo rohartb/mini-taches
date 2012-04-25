@@ -11,7 +11,6 @@ public class MenuBar extends JMenuBar {
         this.f = f;
         JMenu fichier = new JMenu("Fichier");
         JMenu edition = new JMenu("Edition");
-        JMenu apparence = new JMenu("Apparence");
         JMenu outil = new JMenu("Outils");
         JMenu aide = new JMenu("?");
 
@@ -67,12 +66,6 @@ public class MenuBar extends JMenuBar {
         edition.add(retablir);
   
         
-        //////////////////////////////////////////////////
-        //                                              //
-        //                  Menu Apparence              //
-        //                                              //
-        //////////////////////////////////////////////////
-        
         
         //////////////////////////////////////////////////
         //                                              //
@@ -104,7 +97,6 @@ public class MenuBar extends JMenuBar {
         
         this.add(fichier);
         this.add(edition);
-        this.add(apparence);
         this.add(outil);
         this.add(aide);
         
