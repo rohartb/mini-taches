@@ -24,18 +24,15 @@ public class BarrePropriete extends JPanel {
         nomTache.setEditable(false);
         
        nomTache.getDocument().addDocumentListener(new DocumentListener() {
-        public void changedUpdate(DocumentEvent e) {
-            System.out.println(nomTache.getText());
+        public void changedUpdate(DocumentEvent e) {            
             BarrePropriete.this.f.barreLaterale.bl.papa.setNom(nomTache.getText());
             BarrePropriete.this.f.aire.repaint();
         }
         public void removeUpdate(DocumentEvent e) {
-            System.out.println(nomTache.getText());
             BarrePropriete.this.f.barreLaterale.bl.papa.setNom(nomTache.getText());
             BarrePropriete.this.f.aire.repaint();
         }
         public void insertUpdate(DocumentEvent e) {
-            System.out.println(nomTache.getText());
             BarrePropriete.this.f.barreLaterale.bl.papa.setNom(nomTache.getText());
             BarrePropriete.this.f.aire.repaint();
         }
