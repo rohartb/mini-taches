@@ -211,7 +211,6 @@ class BarreLaterale extends JPanel{
         paneauSud.add(l3,BorderLayout.NORTH);
         paneauSud.add(prop,BorderLayout.CENTER);
         
-        paneauSud.setPreferredSize(new Dimension(this.getWidth(),620));
         paneauSud.setBackground(new Color(153,204,255));
         
         
