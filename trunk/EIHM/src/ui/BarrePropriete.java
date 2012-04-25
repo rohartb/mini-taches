@@ -11,7 +11,8 @@ public class BarrePropriete extends JPanel {
     
     public BarrePropriete(){
         JLabel labelTache = new JLabel("Nom de la tâche");
-        nomTache = new JTextField(8);    
+        nomTache = new JTextField(8);
+        nomTache.setEditable(false);
         
         JLabel labelListeCategorie = new JLabel("Catégorie");
         listeCategorie = new Choice();
@@ -21,6 +22,7 @@ public class BarrePropriete extends JPanel {
         listeCategorie.addItem("Application");
         listeCategorie.addItem("Interaction");
         listeCategorie.select("");
+                
         
         this.add(labelTache);
         this.add(nomTache);

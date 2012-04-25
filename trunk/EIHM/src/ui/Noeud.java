@@ -6,6 +6,8 @@ package ui;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -24,6 +26,7 @@ public class Noeud {
     Boolean select=false;
     Boolean deplace=false;
     JPanel panel;
+    ImageIcon image;
     
     public Noeud(Noeud dad, String n, int t, int l){
         papa=dad;
@@ -76,4 +79,31 @@ public class Noeud {
     public int getY(){
         return y;
     }
+    
+    public JLabel ajouterImage(int i){
+        switch (i){
+            case 1 :
+                image = new ImageIcon("Image/user.png");
+                break;
+            case 2 :
+                image = new ImageIcon("Image/abstract.png");
+                break;
+            case 3 : 
+                image = new ImageIcon("Image/application.png");
+                break;
+            case 4 :
+                image = new ImageIcon("Image/interaction.png");
+                break;
+            default:
+                break;
+        }
+        
+        JLabel label = new JLabel(image);
+        return label;
+    }
+    
+    public void setImage(ImageIcon image) {
+        this.image = image;
+    }
+    
 }
