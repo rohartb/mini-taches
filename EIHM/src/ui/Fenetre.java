@@ -141,6 +141,10 @@ public class Fenetre extends JFrame implements Runnable {
         //BarreOutil barreOutil = new BarreOutil();
         arbre = new Arbre(new Noeud(null, "Root", 0, 0));
         souris = new EcouteurNoeud(this, arbre.root);
+        arbre.root.select=true;
+        
+        
+        
         arbre.root.panel.addMouseListener(souris);
         arbre.root.panel.addMouseMotionListener(souris);
         arbre.root.panel.add(new JLabel(new ImageIcon("Image/user.png")));
@@ -196,7 +200,6 @@ public class Fenetre extends JFrame implements Runnable {
         aire.setVisible(true);
 
         setTitle(this.name);
-        pack();
         //setDefaultLookAndFeelDecorated(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
@@ -235,5 +238,6 @@ public class Fenetre extends JFrame implements Runnable {
             fd.setAlwaysOnTop(true);
             fd.setVisible(true);
         }
+        pack();
     }
 }

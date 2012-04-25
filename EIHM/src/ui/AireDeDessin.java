@@ -49,7 +49,7 @@ public class AireDeDessin extends JComponent {
         dessinerArbre(draw, noeud);
         reinitFait();
         dessinerLien(draw, noeud);
-        y=etage;   
+        y=etage;
     }
     
     private void dessinerArbre(Graphics2D draw, Noeud n) {
@@ -78,7 +78,7 @@ public class AireDeDessin extends JComponent {
         }
 
         n.panel.setBounds(x-(taille/2), y, taille, taille);
-
+        
         String lala = n.nom;
         if(n.propriete[1]==1){
             lala = "["+lala +"]";
@@ -99,6 +99,7 @@ public class AireDeDessin extends JComponent {
         }
         
         this.add(n.panel);
+        this.validate();
         
         it = n.fils.iterator();
         while(it.hasNext()){
