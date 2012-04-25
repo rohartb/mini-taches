@@ -60,8 +60,21 @@ public class AireDeDessin extends JComponent {
         int yInter = y;
         x=x*fait[hauteur];
         if(n.deplace){
-            x=n.getX();
-            y=n.getY();
+            if(n.getX()<0){
+                x=taille/2;
+            }else if(n.getX()>this.getWidth()-(taille/2)){
+                x=this.getWidth()-(taille/2);
+            }else{
+                x=n.getX();
+            }
+            if(n.getY()<0){
+                y=0;
+            }else if(n.getY()>this.getHeight()-(taille/2)){
+                y=this.getHeight()-taille;
+            }else{
+                y=n.getY();
+            }
+            
         }
 
         n.panel.setBounds(x-(taille/2), y, taille, taille);
@@ -81,7 +94,7 @@ public class AireDeDessin extends JComponent {
         
         if(n.select==true){
             draw.setColor(Color.red);
-            draw.drawRect(x-(taille/2)-1, y-1, taille+1, taille+1);
+            draw.drawRect(n.getX()-(taille/2)-1, n.getY()-1, taille+1, taille+1);
             draw.setColor(Color.black);
         }
         
@@ -147,8 +160,4 @@ public class AireDeDessin extends JComponent {
         hauteur=0;
     }
     
-    public void afficher(){
-            System.out.println("hauteur 0: "+f.arbre.hauteur[0]);
-            System.out.println("hauteur 1: "+f.arbre.hauteur[1]);
-    }
 }

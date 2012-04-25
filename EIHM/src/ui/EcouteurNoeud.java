@@ -56,7 +56,7 @@ public class EcouteurNoeud implements MouseListener,MouseMotionListener {
         
         if(e.getButton() == 3){
             f.aire.destroyBulles();
-            build(noeud.getX()+20, noeud.getY()+20);
+            build(noeud.getX(), noeud.getY()+20);
         }else if (e.getButton() == 1){
             f.aire.destroyBulles();
         }
