@@ -7,6 +7,8 @@ package ui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -36,9 +38,8 @@ public class EcouteurOption implements ActionListener {
         else if(ae.getActionCommand().equals("coupb")){
             if(f.barreLaterale.bl.papa!=null){
                 cop= copie(f.barreLaterale.bl.papa);
-                f.arbre.supprimerArbre(f.barreLaterale.bl.papa);  
-                f.aire.removeAll();
-                f.aire.updateUI();
+                f.aire.removePanel(f.barreLaterale.bl.papa);               
+                f.arbre.supprimerArbre(f.barreLaterale.bl.papa);
                 f.aire.repaint();
             }
         }
@@ -51,7 +52,7 @@ public class EcouteurOption implements ActionListener {
             if(cop!=null){
                 col = new Noeud(null,cop.nom,cop.type,cop.liaison,cop.propriete);
                 col.fils = new ArrayList<Noeud>();
-                col=copie(cop);             
+                col=copieEtEcouteur(cop);//copie+ajout des écouteurs             
                 coller(col);
                 f.aire.repaint();
             }
@@ -67,7 +68,7 @@ public class EcouteurOption implements ActionListener {
     
     
     private void coller(Noeud n) {
-        f.barreLaterale.bl.papa.ajouterFils(n);                   
+        f.barreLaterale.bl.papa.ajouterFils(n);        
     }
 
     private Noeud copie(Noeud cop) {
@@ -81,13 +82,56 @@ public class EcouteurOption implements ActionListener {
             p.fils = new ArrayList<Noeud>();
             while(i<cop.fils.size()){
                 res = copie(cop.fils.get(i));
-                p.fils.add(res);
                 res.setPapa(p);
+                p.fils.add(res);
                 i++;
             }
             i=0;
             return p;
         }
+    }
+
+    private Noeud copieEtEcouteur(Noeud cop) {
+        Noeud res;
+        if(cop.fils.isEmpty()){
+            res = new Noeud(null,cop.nom,cop.type,cop.liaison,cop.propriete);
+            res.fils = new ArrayList<Noeud>();
+            ajouterEcouteur(res);
+            return res;
+        }else{
+            Noeud p = new Noeud(null,cop.nom,cop.type,cop.liaison,cop.propriete);
+            p.fils = new ArrayList<Noeud>();
+            while(i<cop.fils.size()){
+                res = copieEtEcouteur(cop.fils.get(i));
+                res.setPapa(p);
+                p.fils.add(res);
+                i++;
+            }
+            i=0;
+            ajouterEcouteur(p);
+            return p;
+        }
+    }
+
+    private void ajouterEcouteur(Noeud n) {
+        EcouteurNoeud souris = new EcouteurNoeud(f, n);
+        n.panel.addMouseListener(souris);
+        n.panel.addMouseMotionListener(souris);
+        switch (n.type){
+            case 1:
+                n.panel.add(new JLabel(new ImageIcon("Image/user.png")));
+                break;
+            case 2:
+                n.panel.add(new JLabel(new ImageIcon("Image/abstract.png")));
+                break;
+            case 3:
+                n.panel.add(new JLabel(new ImageIcon("Image/application.png")));
+                break;
+            case 4:
+                n.panel.add(new JLabel(new ImageIcon("Image/interaction.png")));
+                break;
+        }
+            
     }
 
 }
