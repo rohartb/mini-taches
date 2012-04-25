@@ -5,25 +5,27 @@ import java.awt.*;
 
 public class BarrePropriete extends JPanel {
 
+     Choice listeCategorie;
+     JTextField nomTache;
+     
+    
     public BarrePropriete(){
         JLabel labelTache = new JLabel("Nom de la tâche");
-        JTextField nomTache = new JTextField(8);    
+        nomTache = new JTextField(8);    
         
-        JLabel labelPriorite = new JLabel("Priorité : ");
-        
-        JButton bouton1 = new JButton("P1");
-        JButton bouton2 = new JButton("P2");
-        JButton bouton3 = new JButton("P3");
-        JButton bouton4 = new JButton("P4");
-        
+        JLabel labelListeCategorie = new JLabel("Catégorie");
+        listeCategorie = new Choice();
+        listeCategorie.addItem("");
+        listeCategorie.addItem("Utilisateur");
+        listeCategorie.addItem("Abstraction");
+        listeCategorie.addItem("Application");
+        listeCategorie.addItem("Interaction");
+        listeCategorie.select("");
         
         this.add(labelTache);
         this.add(nomTache);
-        this.add(labelPriorite);
-        this.add(bouton1);
-        this.add(bouton2);
-        this.add(bouton3);
-        this.add(bouton4);
+        this.add(labelListeCategorie);
+        this.add(listeCategorie);
         this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         this.setVisible(true);  
     }

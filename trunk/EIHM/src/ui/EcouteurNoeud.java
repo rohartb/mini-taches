@@ -26,6 +26,34 @@ public class EcouteurNoeud implements MouseListener,MouseMotionListener {
         f.barreInfo.info.setText("Modification du noeud");
         f.barreLaterale.bl.setPapa(noeud);
         f.barreLaterale.majBouton(noeud);
+        
+        System.out.println(noeud.type);
+        switch(noeud.type){
+            case 0 :
+                f.barre.barrePropriete.nomTache.setText(noeud.nom);
+                f.barre.barrePropriete.listeCategorie.select("Utilisateur");
+                break;
+            case 1 :
+                f.barre.barrePropriete.nomTache.setText(noeud.nom);
+                f.barre.barrePropriete.listeCategorie.select("Utilisateur");
+                break;
+            case 2 :
+                f.barre.barrePropriete.nomTache.setText(noeud.nom);
+                f.barre.barrePropriete.listeCategorie.select("Abstraction");
+                break;
+            case 3 :
+                f.barre.barrePropriete.nomTache.setText(noeud.nom);
+                f.barre.barrePropriete.listeCategorie.select("Application");
+                break;
+            case 4 :
+                f.barre.barrePropriete.nomTache.setText(noeud.nom);
+                f.barre.barrePropriete.listeCategorie.select("Interaction");
+                break;
+            default:
+                break;
+        }
+        
+        
         if(e.getButton() == 3){
             f.aire.destroyBulles();
             build(noeud.getX()+20, noeud.getY()+20);
