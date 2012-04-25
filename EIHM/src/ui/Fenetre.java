@@ -146,10 +146,15 @@ public class Fenetre extends JFrame implements Runnable {
         arbre.root.panel.add(new JLabel(new ImageIcon("Image/user.png")));
         aire = new AireDeDessin(this);
         aire.addMouseListener(new EcouteurSouris(this));
-        aire.add(new JScrollPane());
 
+        JScrollPane scrollDessin = new JScrollPane(aire,
+                ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, 
+	        ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS );
+        scrollDessin.getHorizontalScrollBar().addAdjustmentListener(new ScrollAction());
+        scrollDessin.getVerticalScrollBar().addAdjustmentListener(new ScrollAction());
+        
         aide = new Aide(this);
-        //aire.addMouseListener(new EcouteurNoeud(this));
+
         //ajout BarreInfo
         barreInfo = new BarreInfo();
         barre = new Barre(this);
@@ -191,7 +196,7 @@ public class Fenetre extends JFrame implements Runnable {
         add(barreLaterale, BorderLayout.WEST);
         //add(barreOutil,BorderLayout.NORTH);
         add(barre, BorderLayout.NORTH);
-        add(aire, BorderLayout.CENTER);
+        add(scrollDessin, BorderLayout.CENTER);
         add(barreInfo, BorderLayout.SOUTH);
         aire.setVisible(true);
 

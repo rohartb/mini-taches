@@ -86,6 +86,10 @@ public class EcouteurNoeud implements MouseListener,MouseMotionListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
+        f.aire.destroyBulles();
+        f.barreLaterale.bl.setPapa(noeud);
+        f.arbre.deselect(f.arbre.root);
+        noeud.select = true;
     }
 
     @Override
