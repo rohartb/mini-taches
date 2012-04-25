@@ -108,12 +108,13 @@ public class AireDeDessin extends JComponent {
         
         it = n.fils.iterator();
         while(it.hasNext()){
-            y+=etage;
+            y+=etage*n.hauteur;
             hauteur++;
             dessinerArbre(draw,(Noeud)it.next());
+            y-=etage*n.hauteur;
         }
         hauteur--;
-        y-=etage;
+
     }
     
     public void dessinerLien(Graphics2D draw, Noeud n){

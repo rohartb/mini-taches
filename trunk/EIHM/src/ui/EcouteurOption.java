@@ -59,20 +59,12 @@ public class EcouteurOption implements ActionListener {
         }
         
         else if(ae.getActionCommand().equals("augn")){
-            int y;
-            for (int i=0; i<f.arbre.root.getNbFils();i++){
-                y = f.arbre.root.fils.get(i).getY() + 10;
-                f.arbre.root.fils.get(i).setY(y);                
-            }    
+            f.barreLaterale.bl.papa.hauteur++;
             f.aire.repaint();
         }
         
         else if(ae.getActionCommand().equals("dimn")){
-            int y;
-            for (int i=0; i<f.arbre.root.getNbFils();i++){
-                y = f.arbre.root.fils.get(i).getY() - 10;
-                f.arbre.root.fils.get(i).setY(y);                
-            } 
+            f.barreLaterale.bl.papa.hauteur--; 
             f.aire.repaint();
         }
         

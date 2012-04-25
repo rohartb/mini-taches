@@ -27,6 +27,7 @@ public class Noeud {
     Boolean deplace=false;
     JPanel panel;
     ImageIcon image;
+    int hauteur=1;
     
     public Noeud(Noeud dad, String n, int t, int l){
         papa=dad;
