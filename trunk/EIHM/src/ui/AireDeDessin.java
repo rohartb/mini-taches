@@ -18,6 +18,7 @@ public class AireDeDessin extends JComponent {
     int taille=40;
     int etage=70;
     int hauteur=0;
+    int coeff=0;
     Noeud noeud;
     int nb;
     Fenetre f;
@@ -37,8 +38,11 @@ public class AireDeDessin extends JComponent {
     public void paintComponent(Graphics g){
         Graphics2D draw = (Graphics2D) g;
         
-        x = this.getWidth()/2;
-        nb = this.getWidth();
+        coeff=coeff/100;
+        taille+=taille*coeff;
+        y+=y*coeff;
+        etage+=etage*coeff;
+        
         height = this.getHeight();
         width = this.getWidth();
         draw.setColor(Color.WHITE);
@@ -59,6 +63,7 @@ public class AireDeDessin extends JComponent {
         fait[hauteur]++;
         int yInter = y;
         x=x*fait[hauteur];
+        x-=(coeff*x)/2;
         if(n.deplace){
             if(n.getX()<0){
                 x=taille/2;
