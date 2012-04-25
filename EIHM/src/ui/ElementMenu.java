@@ -91,11 +91,7 @@ public void paint(Graphics arg0) {
     g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
     g2d.setColor(couleur);
     g2d.setStroke(new BasicStroke(3));
-    GradientPaint gradient = new GradientPaint(largeur / 2, 4, couleur, (largeur) / 2, 4 + largeur, new Color(255,255,255,200));
-    g2d.setPaint(gradient);
     g2d.fillOval(4, 4, largeur, largeur);
-    gradient = new GradientPaint(largeur / 2, 4, Color.white, largeur / 2, 4 + largeur / 2, new Color(couleur.getRed(), couleur.getGreen(), couleur.getBlue(), 0));
-    g2d.setPaint(gradient);
     g2d.fillOval(4+largeur/5, 4, 5*largeur/8, largeur/3);
     g2d.setColor(Color.WHITE);
     g2d.setFont(new Font("Calibri", Font.BOLD, 14));
