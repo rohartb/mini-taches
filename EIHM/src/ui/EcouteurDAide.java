@@ -8,7 +8,7 @@ import java.awt.event.WindowListener;
 class EcouteurDAide implements ActionListener {
 
     private Aide a;
-    private int nb;
+    private static int nb;
     private Fenetre f;
 
     public EcouteurDAide(Fenetre f, Aide a, int nb) {
@@ -60,18 +60,10 @@ class EcouteurDAide implements ActionListener {
                 break;
             case 6:
                 nb--;
-                a.lesAides.setIcon(a.i[4]);
-                //as.lesAstuces.setText("Gagner une partie");
-                break;
-            case 7:
-                nb--;
                 a.lesAides.setIcon(a.i[5]);
-                //as.lesAstuces.setText("Modifier jeu");
-                break;
-            case 8:
-                nb--;
-                a.lesAides.setIcon(a.i[6]);
                 a.suivant.setEnabled(true);
+                break;
+                
         }
     }
 
@@ -81,7 +73,6 @@ class EcouteurDAide implements ActionListener {
             case 1:
                 nb++;
                 a.lesAides.setIcon(a.i[1]);
-                //as.lesAstuces.setText("Jeu Avalam");
                 break;
             case 2:
                 a.lesAides.setIcon(a.i[2]);
@@ -99,20 +90,10 @@ class EcouteurDAide implements ActionListener {
                 //as.lesAstuces.setText("Gagner une partie");
                 break;
             case 5:
-                nb++;
-                a.lesAides.setIcon(a.i[5]);
-                //as.lesAstuces.setText("Modifier jeu");
-                break;
-            case 6:
-                //as.suivant.setEnabled(false);
-                nb++;
-                a.lesAides.setIcon(a.i[6]);
-                //as.lesAstuces.setText("Fin");
-                break;
-            case 7:
                 a.suivant.setEnabled(false);
                 nb++;
-                a.lesAides.setIcon(a.i[7]);
+                a.lesAides.setIcon(a.i[5]);
+                break;      
         }
 
     }

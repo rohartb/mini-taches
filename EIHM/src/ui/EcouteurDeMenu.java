@@ -46,7 +46,7 @@ class EcouteurDeMenu implements ActionListener {
             f.e.coller();
         }
 
-        if(e.getActionCommand().equals("aide")){
+        if(e.getActionCommand().equals("astuce")){
             f.changementEtat("aide");
         }
 

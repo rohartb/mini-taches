@@ -9,31 +9,27 @@ public class Aide extends JDialog{
     JButton precedent;
     JButton suivant;
     JLabel lesAides;
-    ImageIcon i[] = new ImageIcon[8];
+    ImageIcon i[] = new ImageIcon[7];
     Fenetre f;
     
     public Aide(Fenetre f){
-        /*i[0] = new ImageIcon("images/aide1.png");
-        i[1] = new ImageIcon("images/aide2.png");
-        i[2] = new ImageIcon("images/aide3.png");
-        i[3] = new ImageIcon("images/aide4.png");
-        i[4] = new ImageIcon("images/aide5.png");
-        i[5] = new ImageIcon("images/aide6.png");
-        i[6] = new ImageIcon("images/aide7.png");
-        i[7] = new ImageIcon("images/aide8.png");*/
+        i[0] = new ImageIcon("Image/aide1.png");
+        i[1] = new ImageIcon("Image/aide2.png");
+        i[2] = new ImageIcon("Image/aide3.png");
+        i[3] = new ImageIcon("Image/aide4.png");
+        i[4] = new ImageIcon("Image/aide5.png");
+        i[5] = new ImageIcon("Image/aide6.png");
 
 	this.f = f;
 	this.nbAide = 1;
+        lesAides = new JLabel(i[0]);
 	this.eas = new EcouteurDAide(f,this,this.nbAide);
 
 	this.setTitle("Aide");
         this.setModal(true);
 
+        
         this.setResizable(false);
-        //this.addWindowListener(eas);
-	lesAides = new JLabel();
-
-
 	// Quitter / Suivant / Précédent
 
 	JPanel panelBouton = new JPanel(); //Panel du boutons ok/annuler
@@ -55,9 +51,9 @@ public class Aide extends JDialog{
 
 	this.precedent.setEnabled(false);
 
-	this.add(lesAides, BorderLayout.NORTH);
+	this.add(lesAides, BorderLayout.CENTER);
 	this.add(panelBouton,BorderLayout.SOUTH);
-	this.setSize(500,410);
+	this.setSize(new Dimension(740,560));
 
 
 	// Position au centre de la fenetre principale
