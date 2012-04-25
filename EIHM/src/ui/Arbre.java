@@ -13,9 +13,12 @@ import java.util.Iterator;
 public class Arbre { 
     public Noeud root;
     static int i=0;
+    public int[] hauteur=new int[50];
+    private int h=0;
 
     public Arbre(Noeud r){
         root=r;
+        //hauteur
     }
 
     public Arbre(){
@@ -48,5 +51,24 @@ public class Arbre {
         while(it.hasNext()){
             deselect((Noeud) it.next());
         }
+    }
+    
+    public void calculHauteur(){
+        Noeud n = root;
+        for(int i=0; i<hauteur.length;i++){
+            hauteur[i]=0;
+        }
+        calcul(n);
+        h=0;
+    }
+    
+    private void calcul(Noeud n){
+        Iterator it = n.fils.iterator();
+        hauteur[h]++;
+        while(it.hasNext()){
+            h++;
+            calcul((Noeud) it.next());
+        }
+        h--;
     }
 }
