@@ -37,6 +37,7 @@ public class EcouteurOption implements ActionListener {
         }
         else if(ae.getActionCommand().equals("coupb")){
             if(f.barreLaterale.bl.papa!=null){
+                f.barreInfo.setInfo("couper");
                 cop= copie(f.barreLaterale.bl.papa);
                 f.aire.removePanel(f.barreLaterale.bl.papa);               
                 f.arbre.supprimerArbre(f.barreLaterale.bl.papa);
@@ -45,11 +46,13 @@ public class EcouteurOption implements ActionListener {
         }
         else if(ae.getActionCommand().equals("copb")){
             if(f.barreLaterale.bl.papa!=null){
+                f.barreInfo.setInfo("copier");
                 cop= f.barreLaterale.bl.papa;           
             }
         }
         else if(ae.getActionCommand().equals("collb")){
             if(cop!=null){
+                f.barreInfo.setInfo("coller");
                 col = new Noeud(null,cop.nom,cop.type,cop.liaison);
                 col.fils = new ArrayList<Noeud>();
                 col=copieEtEcouteur(cop);//copie+ajout des écouteurs             

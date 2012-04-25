@@ -21,6 +21,7 @@ class EcouteurDAide implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String cmd = e.getActionCommand();
         if (cmd.equals("quitter")) {
+            f.barreInfo.setInfo("rien");
             traiterQuitter();
         } else if (cmd.equals("precedent")) {
             traiterPrecedent();
