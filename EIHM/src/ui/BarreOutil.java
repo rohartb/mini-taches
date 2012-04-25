@@ -6,16 +6,24 @@ public class BarreOutil extends JPanel {
     Fenetre f;
     JButton augmenterEtage;
     JButton diminuerEtage;
+    JButton annuler;
+    JButton retablir;
+    JButton couper;
+    JButton copier;
+    JButton coller;
+    JButton supprimer;
     
     public BarreOutil(Fenetre f){
         this.f = f;
         JButton nouveau = new JButton(new ImageIcon("Image/new.gif"));
         JButton ouvrir = new JButton(new ImageIcon("Image/open.gif"));
         JButton sauvegarder = new JButton(new ImageIcon("Image/save.gif"));
-        JButton couper = new JButton(new ImageIcon("Image/cut.gif"));
-        JButton copier = new JButton(new ImageIcon("Image/copy.gif"));
-        JButton coller = new JButton(new ImageIcon("Image/paste.gif"));
-        JButton supprimer = new JButton(new ImageIcon("Image/delete.jpg"));
+        couper = new JButton(new ImageIcon("Image/cut.gif"));
+        copier = new JButton(new ImageIcon("Image/copy.gif"));
+        coller = new JButton(new ImageIcon("Image/paste.gif"));
+        supprimer = new JButton(new ImageIcon("Image/delete.jpg"));
+        annuler = new JButton(new ImageIcon("Image/undo.gif"));
+        retablir = new JButton(new ImageIcon("Image/redo.gif"));
         augmenterEtage = new JButton(new ImageIcon("Image/rise.gif"));
         diminuerEtage = new JButton(new ImageIcon("Image/unrise.gif"));
         
@@ -40,21 +48,37 @@ public class BarreOutil extends JPanel {
         couper.setActionCommand("coupb");
         couper.setPreferredSize(new Dimension(30,30));
         couper.addActionListener(eo);
+        couper.setEnabled(false);
         
         copier.setToolTipText("Copier");
         copier.setActionCommand("copb");
         copier.setPreferredSize(new Dimension(30,30));
         copier.addActionListener(eo);
+        copier.setEnabled(true);
                 
         coller.setToolTipText("Coller");
         coller.setPreferredSize(new Dimension(30,30));
         coller.setActionCommand("collb");
-        coller.addActionListener(eo);      
+        coller.addActionListener(eo);
+        coller.setEnabled(false);
         
         supprimer.setToolTipText("Supprimer");
         supprimer.setPreferredSize(new Dimension(30,30));
         supprimer.setActionCommand("suppb");
-        supprimer.addActionListener(eo);  
+        supprimer.addActionListener(eo);
+        supprimer.setEnabled(false);
+        
+        annuler.setToolTipText("Annuler");
+        annuler.setPreferredSize(new Dimension(30,30));
+        annuler.setActionCommand("annuler");
+        annuler.addActionListener(eo);
+        annuler.setEnabled(false);
+        
+        retablir.setToolTipText("Retablir");
+        retablir.setPreferredSize(new Dimension(30,30));
+        retablir.setActionCommand("retablir");
+        retablir.addActionListener(eo); 
+        retablir.setEnabled(false);
         
         augmenterEtage.setToolTipText("Augmenter niveau");
         augmenterEtage.setPreferredSize(new Dimension(30,30));
@@ -76,6 +100,8 @@ public class BarreOutil extends JPanel {
         this.add(copier);
         this.add(coller);
         this.add(supprimer);
+        this.add(annuler);
+        this.add(retablir);
         this.add(augmenterEtage);
         this.add(diminuerEtage);
         

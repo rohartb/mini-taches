@@ -27,10 +27,23 @@ class EcouteurDeMenu implements ActionListener {
             f.changementEtat("quitter");
         }
         if(e.getActionCommand().equals("annuler")){
-            
+            f.e.annuler();           
         }
-        if(e.getActionCommand().equals("restaurer")){
-            
+        if(e.getActionCommand().equals("retablir")){
+            f.e.retablir();
+        }
+        if(e.getActionCommand().equals("couper")){
+            if(f.barreLaterale.bl.papa!=null){
+                f.e.couper(f.barreLaterale.bl.papa);
+            }         
+        }
+        if(e.getActionCommand().equals("copier")){
+            if(f.barreLaterale.bl.papa!=null){
+                f.e.copier(f.barreLaterale.bl.papa);
+            }
+        }
+        if(e.getActionCommand().equals("coller")){
+            f.e.coller();
         }
 
         if(e.getActionCommand().equals("aide")){

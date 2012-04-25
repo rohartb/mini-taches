@@ -21,9 +21,18 @@ class EcouteurSouris implements MouseListener{
     @Override
     public void mouseClicked(MouseEvent me) {
         f.arbre.deselect(f.arbre.root);
+        f.menubar.coller.setEnabled(false);
+        f.menubar.copier.setEnabled(false);
+        f.menubar.couper.setEnabled(false);
+        f.barre.barreOutil.coller.setEnabled(false);
+        f.barre.barreOutil.copier.setEnabled(false);
+        f.barre.barreOutil.couper.setEnabled(false);
+        f.barre.barreOutil.supprimer.setEnabled(false);
+        
         f.barreInfo.setInfo("rien");
         f.barreLaterale.bloquer();
         f.aire.destroyBulles();
+        f.barreLaterale.bl.setPapa(null);      
         f.aire.repaint();
     }
 

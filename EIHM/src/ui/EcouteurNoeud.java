@@ -66,6 +66,22 @@ public class EcouteurNoeud implements MouseListener,MouseMotionListener {
         }
         f.arbre.deselect(f.arbre.root);
         noeud.select = true;
+        if(noeud.getPapa()!=null){
+            f.menubar.couper.setEnabled(true);;
+            f.barre.barreOutil.couper.setEnabled(true);
+            f.barre.barreOutil.supprimer.setEnabled(true);
+        }else{
+            f.barre.barreOutil.couper.setEnabled(false);
+            f.barre.barreOutil.supprimer.setEnabled(false);
+            f.menubar.couper.setEnabled(false);
+        }
+        f.barre.barreOutil.copier.setEnabled(true);
+        f.menubar.copier.setEnabled(true);
+        if(f.e.cop!=null){
+            f.barre.barreOutil.coller.setEnabled(true);
+            f.menubar.coller.setEnabled(true);
+        }        
+        
         f.aire.repaint();
     }
 

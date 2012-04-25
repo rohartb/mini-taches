@@ -17,11 +17,16 @@ public class Fenetre extends JFrame implements Runnable {
     Arbre arbre;
     FenetreDemarrage fd;
     Preference p;
+    Historique h;
+    Edition e;
     EcouteurNoeud souris;
     String[] options = {"Sauvegarder", "Continuer sans sauvegarder", "Annuler"};
 
     public Fenetre(String name) {
         this.name = name;
+        h = new Historique(this);
+        e= new Edition(this);
+        
     }
 
     public void reinitialiser() {
@@ -130,7 +135,7 @@ public class Fenetre extends JFrame implements Runnable {
         menubar = new MenuBar(this);
         //ajout BarreOutil
         //BarreOutil barreOutil = new BarreOutil();
-        arbre = new Arbre(new Noeud(null, "Root", 0, 0));
+        arbre = new Arbre(new Noeud(null, "Root", 1, 0));
         souris = new EcouteurNoeud(this, arbre.root);
         arbre.root.select=true;
         

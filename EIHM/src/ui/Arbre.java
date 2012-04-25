@@ -22,7 +22,7 @@ public class Arbre {
     }
 
     public Arbre(){
-        root= new Noeud(null, "Root", 0, 0);
+        root= new Noeud(null, "Root", 1, 0);
     }
 
  
