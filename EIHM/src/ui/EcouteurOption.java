@@ -63,7 +63,8 @@ public class EcouteurOption implements ActionListener {
             for (int i=0; i<f.arbre.root.getNbFils();i++){
                 y = f.arbre.root.fils.get(i).getY() + 10;
                 f.arbre.root.fils.get(i).setY(y);                
-            }          
+            }    
+            f.aire.repaint();
         }
         
         else if(ae.getActionCommand().equals("dimn")){
@@ -72,6 +73,7 @@ public class EcouteurOption implements ActionListener {
                 y = f.arbre.root.fils.get(i).getY() - 10;
                 f.arbre.root.fils.get(i).setY(y);                
             } 
+            f.aire.repaint();
         }
         
     }
