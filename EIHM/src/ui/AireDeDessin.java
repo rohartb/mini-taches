@@ -51,7 +51,7 @@ public class AireDeDessin extends JComponent {
         
         int width = wTreeF-wTreeD;
         x=wTreeD + width/2;
- 
+        int yInter = y;
         if(n.deplace){
             x=n.getX();
             y=n.getY();
@@ -61,6 +61,7 @@ public class AireDeDessin extends JComponent {
         draw.drawString(n.nom, x-20, y+55);
         n.setX(x);
         n.setY(y);
+        y=yInter;
         
         if(n.select==true){
             draw.setColor(Color.red);
