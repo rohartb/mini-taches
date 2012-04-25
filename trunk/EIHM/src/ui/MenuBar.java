@@ -6,6 +6,12 @@ import javax.swing.*;
 
 public class MenuBar extends JMenuBar {
     Fenetre f;
+    JMenuItem annuler;
+    JMenuItem retablir;
+    JMenuItem couper;
+    JMenuItem copier;
+    JMenuItem coller;
+    
 
     public MenuBar(Fenetre f) {
         this.f = f;
@@ -52,18 +58,41 @@ public class MenuBar extends JMenuBar {
         //                                              //
         //////////////////////////////////////////////////
         
-        JMenuItem annuler = new JMenuItem("Annuler");
+        annuler = new JMenuItem("Annuler");
         annuler.addActionListener(new EcouteurDeMenu(f));
         annuler.setActionCommand("annuler");
         annuler.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, Event.CTRL_MASK));
+        annuler.setEnabled(false);
         
-        JMenuItem retablir = new JMenuItem("Retablir");
+        retablir = new JMenuItem("Retablir");
         retablir.addActionListener(new EcouteurDeMenu(f));
         retablir.setActionCommand("retablir");
         retablir.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Y, Event.CTRL_MASK));
+        retablir.setEnabled(false);
+        
+        couper = new JMenuItem("Couper");
+        couper.addActionListener(new EcouteurDeMenu(f));
+        couper.setActionCommand("couper");
+        couper.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, Event.CTRL_MASK));
+        couper.setEnabled(false);        
+        
+        copier = new JMenuItem("Copier");
+        copier.addActionListener(new EcouteurDeMenu(f));
+        copier.setActionCommand("copier");
+        copier.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, Event.CTRL_MASK));
+        copier.setEnabled(true);
+        
+        coller = new JMenuItem("Coller");
+        coller.addActionListener(new EcouteurDeMenu(f));
+        coller.setActionCommand("coller");
+        coller.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_V, Event.CTRL_MASK));
+        couper.setEnabled(false);
         
         edition.add(annuler);
         edition.add(retablir);
+        edition.add(couper);
+        edition.add(copier);
+        edition.add(coller);
   
         
         
