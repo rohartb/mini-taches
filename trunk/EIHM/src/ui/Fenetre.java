@@ -80,6 +80,7 @@ public class Fenetre extends JFrame implements Runnable {
         }
         if (etat.equals("aide")) {
             aide.setVisible(true);
+            barreInfo.info.setText("Accés à l'aide");
         }
 
         if (etat.equals("propos")) {
