@@ -18,6 +18,7 @@ import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JPanel;
@@ -30,6 +31,7 @@ import javax.swing.JPanel;
  */
 public class ElementMenu extends JPanel {
 
+    public Fenetre f;
     /**
      * largeur de la bulle
      */
@@ -54,11 +56,12 @@ public class ElementMenu extends JPanel {
      * @param couleur : la couleur
      * @param taille : la taille
      */
-    public ElementMenu(String texte, Color couleurNormal, Color couleurActif, int taille) {
+    public ElementMenu(String texte, Color couleurNormal, Color couleurActif, int taille, Fenetre f) {
+        this.f = f;  
         this.couleur = couleurNormal;
         this.couleurNormal = couleurNormal;
         this.couleurActif = couleurActif;
-        this.texte = texte;
+        this.texte = texte;    
         largeur = taille;
         this.setSize(new Dimension(largeur + 10, largeur + 10));
         this.setOpaque(false);
@@ -67,10 +70,33 @@ public class ElementMenu extends JPanel {
 
     private void ajouterListener() {
         addMouseListener(new MouseListener() {
-
+            
             public void mouseClicked(MouseEvent e) {
-                if (menu.equals("Supprimer")) {
+                if(texte.equals("supprimer")){   
+                    f.changementEtat("supprimer");
+                    f.aire.destroyBulles();
                 }
+                if(texte.equals("propriété")){   
+                    f.changementEtat("prop");
+                    f.aire.destroyBulles();
+                }
+                if(texte.equals("couper")){   
+                    f.changementEtat("couper");
+                    f.aire.destroyBulles();
+                }
+                if(texte.equals("copier")){   
+                    f.changementEtat("copier");
+                    f.aire.destroyBulles();
+                }
+                if(texte.equals("coller")){   
+                    f.changementEtat("coller");
+                    f.aire.destroyBulles();
+                }
+                if(texte.equals("replacer")){   
+                    f.changementEtat("replacer");
+                    f.aire.destroyBulles();
+                }
+               f.aire.repaint();
             }
 
             public void mouseReleased(MouseEvent e) {
@@ -104,7 +130,7 @@ public class ElementMenu extends JPanel {
         g2d.fillOval(4, 4, largeur, largeur);
         g2d.fillOval(4 + largeur / 5, 4, 5 * largeur / 8, largeur / 3);
         g2d.setColor(Color.BLACK);
-        g2d.setFont(new Font("Arial", Font.BOLD, 12));
+        g2d.setFont(new Font("Arial", Font.BOLD, 10));
         FontMetrics fm = g2d.getFontMetrics();
         int x = (this.getWidth() - fm.stringWidth(texte)) / 2;
         int y = (fm.getAscent() + (this.getHeight()
@@ -123,4 +149,5 @@ public class ElementMenu extends JPanel {
     public Color getCouleurActif() {
         return this.couleurActif;
     }
+
 }
