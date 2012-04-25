@@ -81,15 +81,15 @@ public class ElementMenu extends JPanel {
                     f.aire.destroyBulles();
                 }
                 if(texte.equals("couper")){   
-                    f.changementEtat("couper");
+                    f.e.couper(f.barreLaterale.bl.papa);
                     f.aire.destroyBulles();
                 }
                 if(texte.equals("copier")){   
-                    f.changementEtat("copier");
+                    f.e.copier(f.barreLaterale.bl.papa);
                     f.aire.destroyBulles();
                 }
                 if(texte.equals("coller")){   
-                    f.changementEtat("coller");
+                    f.e.coller();
                     f.aire.destroyBulles();
                 }
                 if(texte.equals("replacer")){   
