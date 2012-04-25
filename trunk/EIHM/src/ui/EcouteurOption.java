@@ -50,7 +50,7 @@ public class EcouteurOption implements ActionListener {
         }
         else if(ae.getActionCommand().equals("collb")){
             if(cop!=null){
-                col = new Noeud(null,cop.nom,cop.type,cop.liaison,cop.propriete);
+                col = new Noeud(null,cop.nom,cop.type,cop.liaison);
                 col.fils = new ArrayList<Noeud>();
                 col=copieEtEcouteur(cop);//copie+ajout des écouteurs             
                 coller(col);
@@ -74,11 +74,11 @@ public class EcouteurOption implements ActionListener {
     private Noeud copie(Noeud cop) {
         Noeud res;
         if(cop.fils.isEmpty()){
-            res = new Noeud(null,cop.nom,cop.type,cop.liaison,cop.propriete);
+            res = new Noeud(null,cop.nom,cop.type,cop.liaison);
             res.fils = new ArrayList<Noeud>();
             return res;
         }else{
-            Noeud p = new Noeud(null,cop.nom,cop.type,cop.liaison,cop.propriete);
+            Noeud p = new Noeud(null,cop.nom,cop.type,cop.liaison);
             p.fils = new ArrayList<Noeud>();
             while(i<cop.fils.size()){
                 res = copie(cop.fils.get(i));

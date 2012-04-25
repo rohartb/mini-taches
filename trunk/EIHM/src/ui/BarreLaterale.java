@@ -20,6 +20,9 @@ class BarreLaterale extends JPanel{
     JPanel right;
     Fenetre f;
     BLListener bl;
+    JToggleButton but13;
+    JToggleButton but14;
+    JToggleButton but15;
     
     public BarreLaterale(Fenetre f){
         
@@ -181,23 +184,26 @@ class BarreLaterale extends JPanel{
         JPanel prop = new JPanel();
         prop.setBackground(new Color(153,204,255));
         
-        JButton but13 = new JButton(new ImageIcon("Image/iterative.gif"));
+        but13 = new JToggleButton(new ImageIcon("Image/iterative.gif"));
         but13.setPreferredSize(new Dimension(50,50));
         but13.setActionCommand("prop1");
         but13.addActionListener(ecouteur);
         but13.setBackground(Color.white);
+        but13.setToolTipText("Iteration d'une tache");
         
-        JButton but14 = new JButton(new ImageIcon("Image/choice.gif"));
+        but14 = new JToggleButton(new ImageIcon("Image/choice.gif"));
         but14.setPreferredSize(new Dimension(50,50));
         but14.setActionCommand("prop2");
         but14.addActionListener(ecouteur);
         but14.setBackground(Color.white);
+        but14.setToolTipText("Tache optionnelle");
         
-        JButton but15 = new JButton(new ImageIcon("Image/arrow.gif"));
+        but15 = new JToggleButton(new ImageIcon("Image/arrow.gif"));
         but15.setPreferredSize(new Dimension(50,50));
         but15.setActionCommand("prop3");
         but15.addActionListener(ecouteur);
         but15.setBackground(Color.white);
+        but15.setToolTipText("Tache connectée");
         
         prop.add(but13);
         prop.add(but14);
@@ -222,5 +228,35 @@ class BarreLaterale extends JPanel{
         this.add(center, BorderLayout.CENTER);
         this.add(right,BorderLayout.EAST);
         this.setVisible(true);
+    }
+
+    public void majBouton(Noeud noeud) {
+
+        but13.setEnabled(true);
+        but14.setEnabled(true);
+        but15.setEnabled(true);
+
+        but13.setSelected(false);
+        but14.setSelected(false);
+        but15.setSelected(false);
+
+        if(noeud.propriete[0]==1){
+            but13.setSelected(true);
+        }
+        if(noeud.propriete[1]==1){
+            but14.setSelected(true);
+        }
+        if(noeud.propriete[2]==1){
+            but15.setSelected(true);
+        }
+    }
+
+    void bloquer() {
+        but13.setSelected(false);
+        but14.setSelected(false);
+        but15.setSelected(false);
+        but13.setEnabled(false);
+        but14.setEnabled(false);
+        but15.setEnabled(false);
     }
 }

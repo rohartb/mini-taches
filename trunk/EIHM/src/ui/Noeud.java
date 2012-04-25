@@ -4,6 +4,7 @@
  */
 package ui;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 
@@ -17,20 +18,23 @@ public class Noeud {
     String nom;
     int type;
     int liaison;
-    int propriete;
+    int[] propriete;
     private int x;
     private int y;
     Boolean select=false;
     Boolean deplace=false;
     JPanel panel;
     
-    public Noeud(Noeud dad, String n, int t, int l, int p){
+    public Noeud(Noeud dad, String n, int t, int l){
         papa=dad;
         nom=n;
         type=t;
         liaison=l;
-        propriete=p;
-        
+        propriete= new int[3];
+        propriete[0]=0;
+        propriete[1]=0;
+        propriete[2]=0;
+
         panel = new JPanel();
         
     }

@@ -68,11 +68,11 @@ public class Fenetre extends JFrame implements Runnable {
 
                 if (choix == JOptionPane.YES_OPTION) {
                     changementEtat("sauvegarder");
-                    arbre = new Arbre(new Noeud(null, "papa", 0, 0, 0));
+                    arbre = new Arbre(new Noeud(null, "papa", 0, 0));
                     aire.repaint();
                     barreInfo.info.setText("Nouveau");
                 } else if (choix == JOptionPane.NO_OPTION) {
-                    arbre = new Arbre(new Noeud(null, "papa", 0, 0, 0));
+                    arbre = new Arbre(new Noeud(null, "papa", 0, 0));
                     aire.repaint();
                     barreInfo.info.setText("Nouveau");
                 }
@@ -101,11 +101,11 @@ public class Fenetre extends JFrame implements Runnable {
 
             if (choix == JOptionPane.YES_OPTION) {
                 changementEtat("sauvegarder");
-                arbre = new Arbre(new Noeud(null, "papa", 0, 0, 0));
+                arbre = new Arbre(new Noeud(null, "papa", 0, 0));
                 aire.repaint();
                 barreInfo.info.setText("Nouveau");
             } else if (choix == JOptionPane.NO_OPTION) {
-                arbre = new Arbre(new Noeud(null, "papa", 0, 0, 0));
+                arbre = new Arbre(new Noeud(null, "papa", 0, 0));
                 aire.repaint();
                 barreInfo.info.setText("Nouveau");
             }
@@ -127,7 +127,7 @@ public class Fenetre extends JFrame implements Runnable {
         menubar = new MenuBar(this);
         //ajout BarreOutil
         //BarreOutil barreOutil = new BarreOutil();
-        arbre = new Arbre(new Noeud(null, "Root", 0, 0, 0));
+        arbre = new Arbre(new Noeud(null, "Root", 0, 0));
         EcouteurNoeud souris = new EcouteurNoeud(this, arbre.root);
         arbre.root.panel.addMouseListener(souris);
         arbre.root.panel.addMouseMotionListener(souris);
@@ -188,7 +188,6 @@ public class Fenetre extends JFrame implements Runnable {
         setExtendedState(this.MAXIMIZED_BOTH);
 
         addWindowListener(new EcouteurFenetreIcone(this, fd));
-
         setVisible(true);
 
         // On vérifie si il faut afficher la fenetre de démarrage

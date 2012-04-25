@@ -21,6 +21,7 @@ class EcouteurSouris implements MouseListener{
     @Override
     public void mouseClicked(MouseEvent me) {
         f.arbre.deselect(f.arbre.root);
+        f.barreLaterale.bloquer();
         f.aire.destroyBulles();
         f.aire.repaint();
     }
