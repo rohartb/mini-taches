@@ -139,10 +139,11 @@ public class Fenetre extends JFrame implements Runnable {
         //aire.addMouseListener(new EcouteurNoeud(this));
         //ajout BarreInfo
         barreInfo = new BarreInfo();
+        barre = new Barre(this);
         barreLaterale = new BarreLaterale(this);
         //ajout BarrePropriete
         //BarrePropriete barrePropriete = new BarrePropriete();
-        barre = new Barre(this);
+        
 
 
 
@@ -185,7 +186,10 @@ public class Fenetre extends JFrame implements Runnable {
         pack();
         //setDefaultLookAndFeelDecorated(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        setMinimumSize(new Dimension(1000,550));
         setExtendedState(this.MAXIMIZED_BOTH);
+        
 
         addWindowListener(new EcouteurFenetreIcone(this, fd));
         setVisible(true);

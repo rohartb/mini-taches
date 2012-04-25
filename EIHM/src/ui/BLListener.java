@@ -35,7 +35,7 @@ class BLListener implements ActionListener {
             if(cmd.equals("user")){
                 Noeud fils = new Noeud(papa,"sans_nom",1,0);
                 // 1: type, 0: pas de liaison, 0: pas de propriete
-                papa.ajouterFils(fils);
+                papa.ajouterFils(fils, f);
                 EcouteurNoeud souris = new EcouteurNoeud(f, fils);
                 fils.panel.addMouseListener(souris);
                 fils.panel.addMouseMotionListener(souris);

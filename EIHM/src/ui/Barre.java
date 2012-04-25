@@ -5,11 +5,13 @@ import java.awt.*;
 
 public class Barre extends JPanel {
     Fenetre f;
+    BarreOutil barreOutil;
+    
     
     public Barre(Fenetre f) {
          this.f = f;
          this.setLayout(new BorderLayout());
-         BarreOutil barreOutil = new BarreOutil(f);
+         barreOutil = new BarreOutil(f);
          BarrePropriete barrePropriete = new BarrePropriete();
          BarreZoom barreZ = new BarreZoom(f);
          
@@ -19,5 +21,6 @@ public class Barre extends JPanel {
 
          this.setVisible(true);
     }
+
     
 }

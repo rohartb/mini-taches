@@ -1,6 +1,8 @@
 package ui;
 
 import java.awt.BorderLayout;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.io.*;
 import javax.swing.JButton;
@@ -13,6 +15,9 @@ public class Preference extends JDialog {
         setTitle("Préférences");
         setSize(500, 410);
         setVisible(true);
+        
+        Image icone = Toolkit.getDefaultToolkit().getImage("Image/check.png");
+        setIconImage(icone);
         
         JCheckBox box = new JCheckBox();
         box.setText("Afficher de nouveau la fenêtre de démarrage");       
