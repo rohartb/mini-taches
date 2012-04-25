@@ -60,7 +60,16 @@ public class AireDeDessin extends JComponent {
         }
 
         n.panel.setBounds(x-(taille/2), y, taille, taille);
-        draw.drawString(n.nom, x-(taille/2), y+taille+15);
+
+        String lala = n.nom;
+        if(n.propriete[1]==1){
+            lala = "["+lala +"]";
+        }
+        if (n.propriete[0] == 1) {
+            lala =  lala + "*";
+        }
+        draw.drawString(lala, x-(taille/2), y+taille+15);
+
         n.setX(x);
         n.setY(y);
         y=yInter;
