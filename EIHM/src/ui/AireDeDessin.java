@@ -64,7 +64,7 @@ public class AireDeDessin extends JComponent {
         
         if(n.select==true){
             draw.setColor(Color.red);
-            draw.drawRect(x-21, y-1, 42, 42);
+            draw.drawRect(x-21, y-1, 41, 41);
             draw.setColor(Color.black);
         }
         
