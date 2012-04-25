@@ -116,48 +116,56 @@ class BarreLaterale extends JPanel{
         but5.setActionCommand("priorite1");
         but5.addActionListener(ecouteur);
         but5.setBackground(Color.white);
+        but5.setToolTipText("Au choix");
         
         JButton but6 = new JButton(new ImageIcon("Image/priorite2.png"));
         but6.setPreferredSize(new Dimension(50,50));
         but6.setActionCommand("priorite2");
         but6.addActionListener(ecouteur);
         but6.setBackground(Color.white);
+        but6.setToolTipText("Ordre independant");
         
         JButton but7 = new JButton(new ImageIcon("Image/priorite3.png"));
         but7.setPreferredSize(new Dimension(50,50));
         but7.setActionCommand("priorite3");
         but7.addActionListener(ecouteur);
         but7.setBackground(Color.white);
+        but7.setToolTipText("Entrelacement");
         
         JButton but8 = new JButton(new ImageIcon("Image/priorite4.png"));
         but8.setPreferredSize(new Dimension(50,50));
         but8.setActionCommand("priorite4");
         but8.addActionListener(ecouteur);
         but8.setBackground(Color.white);
+        but8.setToolTipText("Synchronisation");
         
         JButton but9 = new JButton(new ImageIcon("Image/priorite5.png"));
         but9.setPreferredSize(new Dimension(50,50));
         but9.setActionCommand("priorite5");
         but9.addActionListener(ecouteur);
         but9.setBackground(Color.white);
+        but9.setToolTipText("Désactivation");
         
         JButton but10 = new JButton(new ImageIcon("Image/priorite6.png"));
         but10.setPreferredSize(new Dimension(50,50));
         but10.setActionCommand("priorite6");
         but10.addActionListener(ecouteur);
         but10.setBackground(Color.white);
+        but10.setToolTipText("Suspendre Reprendre");
         
         JButton but11 = new JButton(new ImageIcon("Image/priorite7.png"));
         but11.setPreferredSize(new Dimension(50,50));
         but11.setActionCommand("priorite7");
         but11.addActionListener(ecouteur);
         but11.setBackground(Color.white);
+        but11.setToolTipText("Activation séquentielle");
         
         JButton but12 = new JButton(new ImageIcon("Image/priorite8.png"));
         but12.setPreferredSize(new Dimension(50,50));
         but12.setActionCommand("priorite8");
         but12.addActionListener(ecouteur);
         but12.setBackground(Color.white);
+        but12.setToolTipText("Activation séquentielle d'information");
         
         paneSudMileu1.add(but5);
         paneSudMileu1.add(but6);

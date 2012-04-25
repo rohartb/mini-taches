@@ -22,6 +22,7 @@ public class AireDeDessin extends JComponent {
     Fenetre f;
     java.util.List<ElementMenu> dest = new ArrayList<ElementMenu>();
     Boolean menuOn = false;
+    Boolean zoom = false;
     
     public AireDeDessin(Fenetre f) {
         this.f = f;
