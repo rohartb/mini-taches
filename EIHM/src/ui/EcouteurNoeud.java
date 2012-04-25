@@ -67,7 +67,6 @@ public class EcouteurNoeud implements MouseListener,MouseMotionListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        //f.aire.drag=true;
     }
 
     @Override
@@ -84,6 +83,7 @@ public class EcouteurNoeud implements MouseListener,MouseMotionListener {
     @Override
     public void mouseDragged(MouseEvent me) {
             f.aire.deplacer(me.getX(), me.getY(), noeud, pane);
+            f.aire.destroyBulles();
     }
 
     @Override

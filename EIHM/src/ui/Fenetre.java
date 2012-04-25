@@ -19,6 +19,7 @@ public class Fenetre extends JFrame implements Runnable {
     Arbre arbre;
     FenetreDemarrage fd;
     Preference p;
+    EcouteurNoeud souris;
 
     public Fenetre(String name) {
         this.name = name;
@@ -32,17 +33,26 @@ public class Fenetre extends JFrame implements Runnable {
 
                 if (choix == JOptionPane.YES_OPTION) {
                     changementEtat("sauvegarder");
+                    aire.removePanel(arbre.root);
                     arbre.supprimerArbre(arbre.root);
                     arbre = new Arbre();
-                    //aire.removePanel(arbre.root);
                     aire.noeud=arbre.root;
+                    souris.noeud=arbre.root;
+                    arbre.root.panel.addMouseListener(souris);
+                    arbre.root.panel.addMouseMotionListener(souris);
+                    arbre.root.panel.add(new JLabel(new ImageIcon("Image/user.png")));
                     aire.repaint();
                     barreLaterale.bl.setPapa(arbre.root);
                     barreInfo.info.setText("Nouveau");
                 } else if (choix == JOptionPane.NO_OPTION) {
+                    aire.removePanel(arbre.root);
                     arbre.supprimerArbre(arbre.root);
                     arbre = new Arbre();
                     aire.noeud=arbre.root;
+                    souris.noeud=arbre.root;
+                    arbre.root.panel.addMouseListener(souris);
+                    arbre.root.panel.addMouseMotionListener(souris);
+                    arbre.root.panel.add(new JLabel(new ImageIcon("Image/user.png")));
                     aire.repaint();
                     barreLaterale.bl.setPapa(arbre.root);
                     barreInfo.info.setText("Nouveau");
@@ -62,14 +72,19 @@ public class Fenetre extends JFrame implements Runnable {
             if (selFile != null && arbre.root.getNbFils() != 0) {
                 String[] options = {"Sauvegarder", "Continuer sans sauvegarder", "Annuler"};
                 int choix = JOptionPane.showOptionDialog(this, "Ouverture de fichier :\nVoulez-vous sauvegarder l'arbre actuel", "Ouvrir", 0, JOptionPane.QUESTION_MESSAGE, new ImageIcon("./images/question.png"), options, options[0]);
-
+                Noeud noeud = new Noeud(null, "papa", 0, 0);
+                EcouteurNoeud souris2 = new EcouteurNoeud(this, noeud);
                 if (choix == JOptionPane.YES_OPTION) {
                     changementEtat("sauvegarder");
-                    arbre = new Arbre(new Noeud(null, "papa", 0, 0));
+                    arbre = new Arbre(noeud);
                     aire.repaint();
                     barreInfo.info.setText("Nouveau");
                 } else if (choix == JOptionPane.NO_OPTION) {
-                    arbre = new Arbre(new Noeud(null, "papa", 0, 0));
+                    arbre = new Arbre(noeud);
+                    aire.noeud=noeud;
+                    arbre.root.panel.addMouseListener(souris2);
+                    arbre.root.panel.addMouseMotionListener(souris2);
+                    arbre.root.panel.add(new JLabel(new ImageIcon("Image/user.png")));
                     aire.repaint();
                     barreInfo.info.setText("Nouveau");
                 }
@@ -119,18 +134,19 @@ public class Fenetre extends JFrame implements Runnable {
     public void run() {
 
         fd = new FenetreDemarrage(this);
-
+        
         //ajout MenuBar
         menubar = new MenuBar(this);
         //ajout BarreOutil
         //BarreOutil barreOutil = new BarreOutil();
         arbre = new Arbre(new Noeud(null, "Root", 0, 0));
-        EcouteurNoeud souris = new EcouteurNoeud(this, arbre.root);
+        souris = new EcouteurNoeud(this, arbre.root);
         arbre.root.panel.addMouseListener(souris);
         arbre.root.panel.addMouseMotionListener(souris);
         arbre.root.panel.add(new JLabel(new ImageIcon("Image/user.png")));
         aire = new AireDeDessin(this);
         aire.addMouseListener(new EcouteurSouris(this));
+        aire.add(new JScrollPane());
         
         aide = new Aide(this);
         //aire.addMouseListener(new EcouteurNoeud(this));
