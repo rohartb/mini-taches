@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 public class EcouteurNoeud implements MouseListener,MouseMotionListener {
     Fenetre f;
     int taille = 40;
-    int rayon = 50;
+    int rayon = 64;
     java.util.List<ElementMenu> items = new ArrayList<ElementMenu>();
     Noeud noeud;
     JPanel pane;
@@ -23,7 +23,7 @@ public class EcouteurNoeud implements MouseListener,MouseMotionListener {
     
     @Override
     public void mouseClicked(MouseEvent e) {
-        f.barreInfo.info.setText("Modification du noeud");
+        f.barreInfo.setInfo("modif");
         f.barreLaterale.bl.setPapa(noeud);
         f.barreLaterale.majBouton(noeud);
         
@@ -71,6 +71,7 @@ public class EcouteurNoeud implements MouseListener,MouseMotionListener {
 
     @Override
     public void mouseReleased(MouseEvent e) {
+        f.barreInfo.setInfo("modif");
     }
 
     @Override
@@ -82,6 +83,7 @@ public class EcouteurNoeud implements MouseListener,MouseMotionListener {
 
     @Override
     public void mouseDragged(MouseEvent me) {
+            f.barreInfo.setInfo("deplacement");
             f.aire.deplacer(me.getX(), me.getY(), noeud, pane);
             f.aire.destroyBulles();
     }
@@ -93,13 +95,13 @@ public class EcouteurNoeud implements MouseListener,MouseMotionListener {
     
     private void build(int xCentre, int yCentre){
         if(items.isEmpty()){
-            items.add(new ElementMenu("Ça", new Color(244, 70, 97), new Color(162, 198, 232), 100));
-            items.add(new ElementMenu("marche", new Color(40, 40, 40), new Color(162, 198, 232), 100));
-            items.add(new ElementMenu("pas", new Color(245, 124, 3), new Color(162, 198, 232), 100));
-            items.add(new ElementMenu("cette", new Color(90, 37, 180), new Color(162, 198, 232), 100));
-            items.add(new ElementMenu("merde", new Color(194, 186, 18), new Color(162, 198, 232), 100));
-            items.add(new ElementMenu("bordel", new Color(15, 88, 149), new Color(162, 198, 232), 100));
-            items.add(new ElementMenu("!!", new Color(84, 170, 47), new Color(162, 198, 232), 100));
+            items.add(new ElementMenu("Ça", new Color(153,204,255), new Color(102 ,153 ,204), 100));
+            items.add(new ElementMenu("marche", new Color(153,204,255), new Color(102 ,153 ,204), 100));
+            items.add(new ElementMenu("pas", new Color(153,204,255), new Color(102 ,153 ,204), 100));
+            items.add(new ElementMenu("cette", new Color(153,204,255), new Color(102 ,153 ,204), 100));
+            items.add(new ElementMenu("merde", new Color(153,204,255), new Color(102 ,153 ,204), 100));
+            items.add(new ElementMenu("bordel", new Color(153,204,255), new Color(102 ,153 ,204), 100));
+            items.add(new ElementMenu("!!", new Color(153,204,255), new Color(102 ,153 ,204), 100));
         }
         if(items!=null && items.size()>0){
             double angle=2*Math.PI/(items.size());

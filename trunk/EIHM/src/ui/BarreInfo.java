@@ -13,10 +13,47 @@ public class BarreInfo extends JPanel {
         this.setVisible(true);
     }
 
-    void changerStatus(String status) {
-        if(status.equals("nouveau")){
-            info.setText("Nouveau projet arbre blabla");
+    void setInfo(String string) {
+        if(string.equals("sauvegarde")){
+            info.setText("Sauvegarde de l'arbre");
         }
+        if(string.equals("non supprime")){
+            info.setText("Le noeud racine en peut pas etre supprimé");
+        }
+        if(string.equals("supression")){
+            info.setText("Suppression d'une tache");
+        }
+        if(string.equals("deplacement")){
+            info.setText("Déplacement de la tache");
+        }
+        if(string.equals("modif")){
+            info.setText("Modification de la tache");
+        }
+        if(string.equals("couper")){
+            info.setText("Tache coupée");
+        }
+        if(string.equals("coller")){
+            info.setText("Tache collée");
+        }
+        if(string.equals("copier")){
+            info.setText("Tache copiée");
+        }
+        if(string.equals("nouveau")){
+            info.setText("Nouvel arbre des taches");
+        }
+        if(string.equals("rien")){
+            info.setText("Aucune tache séléctionée");
+        }
+        if(string.equals("propos")){
+            info.setText("A propos");
+        }
+        if(string.equals("ouvrir")){
+            info.setText("Ouverture du fichier");
+        }
+        if(string.equals("aide")){
+            info.setText("Démarrage de l'aide");
+        } 
+        
     }
     
 }

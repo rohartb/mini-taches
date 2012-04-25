@@ -2,8 +2,6 @@ package ui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.io.*;
 
 public class Fenetre extends JFrame implements Runnable {
@@ -20,121 +18,114 @@ public class Fenetre extends JFrame implements Runnable {
     FenetreDemarrage fd;
     Preference p;
     EcouteurNoeud souris;
+    String[] options = {"Sauvegarder", "Continuer sans sauvegarder", "Annuler"};
 
     public Fenetre(String name) {
         this.name = name;
     }
 
+    public void reinitialiser() {
+        aire.removePanel(arbre.root);
+        arbre.supprimerArbre(arbre.root);
+        arbre = new Arbre();
+        aire.noeud = arbre.root;
+        souris.noeud = arbre.root;
+        arbre.root.panel.addMouseListener(souris);
+        arbre.root.panel.addMouseMotionListener(souris);
+        arbre.root.panel.add(new JLabel(new ImageIcon("Image/user.png")));
+        aire.repaint();
+        barreLaterale.bl.setPapa(arbre.root);
+        barreInfo.setInfo("nouveau");
+    }
+
     public void changementEtat(String etat) {
+
+        // Bouton nouveau
         if (etat.equals("nouveau")) {
             if (arbre.root.getNbFils() != 0) {
-                String[] options = {"Sauvegarder", "Continuer sans sauvegarder", "Annuler"};
                 int choix = JOptionPane.showOptionDialog(this, "Nouvel arbre :\n Voulez-vous sauvegarder l'arbre actuel", "Nouveau", 0, JOptionPane.QUESTION_MESSAGE, new ImageIcon("./images/question.png"), options, options[0]);
-
                 if (choix == JOptionPane.YES_OPTION) {
                     changementEtat("sauvegarder");
-                    aire.removePanel(arbre.root);
-                    arbre.supprimerArbre(arbre.root);
-                    arbre = new Arbre();
-                    aire.noeud=arbre.root;
-                    souris.noeud=arbre.root;
-                    arbre.root.panel.addMouseListener(souris);
-                    arbre.root.panel.addMouseMotionListener(souris);
-                    arbre.root.panel.add(new JLabel(new ImageIcon("Image/user.png")));
-                    aire.repaint();
-                    barreLaterale.bl.setPapa(arbre.root);
-                    barreInfo.info.setText("Nouveau");
+                    reinitialiser();
                 } else if (choix == JOptionPane.NO_OPTION) {
-                    aire.removePanel(arbre.root);
-                    arbre.supprimerArbre(arbre.root);
-                    arbre = new Arbre();
-                    aire.noeud=arbre.root;
-                    souris.noeud=arbre.root;
-                    arbre.root.panel.addMouseListener(souris);
-                    arbre.root.panel.addMouseMotionListener(souris);
-                    arbre.root.panel.add(new JLabel(new ImageIcon("Image/user.png")));
-                    aire.repaint();
-                    barreLaterale.bl.setPapa(arbre.root);
-                    barreInfo.info.setText("Nouveau");
+                    reinitialiser();
                 }
             }
         }
+
         if (etat.equals("sauvegarder")) {
+            barreInfo.setInfo("sauvegarde");
             JFileChooser fc = new JFileChooser();
             fc.showSaveDialog(menubar);
             File selFile = fc.getSelectedFile();
         }
         if (etat.equals("ouvrir")) {
+            barreInfo.setInfo("ouvrir");
             JFileChooser fc = new JFileChooser();
             fc.showOpenDialog(menubar);
             File selFile = fc.getSelectedFile();
 
             if (selFile != null && arbre.root.getNbFils() != 0) {
-                String[] options = {"Sauvegarder", "Continuer sans sauvegarder", "Annuler"};
                 int choix = JOptionPane.showOptionDialog(this, "Ouverture de fichier :\nVoulez-vous sauvegarder l'arbre actuel", "Ouvrir", 0, JOptionPane.QUESTION_MESSAGE, new ImageIcon("./images/question.png"), options, options[0]);
-                Noeud noeud = new Noeud(null, "papa", 0, 0);
-                EcouteurNoeud souris2 = new EcouteurNoeud(this, noeud);
                 if (choix == JOptionPane.YES_OPTION) {
                     changementEtat("sauvegarder");
-                    arbre = new Arbre(noeud);
-                    aire.repaint();
-                    barreInfo.info.setText("Nouveau");
+                    //ouvrir fichier
                 } else if (choix == JOptionPane.NO_OPTION) {
-                    arbre = new Arbre(noeud);
-                    aire.noeud=noeud;
-                    arbre.root.panel.addMouseListener(souris2);
-                    arbre.root.panel.addMouseMotionListener(souris2);
-                    arbre.root.panel.add(new JLabel(new ImageIcon("Image/user.png")));
-                    aire.repaint();
-                    barreInfo.info.setText("Nouveau");
+                    //ouvrir fichier
                 }
+
+            } else {
+                barreInfo.setInfo("rien");
             }
         }
         if (etat.equals("aide")) {
+            barreInfo.setInfo("aide");
             aide.setVisible(true);
-            barreInfo.info.setText("Accés à l'aide");
         }
 
         if (etat.equals("propos")) {
+            barreInfo.setInfo("propos");
             propos = new Propos(this);
+            barreInfo.setInfo("rien");
         }
 
         if (etat.equals("supprimer")) {
-            if(barreLaterale.bl.papa!=arbre.root){
+            if (barreLaterale.bl.papa != arbre.root) {
+                barreInfo.setInfo("supression");
                 aire.removePanel(barreLaterale.bl.papa);
                 arbre.supprimerArbre(barreLaterale.bl.papa);
                 aire.repaint();
+            } else {
+                if (arbre.root.fils.isEmpty()) {
+                    barreInfo.setInfo("non supprime");
+                }
             }
         }
         if (etat.equals("quitter")) {
-            // if(arbre.root.getNbFils()!=0){
-            String[] options = {"Sauvegarder", "Continuer sans sauvegarder", "Annuler"};
-            int choix = JOptionPane.showOptionDialog(this, "\nVoulez-vous quitter sans sauvegarder ?", "Quitter", 0, JOptionPane.QUESTION_MESSAGE, new ImageIcon("./images/question.png"), options, options[0]);
+            if (arbre.root.getNbFils() != 0) {
+                String[] options = {"Sauvegarder", "Quitter sans sauvegarder", "Annuler"};
+                int choix = JOptionPane.showOptionDialog(this, "\nVoulez-vous quitter sans sauvegarder ?", "Quitter", 0, JOptionPane.QUESTION_MESSAGE, new ImageIcon("./images/question.png"), options, options[0]);
 
-            if (choix == JOptionPane.YES_OPTION) {
-                changementEtat("sauvegarder");
-                arbre = new Arbre(new Noeud(null, "papa", 0, 0));
-                aire.repaint();
-                barreInfo.info.setText("Nouveau");
-            } else if (choix == JOptionPane.NO_OPTION) {
-                arbre = new Arbre(new Noeud(null, "papa", 0, 0));
-                aire.repaint();
-                barreInfo.info.setText("Nouveau");
+                if (choix == JOptionPane.YES_OPTION) {
+                    barreInfo.setInfo("sauvegarde");
+                    changementEtat("sauvegarder");
+                    System.exit(0);
+                } else if (choix == JOptionPane.NO_OPTION) {
+                    System.exit(0);
+                }
             }
-            //}
+            System.exit(0);
         }
 
         if (etat.equals("preference")) {
             p = new Preference();
         }
-        /*if(etat.equals("demo")){
-        }*/
     }
 
     public void run() {
 
         fd = new FenetreDemarrage(this);
-        
+
         //ajout MenuBar
         menubar = new MenuBar(this);
         //ajout BarreOutil
@@ -151,7 +142,7 @@ public class Fenetre extends JFrame implements Runnable {
         aire = new AireDeDessin(this);
         aire.addMouseListener(new EcouteurSouris(this));
         aire.add(new JScrollPane());
-        
+
         aide = new Aide(this);
         //aire.addMouseListener(new EcouteurNoeud(this));
         //ajout BarreInfo
@@ -160,7 +151,7 @@ public class Fenetre extends JFrame implements Runnable {
         barreLaterale = new BarreLaterale(this);
         //ajout BarrePropriete
         //BarrePropriete barrePropriete = new BarrePropriete();
-        
+
 
 
 
@@ -202,12 +193,13 @@ public class Fenetre extends JFrame implements Runnable {
         setTitle(this.name);
         //setDefaultLookAndFeelDecorated(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        setMinimumSize(new Dimension(1000,550));
+
+        setMinimumSize(new Dimension(1000, 550));
         setExtendedState(this.MAXIMIZED_BOTH);
-        
+
 
         addWindowListener(new EcouteurFenetreIcone(this, fd));
+        setMinimumSize(new Dimension(1000, 800));
         setVisible(true);
 
         // On vérifie si il faut afficher la fenetre de démarrage

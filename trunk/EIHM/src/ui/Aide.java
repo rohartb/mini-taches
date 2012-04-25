@@ -1,8 +1,6 @@
 package ui;
 import java.awt.*;
-import java.util.*;
 import javax.swing.*;
-import javax.swing.JComponent;
 
 public class Aide extends JDialog{
     private static final long serialVersionUID = 1L;
