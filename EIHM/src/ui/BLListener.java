@@ -32,6 +32,7 @@ class BLListener implements ActionListener {
             bl.center.setVisible(!bl.but.isSelected());  
         }else if(papa!=null){ //il y a un noeud selectionné
             
+            
             if(cmd.equals("user")){
                 Noeud fils = new Noeud(papa,"sans_nom",1,0);
                 // 1: type, 0: pas de liaison, 0: pas de propriete
