@@ -64,12 +64,23 @@ public class EcouteurOption implements ActionListener {
         else if(ae.getActionCommand().equals("suppb")){
             f.changementEtat("supprimer");
         }
+        
         else if(ae.getActionCommand().equals("augn")){
-            
+            int y;
+            for (int i=0; i<f.arbre.root.getNbFils();i++){
+                y = f.arbre.root.fils.get(i).getY() + 10;
+                f.arbre.root.fils.get(i).setY(y);                
+            }          
         }
+        
         else if(ae.getActionCommand().equals("dimn")){
-            
+            int y;
+            for (int i=0; i<f.arbre.root.getNbFils();i++){
+                y = f.arbre.root.fils.get(i).getY() - 10;
+                f.arbre.root.fils.get(i).setY(y);                
+            } 
         }
+        
     }
     
     
