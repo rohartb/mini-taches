@@ -3,6 +3,7 @@ package ui;
 import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 import javax.swing.JButton;
@@ -51,6 +52,12 @@ public class Preference extends JDialog {
         box.addActionListener(ecouteurPref);
         
         JButton valider = new JButton("Valider");
+        valider.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Preference.this.setVisible(false);
+            }        
+        });
         
         
         

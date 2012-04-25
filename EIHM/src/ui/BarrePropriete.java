@@ -2,8 +2,12 @@ package ui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 public class BarrePropriete extends JPanel {
 
@@ -18,6 +22,25 @@ public class BarrePropriete extends JPanel {
         JLabel labelTache = new JLabel("Nom de la tâche");
         nomTache = new JTextField(8);
         nomTache.setEditable(false);
+        
+       nomTache.getDocument().addDocumentListener(new DocumentListener() {
+        public void changedUpdate(DocumentEvent e) {
+            System.out.println(nomTache.getText());
+            BarrePropriete.this.f.barreLaterale.bl.papa.setNom(nomTache.getText());
+            BarrePropriete.this.f.aire.repaint();
+        }
+        public void removeUpdate(DocumentEvent e) {
+            System.out.println(nomTache.getText());
+            BarrePropriete.this.f.barreLaterale.bl.papa.setNom(nomTache.getText());
+            BarrePropriete.this.f.aire.repaint();
+        }
+        public void insertUpdate(DocumentEvent e) {
+            System.out.println(nomTache.getText());
+            BarrePropriete.this.f.barreLaterale.bl.papa.setNom(nomTache.getText());
+            BarrePropriete.this.f.aire.repaint();
+        }
+
+        });
         
         JLabel labelListeCategorie = new JLabel("Catégorie");
         listeCategorie = new Choice();

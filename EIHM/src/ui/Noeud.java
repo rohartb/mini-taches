@@ -105,5 +105,9 @@ public class Noeud {
     public void setImage(ImageIcon image) {
         this.image = image;
     }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
     
 }
