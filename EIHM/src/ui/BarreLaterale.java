@@ -205,13 +205,14 @@ class BarreLaterale extends JPanel{
         
         JLabel l3 = new JLabel(" Propriete d'un tache :");
         l3.setPreferredSize(new Dimension(this.getWidth(),40));
+        l3.setBackground(new Color(153,204,255));
         
         JPanel paneauSud = new JPanel(new BorderLayout());
         paneauSud.add(l3,BorderLayout.NORTH);
         paneauSud.add(prop,BorderLayout.CENTER);
         
         paneauSud.setPreferredSize(new Dimension(this.getWidth(),620));
-        paneauSud.setBackground(new Color(102 ,153 ,204));
+        paneauSud.setBackground(new Color(153,204,255));
         
         
         center.add(paneauHaut, BorderLayout.NORTH);
