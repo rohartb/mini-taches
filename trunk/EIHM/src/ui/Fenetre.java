@@ -197,14 +197,14 @@ public class Fenetre extends JFrame implements Runnable {
 
         setTitle(this.name);
         //setDefaultLookAndFeelDecorated(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);       
+        
         setMinimumSize(new Dimension(1000, 550));
         setExtendedState(this.MAXIMIZED_BOTH);
 
 
         addWindowListener(new EcouteurFenetreIcone(this, fd));
-        setMinimumSize(new Dimension(1000, 800));
+        //setMinimumSize(new Dimension(1000, 800));
         setVisible(true);
 
         // On vérifie si il faut afficher la fenetre de démarrage
@@ -221,6 +221,8 @@ public class Fenetre extends JFrame implements Runnable {
                     if (valeurCheckBox.equals("false")) {
                         fd.setAlwaysOnTop(true);
                         fd.setVisible(true);
+                    }else{
+                        fd.setVisible(false);
                     }
                 }
                 br.close();

@@ -28,12 +28,12 @@ class EcouteurFenetreIcone implements WindowListener {
 
     @Override
     public void windowIconified(WindowEvent e) {
-        fd.setVisible(false);
+        //fd.setVisible(false);
     }
 
     @Override
     public void windowDeiconified(WindowEvent e) {
-        fd.setVisible(true);
+        //fd.setVisible(true);
     }
 
     @Override
