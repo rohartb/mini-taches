@@ -5,16 +5,9 @@
  */
 package ui;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridLayout;
-import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JToggleButton;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 /**
  *
@@ -184,7 +177,39 @@ class BarreLaterale extends JPanel{
         
         //Panel du bas
         
-        JPanel paneauSud = new JPanel();
+        // Panel des Propriete
+        JPanel prop = new JPanel();
+        prop.setBackground(new Color(153,204,255));
+        
+        JButton but13 = new JButton(new ImageIcon("Image/iterative.gif"));
+        but13.setPreferredSize(new Dimension(50,50));
+        but13.setActionCommand("prop1");
+        but13.addActionListener(ecouteur);
+        but13.setBackground(Color.white);
+        
+        JButton but14 = new JButton(new ImageIcon("Image/choice.gif"));
+        but14.setPreferredSize(new Dimension(50,50));
+        but14.setActionCommand("prop2");
+        but14.addActionListener(ecouteur);
+        but14.setBackground(Color.white);
+        
+        JButton but15 = new JButton(new ImageIcon("Image/arrow.gif"));
+        but15.setPreferredSize(new Dimension(50,50));
+        but15.setActionCommand("prop3");
+        but15.addActionListener(ecouteur);
+        but15.setBackground(Color.white);
+        
+        prop.add(but13);
+        prop.add(but14);
+        prop.add(but15);
+        
+        JLabel l3 = new JLabel(" Propriete d'un tache :");
+        l3.setPreferredSize(new Dimension(this.getWidth(),40));
+        
+        JPanel paneauSud = new JPanel(new BorderLayout());
+        paneauSud.add(l3,BorderLayout.NORTH);
+        paneauSud.add(prop,BorderLayout.CENTER);
+        
         paneauSud.setPreferredSize(new Dimension(this.getWidth(),620));
         paneauSud.setBackground(new Color(102 ,153 ,204));
         
