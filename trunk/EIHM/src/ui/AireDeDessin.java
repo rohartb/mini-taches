@@ -13,8 +13,10 @@ public class AireDeDessin extends JComponent {
     int height;
     int width;
     int x;
-    int y = 50;
+    int y;
     int xAncien=0, yAncien=0;
+    int taille=40;
+    int etage=70;
     Noeud noeud;
     int nb;
     Fenetre f;
@@ -24,6 +26,7 @@ public class AireDeDessin extends JComponent {
     public AireDeDessin(Fenetre f) {
         this.f = f;
         noeud = f.arbre.root;
+        y=etage;
         //this.setBorder(BorderFactory.createLineBorder(Color.pink));
     }
 
@@ -41,7 +44,7 @@ public class AireDeDessin extends JComponent {
         
         dessinerArbre(draw, noeud, 0, this.getWidth());
         dessinerLien(draw, noeud);
-        y=50;
+        y=etage;
         
         
     }
@@ -57,15 +60,15 @@ public class AireDeDessin extends JComponent {
             y=n.getY();
         }
 
-        n.panel.setBounds(x-20, y, 40, 40);
-        draw.drawString(n.nom, x-20, y+55);
+        n.panel.setBounds(x-(taille/2), y, taille, taille);
+        draw.drawString(n.nom, x-(taille/2), y+taille+15);
         n.setX(x);
         n.setY(y);
         y=yInter;
         
         if(n.select==true){
             draw.setColor(Color.red);
-            draw.drawRect(x-21, y-1, 41, 41);
+            draw.drawRect(x-(taille/2)-1, y-1, taille+1, taille+1);
             draw.setColor(Color.black);
         }
         
@@ -74,19 +77,19 @@ public class AireDeDessin extends JComponent {
         nb=width/(n.getNbFils()+1);
         int a=0;
         while(it.hasNext()){
-            y+=70;
+            y+=etage;
             x=nb*(a+1);
-            int taille=width/n.getNbFils();
-            dessinerArbre(draw,(Noeud)it.next(),wTreeD+taille*a,wTreeD+taille*(a+1));
+            int t=width/n.getNbFils();
+            dessinerArbre(draw,(Noeud)it.next(),wTreeD+t*a,wTreeD+t*(a+1));
             a++;
         }
-        y-=70;
+        y-=etage;
     }
     
     public void dessinerLien(Graphics2D draw, Noeud n){
         Iterator it = n.fils.iterator();
         int xDep = n.getX();
-        int yDep = n.getY()+55;
+        int yDep = n.getY()+taille+15;
         while(it.hasNext()){
             Noeud noeud = (Noeud) it.next();
             int xArr = noeud.getX();
