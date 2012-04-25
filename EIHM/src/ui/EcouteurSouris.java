@@ -28,6 +28,9 @@ class EcouteurSouris implements MouseListener{
         f.barre.barreOutil.copier.setEnabled(false);
         f.barre.barreOutil.couper.setEnabled(false);
         f.barre.barreOutil.supprimer.setEnabled(false);
+        f.barre.barrePropriete.nomTache.setEditable(false);
+        f.barre.barrePropriete.listeCategorie.setEnabled(false);
+        
         
         f.barreInfo.setInfo("rien");
         f.barreLaterale.bloquer();
