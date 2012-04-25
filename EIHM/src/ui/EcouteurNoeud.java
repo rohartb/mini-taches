@@ -15,6 +15,8 @@ public class EcouteurNoeud implements MouseListener,MouseMotionListener {
     java.util.List<ElementMenu> items = new ArrayList<ElementMenu>();
     Noeud noeud;
     JPanel pane;
+    ItemListener ecouteur;
+    
     
     public EcouteurNoeud(Fenetre aThis, Noeud n) {
         f=aThis;
@@ -30,11 +32,8 @@ public class EcouteurNoeud implements MouseListener,MouseMotionListener {
         
         f.barre.barrePropriete.nomTache.setEditable(true);
         f.barre.barrePropriete.listeCategorie.setEnabled(true);
-        f.barre.barrePropriete.nomTache.setText(noeud.nom);
-               
-        
-        ItemListener ecouteur = new EcouteurListeCategorie(noeud,f);
-        f.barre.barrePropriete.listeCategorie.addItemListener(ecouteur);
+        f.barre.barrePropriete.nomTache.setText(noeud.nom);       
+
         
         switch(noeud.type){
             case 0 :   
