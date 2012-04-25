@@ -1,6 +1,7 @@
 package ui;
 
 import java.awt.Color;
+import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -27,26 +28,29 @@ public class EcouteurNoeud implements MouseListener,MouseMotionListener {
         f.barreLaterale.bl.setPapa(noeud);
         f.barreLaterale.majBouton(noeud);
         
-        System.out.println(noeud.type);
+        f.barre.barrePropriete.nomTache.setEditable(true);
+        f.barre.barrePropriete.listeCategorie.setEnabled(true);
+        f.barre.barrePropriete.nomTache.setText(noeud.nom);
+               
+        
+        ItemListener ecouteur = new EcouteurListeCategorie(noeud,f);
+        f.barre.barrePropriete.listeCategorie.addItemListener(ecouteur);
+        
         switch(noeud.type){
-            case 0 :
-                f.barre.barrePropriete.nomTache.setText(noeud.nom);
+            case 0 :   
+                // pour le root
                 f.barre.barrePropriete.listeCategorie.select("Utilisateur");
                 break;
             case 1 :
-                f.barre.barrePropriete.nomTache.setText(noeud.nom);
                 f.barre.barrePropriete.listeCategorie.select("Utilisateur");
                 break;
             case 2 :
-                f.barre.barrePropriete.nomTache.setText(noeud.nom);
                 f.barre.barrePropriete.listeCategorie.select("Abstraction");
                 break;
             case 3 :
-                f.barre.barrePropriete.nomTache.setText(noeud.nom);
                 f.barre.barrePropriete.listeCategorie.select("Application");
                 break;
             case 4 :
-                f.barre.barrePropriete.nomTache.setText(noeud.nom);
                 f.barre.barrePropriete.listeCategorie.select("Interaction");
                 break;
             default:
