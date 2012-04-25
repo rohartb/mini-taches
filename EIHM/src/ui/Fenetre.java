@@ -20,6 +20,7 @@ public class Fenetre extends JFrame implements Runnable {
     Historique h;
     Edition e;
     EcouteurNoeud souris;
+    Propriete prop;
     String[] options = {"Sauvegarder", "Continuer sans sauvegarder", "Annuler"};
 
     public Fenetre(String name) {
@@ -124,6 +125,10 @@ public class Fenetre extends JFrame implements Runnable {
 
         if (etat.equals("preference")) {
             p = new Preference();
+        }
+        
+        if (etat.equals("prop")) {
+            prop = new Propriete(this);
         }
     }
 

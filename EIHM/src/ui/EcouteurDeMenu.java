@@ -58,6 +58,10 @@ class EcouteurDeMenu implements ActionListener {
             f.changementEtat("preference");
         }
         
+        if(e.getActionCommand().equals("prop")){
+            f.changementEtat("prop");
+        }
+        
     }
     
 }
