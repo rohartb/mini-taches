@@ -32,7 +32,15 @@ public class EcouteurNoeud implements MouseListener,MouseMotionListener {
         
         f.barre.barrePropriete.nomTache.setEditable(true);
         f.barre.barrePropriete.listeCategorie.setEnabled(true);
-        f.barre.barrePropriete.nomTache.setText(noeud.nom);       
+        f.barre.barrePropriete.nomTache.setText(noeud.nom); 
+        
+        if(noeud.getNbFils() > 0){
+            f.barre.barreOutil.augmenterEtage.setEnabled(true);
+            f.barre.barreOutil.diminuerEtage.setEnabled(true);           
+        }else{
+            f.barre.barreOutil.augmenterEtage.setEnabled(false);
+            f.barre.barreOutil.diminuerEtage.setEnabled(false);                
+        }
 
         
         switch(noeud.type){
@@ -72,7 +80,7 @@ public class EcouteurNoeud implements MouseListener,MouseMotionListener {
         }else{
             f.barre.barreOutil.couper.setEnabled(false);
             f.barre.barreOutil.supprimer.setEnabled(false);
-            f.menubar.couper.setEnabled(false);
+            f.menubar.couper.setEnabled(false);            
         }
         f.barre.barreOutil.copier.setEnabled(true);
         f.menubar.copier.setEnabled(true);
