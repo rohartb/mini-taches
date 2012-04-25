@@ -34,8 +34,7 @@ public class Fenetre extends JFrame implements Runnable {
                     changementEtat("sauvegarder");
                     arbre.supprimerArbre(arbre.root);
                     arbre = new Arbre();
-                    aire.removeAll();
-                    aire.updateUI();
+                    //aire.removePanel(arbre.root);
                     aire.noeud=arbre.root;
                     aire.repaint();
                     barreLaterale.bl.setPapa(arbre.root);
@@ -43,8 +42,6 @@ public class Fenetre extends JFrame implements Runnable {
                 } else if (choix == JOptionPane.NO_OPTION) {
                     arbre.supprimerArbre(arbre.root);
                     arbre = new Arbre();
-                    aire.removeAll();
-                    aire.updateUI();
                     aire.noeud=arbre.root;
                     aire.repaint();
                     barreLaterale.bl.setPapa(arbre.root);

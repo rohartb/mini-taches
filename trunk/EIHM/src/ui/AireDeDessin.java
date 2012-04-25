@@ -17,10 +17,12 @@ public class AireDeDessin extends JComponent {
     int xAncien=0, yAncien=0;
     int taille=40;
     int etage=70;
+    int hauteur=0;
     Noeud noeud;
     int nb;
     Fenetre f;
     java.util.List<ElementMenu> dest = new ArrayList<ElementMenu>();
+    private int[] fait=new int[50];
     Boolean menuOn = false;
     Boolean zoom = false;
     
@@ -42,19 +44,21 @@ public class AireDeDessin extends JComponent {
         draw.setColor(Color.WHITE);
         draw.fillRect(0, 0,(int)width,(int)height);
         draw.setPaint(Color.black);
-        
-        dessinerArbre(draw, noeud, 0, this.getWidth());
+      
+        f.arbre.calculHauteur();
+        dessinerArbre(draw, noeud);
+        reinitFait();
         dessinerLien(draw, noeud);
-        y=etage;
-        
+        y=etage;   
     }
     
-    private void dessinerArbre(Graphics2D draw, Noeud n, int wTreeD, int wTreeF) {
+    private void dessinerArbre(Graphics2D draw, Noeud n) {
         Iterator it;
         
-        int width = wTreeF-wTreeD;
-        x=wTreeD + width/2;
+        x=this.getWidth()/(f.arbre.hauteur[hauteur]+1);
+        fait[hauteur]++;
         int yInter = y;
+        x=x*fait[hauteur];
         if(n.deplace){
             x=n.getX();
             y=n.getY();
@@ -82,16 +86,14 @@ public class AireDeDessin extends JComponent {
         }
         
         this.add(n.panel);
+        
         it = n.fils.iterator();
-        nb=width/(n.getNbFils()+1);
-        int a=0;
         while(it.hasNext()){
             y+=etage;
-            x=nb*(a+1);
-            int t=width/n.getNbFils();
-            dessinerArbre(draw,(Noeud)it.next(),wTreeD+t*a,wTreeD+t*(a+1));
-            a++;
+            hauteur++;
+            dessinerArbre(draw,(Noeud)it.next());
         }
+        hauteur--;
         y-=etage;
     }
     
@@ -136,5 +138,17 @@ public class AireDeDessin extends JComponent {
         while(it.hasNext()){
             removePanel((Noeud) it.next());
         }
+    }
+    
+    public void reinitFait(){
+        for(int i=0; i<fait.length; i++){
+            fait[i]=0;
+        }
+        hauteur=0;
+    }
+    
+    public void afficher(){
+            System.out.println("hauteur 0: "+f.arbre.hauteur[0]);
+            System.out.println("hauteur 1: "+f.arbre.hauteur[1]);
     }
 }
