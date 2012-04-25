@@ -4,6 +4,8 @@ import javax.swing.*;
 
 public class BarreOutil extends JPanel {
     Fenetre f;
+    JButton augmenterEtage;
+    JButton diminuerEtage;
     
     public BarreOutil(Fenetre f){
         this.f = f;
@@ -14,6 +16,8 @@ public class BarreOutil extends JPanel {
         JButton copier = new JButton(new ImageIcon("Image/copy.gif"));
         JButton coller = new JButton(new ImageIcon("Image/paste.gif"));
         JButton supprimer = new JButton(new ImageIcon("Image/delete.jpg"));
+        augmenterEtage = new JButton(new ImageIcon("Image/rise.gif"));
+        diminuerEtage = new JButton(new ImageIcon("Image/unrise.gif"));
         
         EcouteurOption eo = new EcouteurOption(f);
         
@@ -51,6 +55,19 @@ public class BarreOutil extends JPanel {
         supprimer.setPreferredSize(new Dimension(30,30));
         supprimer.setActionCommand("suppb");
         supprimer.addActionListener(eo);  
+        
+        augmenterEtage.setToolTipText("Augmenter niveau");
+        augmenterEtage.setPreferredSize(new Dimension(30,30));
+        augmenterEtage.setActionCommand("augn");
+        augmenterEtage.addActionListener(eo);
+        augmenterEtage.setEnabled(false);
+        
+        
+        diminuerEtage.setToolTipText("Diminuer niveau");
+        diminuerEtage.setPreferredSize(new Dimension(30,30));
+        diminuerEtage.setActionCommand("dimn");
+        diminuerEtage.addActionListener(eo); 
+        diminuerEtage.setEnabled(false);
                
         this.add(nouveau);
         this.add(ouvrir);
@@ -59,6 +76,9 @@ public class BarreOutil extends JPanel {
         this.add(copier);
         this.add(coller);
         this.add(supprimer);
+        this.add(augmenterEtage);
+        this.add(diminuerEtage);
+        
         
         this.setBorder(BorderFactory.createLineBorder(Color.black));
         this.setVisible(true);        

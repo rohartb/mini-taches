@@ -55,6 +55,12 @@ public class Noeud {
         fils.add(n);
     }
     
+    public void ajouterFils(Noeud n, Fenetre f){
+        fils.add(n);
+        f.barre.barreOutil.augmenterEtage.setEnabled(true);
+        f.barre.barreOutil.diminuerEtage.setEnabled(true);
+    }
+    
     public void setX(int x){
         this.x=x;
     }

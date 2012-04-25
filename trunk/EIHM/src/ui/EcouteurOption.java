@@ -61,8 +61,14 @@ public class EcouteurOption implements ActionListener {
             f.changementEtat("ouvrir");
         }
         
-         else if(ae.getActionCommand().equals("suppb")){
+        else if(ae.getActionCommand().equals("suppb")){
             f.changementEtat("supprimer");
+        }
+        else if(ae.getActionCommand().equals("augn")){
+            
+        }
+        else if(ae.getActionCommand().equals("dimn")){
+            
         }
     }
     
@@ -94,12 +100,12 @@ public class EcouteurOption implements ActionListener {
     private Noeud copieEtEcouteur(Noeud cop) {
         Noeud res;
         if(cop.fils.isEmpty()){
-            res = new Noeud(null,cop.nom,cop.type,cop.liaison,cop.propriete);
+            res = new Noeud(null,cop.nom,cop.type,cop.liaison);
             res.fils = new ArrayList<Noeud>();
             ajouterEcouteur(res);
             return res;
         }else{
-            Noeud p = new Noeud(null,cop.nom,cop.type,cop.liaison,cop.propriete);
+            Noeud p = new Noeud(null,cop.nom,cop.type,cop.liaison);
             p.fils = new ArrayList<Noeud>();
             while(i<cop.fils.size()){
                 res = copieEtEcouteur(cop.fils.get(i));

@@ -16,6 +16,7 @@ public class BarrePropriete extends JPanel {
         JButton bouton3 = new JButton("P3");
         JButton bouton4 = new JButton("P4");
         
+        
         this.add(labelTache);
         this.add(nomTache);
         this.add(labelPriorite);
