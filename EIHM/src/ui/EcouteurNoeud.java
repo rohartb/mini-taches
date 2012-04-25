@@ -25,6 +25,7 @@ public class EcouteurNoeud implements MouseListener,MouseMotionListener {
     public void mouseClicked(MouseEvent e) {
         f.barreInfo.info.setText("Modification du noeud");
         f.barreLaterale.bl.setPapa(noeud);
+        f.barreLaterale.majBouton(noeud);
         if(e.getButton() == 3){
             f.aire.destroyBulles();
             build(noeud.getX()+20, noeud.getY()+20);

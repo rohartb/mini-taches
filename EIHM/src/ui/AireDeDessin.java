@@ -46,7 +46,6 @@ public class AireDeDessin extends JComponent {
         dessinerLien(draw, noeud);
         y=etage;
         
-        
     }
     
     private void dessinerArbre(Graphics2D draw, Noeud n, int wTreeD, int wTreeF) {
