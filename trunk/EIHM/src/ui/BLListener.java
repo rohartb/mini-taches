@@ -43,7 +43,7 @@ class BLListener implements ActionListener {
             }else if(cmd.equals("abstract")){
                 Noeud fils = new Noeud(papa,"sans_nom",2,0);
                 // 2: type, 0: pas de liaison, 0: pas de propriete
-                papa.ajouterFils(fils);
+                papa.ajouterFils(fils,f);
                 EcouteurNoeud souris = new EcouteurNoeud(f, fils);
                 fils.panel.addMouseListener(souris);
                 fils.panel.addMouseMotionListener(souris);
@@ -51,7 +51,7 @@ class BLListener implements ActionListener {
             }else if(cmd.equals("application")){
                 Noeud fils = new Noeud(papa,"sans_nom",3,0);
                 // 3: type, 0: pas de liaison, 0: pas de propriete
-                papa.ajouterFils(fils);
+                papa.ajouterFils(fils,f);
                 EcouteurNoeud souris = new EcouteurNoeud(f, fils);
                 fils.panel.addMouseListener(souris);
                 fils.panel.addMouseMotionListener(souris);
@@ -59,7 +59,7 @@ class BLListener implements ActionListener {
             }else if(cmd.equals("interaction")){
                 Noeud fils = new Noeud(papa,"sans_nom",4,0);
                 // 4: type, 0: pas de liaison, 0: pas de propriete
-                papa.ajouterFils(fils);
+                papa.ajouterFils(fils,f);
                 EcouteurNoeud souris = new EcouteurNoeud(f, fils);
                 fils.panel.addMouseListener(souris);
                 fils.panel.addMouseMotionListener(souris);

@@ -209,7 +209,7 @@ class BarreLaterale extends JPanel{
         prop.add(but14);
         prop.add(but15);
         
-        JLabel l3 = new JLabel(" Propriete d'un tache :");
+        JLabel l3 = new JLabel("Propriete d'une tache :");
         l3.setPreferredSize(new Dimension(this.getWidth(),40));
         l3.setBackground(new Color(153,204,255));
         
