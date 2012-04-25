@@ -45,9 +45,14 @@ public class FenetreDemarrage extends JDialog{
         checkBox.setBounds(10, 100, 350, 20);
         
         JButton annuler = new JButton("Annuler");
-        annuler.setBounds(290, 130, 130, 30);
+        annuler.setBounds(150, 130, 130, 30);
         annuler.addActionListener(new EcouteurFenetreDemarrage(this, this.f));
         annuler.setActionCommand("annuler");
+        
+        JButton valider = new JButton("Valider");
+        valider.setBounds(290, 130, 130, 30);
+        valider.addActionListener(new EcouteurFenetreDemarrage(this, this.f));
+        valider.setActionCommand("valider");
         
         
         ActionListener ecouteurChekBox = new EcouteurCheckBox();
@@ -63,6 +68,7 @@ public class FenetreDemarrage extends JDialog{
         add(astuce);
         add(aide);
         add(annuler);
+        add(valider);
         
         //fenetre centré
         setLocationRelativeTo(null);
