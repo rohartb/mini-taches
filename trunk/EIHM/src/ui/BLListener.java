@@ -36,7 +36,11 @@ class BLListener implements ActionListener {
                 Noeud n = f.e.copieArbre(f.arbre.root);                       
                 f.h.ajouterAnnuler(n);
                 f.h.viderRetablir();
-                Noeud fils = new Noeud(papa,"sans_nom",1,0);
+                
+                Noeud fils = new Noeud(papa,"Tâche_"+f.nbTache,1,0);
+                if(f.barreLaterale.bl.papa!=null){
+                    f.nbTache++;
+                }
                 // 1: type, 0: pas de liaison, 0: pas de propriete
                 papa.ajouterFils(fils, f);
                 EcouteurNoeud souris = new EcouteurNoeud(f, fils);
@@ -48,7 +52,10 @@ class BLListener implements ActionListener {
                 Noeud n = f.e.copieArbre(f.arbre.root);                       
                 f.h.ajouterAnnuler(n);
                 f.h.viderRetablir();
-                Noeud fils = new Noeud(papa,"sans_nom",2,0);
+                Noeud fils = new Noeud(papa,"Tâche_"+f.nbTache,2,0);
+                if(f.barreLaterale.bl.papa!=null){
+                    f.nbTache++;
+                }
                 // 2: type, 0: pas de liaison, 0: pas de propriete
                 papa.ajouterFils(fils,f);
                 EcouteurNoeud souris = new EcouteurNoeud(f, fils);
@@ -60,7 +67,10 @@ class BLListener implements ActionListener {
                 Noeud n = f.e.copieArbre(f.arbre.root);                       
                 f.h.ajouterAnnuler(n);
                 f.h.viderRetablir();
-                Noeud fils = new Noeud(papa,"sans_nom",3,0);
+                Noeud fils = new Noeud(papa,"Tâche_"+f.nbTache,3,0);
+                if(f.barreLaterale.bl.papa!=null){
+                    f.nbTache++;
+                }
                 // 3: type, 0: pas de liaison, 0: pas de propriete
                 papa.ajouterFils(fils,f);
                 EcouteurNoeud souris = new EcouteurNoeud(f, fils);
@@ -72,7 +82,10 @@ class BLListener implements ActionListener {
                 Noeud n = f.e.copieArbre(f.arbre.root);                       
                 f.h.ajouterAnnuler(n);
                 f.h.viderRetablir();               
-                Noeud fils = new Noeud(papa,"sans_nom",4,0);
+                Noeud fils = new Noeud(papa,"Tâche_"+f.nbTache,4,0);
+                if(f.barreLaterale.bl.papa!=null){
+                    f.nbTache++;
+                }
                 // 4: type, 0: pas de liaison, 0: pas de propriete
                 papa.ajouterFils(fils,f);
                 EcouteurNoeud souris = new EcouteurNoeud(f, fils);

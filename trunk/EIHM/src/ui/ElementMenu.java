@@ -94,6 +94,7 @@ public class ElementMenu extends JPanel {
                 }
                 if(texte.equals("replacer")){   
                     f.changementEtat("replacer");
+                    f.barreLaterale.bl.papa.deplace=false;
                     f.aire.destroyBulles();
                 }
                f.aire.repaint();
