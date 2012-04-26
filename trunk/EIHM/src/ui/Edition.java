@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ui;
 
 import java.util.ArrayList;
@@ -9,10 +6,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-/**
- *
- * @author sophie
- */
+
 public class Edition {
     Noeud cop,col;
     Fenetre f;

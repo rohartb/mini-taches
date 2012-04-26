@@ -1,15 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ui;
 
 import java.util.Iterator;
 
-/**
- *
- * @author bastien
- */
+
 public class Arbre { 
     public Noeud root;
     static int i=0;
