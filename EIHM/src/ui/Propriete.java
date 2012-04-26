@@ -24,16 +24,16 @@ class Propriete extends JDialog{
         nomTache = new JTextField(8);
 
         
-        setTitle("Propriété");
+        setTitle("Propriétés");
         setSize(300, 250);
         setVisible(true);
         setLayout(new BorderLayout());
         
-        JLabel l = new JLabel("Nom de la tache");
+        JLabel l = new JLabel("Nom de la tâche");
         
         panN = new JPanel();
         
-        panN.setBorder(BorderFactory.createTitledBorder("Nom de la tache"));
+        panN.setBorder(BorderFactory.createTitledBorder("Nom de la tâche"));
         panN.add(nomTache);
         
         nomTache.getDocument().addDocumentListener(new DocumentListener() {
@@ -106,11 +106,11 @@ class Propriete extends JDialog{
         EcouteurProp c = new EcouteurProp(this);
 
         JPanel att = new JPanel();
-        JCheckBox it = new JCheckBox("itérative");
+        JCheckBox it = new JCheckBox("Itérative");
         it.setActionCommand("it");
         it.addActionListener(c);
 
-        JCheckBox b = new JCheckBox("optionnel");
+        JCheckBox b = new JCheckBox("Optionnel");
         b.setActionCommand("op");
         b.addActionListener(c);
         att.add(it);
@@ -125,7 +125,7 @@ class Propriete extends JDialog{
         //JPanel panE = new JPanel(new BorderLayout());
         JPanel panS = new JPanel();
 
-        JButton quitter = new JButton("quitter");
+        JButton quitter = new JButton("Quitter");
         quitter.addActionListener(new ActionListener() {
 
             @Override

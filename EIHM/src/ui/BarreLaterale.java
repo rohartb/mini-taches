@@ -1,18 +1,10 @@
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ui;
 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-/**
- *
- * @author bastien
- */
 class BarreLaterale extends JPanel{
     
     JToggleButton but;
@@ -197,27 +189,27 @@ class BarreLaterale extends JPanel{
         but13.setActionCommand("prop1");
         but13.addActionListener(ecouteur);
         but13.setBackground(Color.white);
-        but13.setToolTipText("Iteration d'une tache");
+        but13.setToolTipText("Iteration d'une tâche");
         
         but14 = new JToggleButton(new ImageIcon("Image/choice.gif"));
         but14.setPreferredSize(new Dimension(50,50));
         but14.setActionCommand("prop2");
         but14.addActionListener(ecouteur);
         but14.setBackground(Color.white);
-        but14.setToolTipText("Tache optionnelle");
+        but14.setToolTipText("Tâche optionnelle");
         
         but15 = new JToggleButton(new ImageIcon("Image/arrow.gif"));
         but15.setPreferredSize(new Dimension(50,50));
         but15.setActionCommand("prop3");
         but15.addActionListener(ecouteur);
         but15.setBackground(Color.white);
-        but15.setToolTipText("Tache connectée");
+        but15.setToolTipText("Tâche connectée");
         
         prop.add(but13);
         prop.add(but14);
         prop.add(but15);
         
-        JLabel l3 = new JLabel("Attribut d'une tache :");
+        JLabel l3 = new JLabel("Attribut d'une tâche :");
         l3.setPreferredSize(new Dimension(this.getWidth(),40));
         l3.setBackground(new Color(153,204,255));
         

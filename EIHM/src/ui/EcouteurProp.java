@@ -1,17 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- *
- * @author bob-eeepc
- */
+
 class EcouteurProp implements ActionListener {
     Propriete p;
 

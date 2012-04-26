@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ui;
 
 import java.lang.reflect.Array;
@@ -10,10 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-/**
- *
- * @author bastien
- */
+
 public class Noeud {
     ArrayList<Noeud> fils = new ArrayList<Noeud>();
     private Noeud papa;
