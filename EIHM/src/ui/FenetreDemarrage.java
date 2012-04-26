@@ -23,21 +23,22 @@ public class FenetreDemarrage extends JDialog{
         label2.setText("Vous pouvez :");
         label2.setBounds(10, 30, 350, 20);
         
+        
+        JButton nouveau = new JButton("Nouveau projet");
+        nouveau.setBounds(10, 50, 130, 30);
+        nouveau.addActionListener(new EcouteurFenetreDemarrage(this, this.f));
+        nouveau.setActionCommand("nouveau");
+        
         JButton ouvrir = new JButton("Ouvrir un projet");
-        ouvrir.setBounds(10, 50, 130, 30);
+        ouvrir.setBounds(150, 50, 130, 30);
         ouvrir.addActionListener(new EcouteurFenetreDemarrage(this, this.f));
         ouvrir.setActionCommand("ouvrir");
         
-        JButton astuce = new JButton("Astuce");
-        astuce.setBounds(150,50, 130, 30);
-        //astuce.addActionListener(new EcouteurFenetreDemarrage(this, this.f));
-        //astuce.setActionCommand("astuce");
-        
-        JButton aide = new JButton("Aide");
-        aide.setBounds(290,50, 130, 30);
-        aide.addActionListener(new EcouteurFenetreDemarrage(this, this.f));
-        aide.setActionCommand("aide");
-        
+        JButton astuce = new JButton("Astuces");
+        astuce.setBounds(290,50, 130, 30);
+        astuce.addActionListener(new EcouteurFenetreDemarrage(this, this.f));
+        astuce.setActionCommand("aide");
+                
         
         JCheckBox checkBox = new JCheckBox();
         //checkBox.setBorder(BorderFactory.createLineBorder(Color.red));
@@ -64,9 +65,9 @@ public class FenetreDemarrage extends JDialog{
         add(label);
         add(label2);
         add(checkBox);
+        add(nouveau);
         add(ouvrir);
         add(astuce);
-        add(aide);
         add(annuler);
         add(valider);
         
