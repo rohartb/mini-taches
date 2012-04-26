@@ -8,12 +8,14 @@ import java.awt.event.WindowListener;
 class EcouteurDAide implements ActionListener {
 
     private Aide a;
-    private static int nb;
+    static int nb;
     private Fenetre f;
 
-    public EcouteurDAide(Fenetre f, Aide a, int nb) {
+
+
+    public EcouteurDAide(Fenetre f, Aide a) {
         this.a = a;
-        this.nb = nb;
+        this.nb = 1;
         this.f = f;
     }
 
@@ -32,7 +34,7 @@ class EcouteurDAide implements ActionListener {
 
     public void traiterQuitter() {
         a.setVisible(false);
-        nb = 1;
+        this.nb = 1;
     }
 
     public void traiterPrecedent() {
@@ -60,7 +62,7 @@ class EcouteurDAide implements ActionListener {
                 break;
             case 6:
                 nb--;
-                a.lesAides.setIcon(a.i[5]);
+                a.lesAides.setIcon(a.i[4]);
                 a.suivant.setEnabled(true);
                 break;
                 
@@ -97,6 +99,5 @@ class EcouteurDAide implements ActionListener {
         }
 
     }
-
    
 }
