@@ -4,10 +4,7 @@ package ui;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Iterator;
-import javax.swing.BorderFactory;
-import javax.swing.JComponent;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
+import javax.swing.*;
 
 public class AireDeDessin extends JComponent {
     int height;
@@ -20,12 +17,16 @@ public class AireDeDessin extends JComponent {
     int hauteur=0;
     int coeff=0;
     Noeud noeud;
-    int nb;
+    int xLiaison=0;
+    int yLiaison=0;
+    ArrayList<Noeud> liaisons;
+    ArrayList<Point> points;
     Fenetre f;
     java.util.List<ElementMenu> dest = new ArrayList<ElementMenu>();
     private int[] fait=new int[50];
     Boolean menuOn = false;
     Boolean zoom = false;
+    ArrayList<JLabel> label = new ArrayList<JLabel>();
     
     public AireDeDessin(Fenetre f) {
         this.f = f;
@@ -48,7 +49,10 @@ public class AireDeDessin extends JComponent {
         draw.setColor(Color.WHITE);
         draw.fillRect(0, 0,(int)width,(int)height);
         draw.setPaint(Color.black);
-      
+        
+        removeLabel();
+        liaisons = new ArrayList<Noeud>();
+        points = new ArrayList<Point>();
         f.arbre.calculHauteur();
         dessinerArbre(draw, noeud);
         reinitFait();
@@ -101,6 +105,26 @@ public class AireDeDessin extends JComponent {
             draw.setColor(Color.red);
             draw.drawRect(n.getX()-(taille/2)-1, n.getY()-1, taille+1, taille+1);
             draw.setColor(Color.black);
+        }
+        
+        
+        boolean trouve = false;
+        Iterator li = liaisons.iterator();
+        Iterator p = points.iterator();
+        while(li.hasNext() && !trouve){
+            Noeud test = (Noeud) li.next();
+            Point po = (Point) p.next();
+            if(test.hauteur==hauteur){
+                Liaison(draw, (int)po.getX(), (int)po.getY(), n.getX(), n.getY(), test.liaison);
+                liaisons.remove(test);
+                points.remove(po);
+                trouve=true;
+            }
+        }
+        
+        if(n.liaison!=0){
+            liaisons.add(n);
+            points.add(new Point(n.getX(),n.getY()));
         }
         
         this.add(n.panel);
@@ -165,6 +189,23 @@ public class AireDeDessin extends JComponent {
             fait[i]=0;
         }
         hauteur=0;
+    }
+    
+    public void removeLabel(){
+        Iterator it = label.iterator();
+        while(it.hasNext()){
+            remove((JLabel)it.next());
+        }
+        label=new ArrayList<JLabel>();
+    }
+
+    private void Liaison(Graphics2D draw, int xLiaison, int yLiaison, int x, int y, int l) {
+        draw.drawLine(xLiaison, yLiaison+taille/2, x, y+taille/2);
+        String s="Image/priorite"+l+".png";
+        JLabel lab = new JLabel(new ImageIcon(s));
+        lab.setBounds(((x-xLiaison)/2-taille/4)+xLiaison, (((y+taille/2)-(yLiaison+taille/2))/2)+yLiaison, taille/2, taille);
+        label.add(lab);
+        add(lab);
     }
     
 }

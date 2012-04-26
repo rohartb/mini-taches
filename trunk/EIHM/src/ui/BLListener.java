@@ -124,6 +124,24 @@ class BLListener implements ActionListener {
                     f.h.ajouterAnnuler(n);
                     f.h.viderRetablir();
                 }
+            }else if(papa.getPapa()!=null){
+                if(cmd.equals("priorite1")){
+                    papa.liaison=1;
+                }else if(cmd.equals("priorite2")){
+                    papa.liaison=2;
+                }else if(cmd.equals("priorite3")){
+                    papa.liaison=3;
+                }else if(cmd.equals("priorite4")){
+                    papa.liaison=4;
+                }else if(cmd.equals("priorite5")){
+                    papa.liaison=5;
+                }else if(cmd.equals("priorite6")){
+                    papa.liaison=6;
+                }else if(cmd.equals("priorite7")){
+                    papa.liaison=7;
+                }else if(cmd.equals("priorite8")){
+                    papa.liaison=8;
+                }
             }
         }
         f.aire.repaint();
