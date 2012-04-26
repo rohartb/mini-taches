@@ -9,7 +9,7 @@ public class Aide extends JDialog{
     JButton precedent;
     JButton suivant;
     JLabel lesAides;
-    ImageIcon i[] = new ImageIcon[7];
+    ImageIcon i[] = new ImageIcon[6];
     Fenetre f;
     
     public Aide(Fenetre f){
@@ -23,7 +23,7 @@ public class Aide extends JDialog{
 	this.f = f;
 	this.nbAide = 1;
         lesAides = new JLabel(i[0]);
-	this.eas = new EcouteurDAide(f,this,this.nbAide);
+	this.eas = new EcouteurDAide(f,this);
 
 	this.setTitle("Aide");
         this.setModal(true);
