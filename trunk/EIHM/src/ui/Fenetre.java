@@ -17,7 +17,7 @@ public class Fenetre extends JFrame implements Runnable {
     Arbre arbre;
     FenetreDemarrage fd;
     Preference p;
-    //Historique h;
+    Historique h;
     Edition e;
     EcouteurNoeud souris;
     Propriete prop;
@@ -26,7 +26,7 @@ public class Fenetre extends JFrame implements Runnable {
 
     public Fenetre(String name) {
         this.name = name;
-        //h = new Historique(this);
+        h = new Historique(this);
         e= new Edition(this);
         
     }
@@ -112,6 +112,9 @@ public class Fenetre extends JFrame implements Runnable {
 
         if (etat.equals("supprimer")) {
             if (barreLaterale.bl.papa != arbre.root) {
+                Noeud n = e.copieEtEcouteur(arbre.root);
+                h.ajouterAnnuler(n);
+                h.viderRetablir();
                 barreInfo.setInfo("supression");
                 aire.removePanel(barreLaterale.bl.papa);
                 arbre.supprimerArbre(barreLaterale.bl.papa);

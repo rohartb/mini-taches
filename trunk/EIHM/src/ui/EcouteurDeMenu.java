@@ -27,10 +27,10 @@ class EcouteurDeMenu implements ActionListener {
             f.changementEtat("quitter");
         }
         if(e.getActionCommand().equals("annuler")){
-            //f.e.annuler();           
+            f.e.annuler();           
         }
         if(e.getActionCommand().equals("retablir")){
-            //f.e.retablir();
+            f.e.retablir();
         }
         if(e.getActionCommand().equals("couper")){
             if(f.barreLaterale.bl.papa!=null){
