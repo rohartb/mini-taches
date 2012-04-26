@@ -21,6 +21,7 @@ public class Fenetre extends JFrame implements Runnable {
     Edition e;
     EcouteurNoeud souris;
     Propriete prop;
+    int nbTache=1;
     String[] options = {"Sauvegarder", "Continuer sans sauvegarder", "Annuler"};
 
     public Fenetre(String name) {
@@ -142,7 +143,7 @@ public class Fenetre extends JFrame implements Runnable {
         menubar = new MenuBar(this);
         //ajout BarreOutil
         //BarreOutil barreOutil = new BarreOutil();
-        arbre = new Arbre(new Noeud(null, "Root", 1, 0));
+        arbre = new Arbre(new Noeud(null, "Tâche_0", 1, 0));
         souris = new EcouteurNoeud(this, arbre.root);
         arbre.root.select=true;
         
