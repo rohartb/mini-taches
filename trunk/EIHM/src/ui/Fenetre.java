@@ -121,19 +121,19 @@ public class Fenetre extends JFrame implements Runnable {
             }
         }
         if (etat.equals("quitter")) {
-            if (arbre.root.getNbFils() != 0) {
+            //if (arbre.root.getNbFils() != 0) {
                 String[] options = {"Sauvegarder", "Quitter sans sauvegarder", "Annuler"};
                 int choix = JOptionPane.showOptionDialog(this, "\nVoulez-vous quitter sans sauvegarder ?", "Quitter", 0, JOptionPane.QUESTION_MESSAGE, new ImageIcon("./images/question.png"), options, options[0]);
 
                 if (choix == JOptionPane.YES_OPTION) {
                     barreInfo.setInfo("sauvegarde");
                     changementEtat("sauvegarder");
-                    System.exit(0);
+                    //System.exit(0);
                 } else if (choix == JOptionPane.NO_OPTION) {
                     System.exit(0);
                 }
-            }
-            System.exit(0);
+            //}
+            //System.exit(0);
         }
 
         if (etat.equals("preference")) {

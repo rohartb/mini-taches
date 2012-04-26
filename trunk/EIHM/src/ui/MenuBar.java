@@ -107,7 +107,7 @@ public class MenuBar extends JMenuBar {
         preference.setActionCommand("preference");
         preference.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, Event.CTRL_MASK));
         
-        JMenuItem prop = new JMenuItem("Propriété");
+        JMenuItem prop = new JMenuItem("Propriétés");
         prop.addActionListener(new EcouteurDeMenu(f));
         prop.setActionCommand("prop");
         
