@@ -45,11 +45,11 @@ public class EcouteurOption implements ActionListener {
         }
         
         else if(ae.getActionCommand().equals("annuler")){
-            //f.e.annuler();
+            f.e.annuler();
         }
         
         else if(ae.getActionCommand().equals("retablir")){
-            //f.e.retablir();
+            f.e.retablir();
         }
         
         else if(ae.getActionCommand().equals("augn")){

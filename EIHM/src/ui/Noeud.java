@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 
 public class Noeud {
-    ArrayList<Noeud> fils = new ArrayList<Noeud>();
+    ArrayList<Noeud> fils;
     private Noeud papa;
     String nom;
     int type;
@@ -32,6 +32,7 @@ public class Noeud {
         propriete[0]=0;
         propriete[1]=0;
         propriete[2]=0;
+        fils = new ArrayList<Noeud>();
 
         panel = new JPanel();
         
