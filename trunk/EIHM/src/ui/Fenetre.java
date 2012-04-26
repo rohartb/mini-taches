@@ -47,6 +47,7 @@ public class Fenetre extends JFrame implements Runnable {
         menubar.couper.setEnabled(false);
         menubar.coller.setEnabled(false);
         
+        e.cop=null;
         barre.barreOutil.annuler.setEnabled(false);
         menubar.annuler.setEnabled(false);
         barre.barreOutil.retablir.setEnabled(false);
