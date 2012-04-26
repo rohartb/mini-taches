@@ -67,7 +67,16 @@ public class EcouteurNoeud implements MouseListener,MouseMotionListener {
         
         if(e.getButton() == 3){
             f.aire.destroyBulles();
-            build(noeud.getX(), noeud.getY()+20);
+            int xG=noeud.getX()-rayon-taille/2;
+            int xD=noeud.getX()+rayon+taille/2;
+            int yH=noeud.getY()+20-rayon-taille/2;
+            int yB=noeud.getY()+20+rayon+taille/2;
+            if(xG>0 && xD<f.aire.getWidth() &&
+                    yH>0 && yB<f.aire.getHeight()){
+                build(noeud.getX(), noeud.getY()+20);
+            }else{
+                f.barreInfo.setInfo("Menu non affichable");
+            }
         }else if (e.getButton() == 1){
             f.aire.destroyBulles();
         }

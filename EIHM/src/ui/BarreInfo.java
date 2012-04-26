@@ -53,7 +53,9 @@ public class BarreInfo extends JPanel {
         if(string.equals("aide")){
             info.setText("Démarrage de l'aide");
         } 
-        
+        if(string.equals("Menu non affichable")){
+            info.setText("Menu non affichable");
+        } 
     }
     
 }
