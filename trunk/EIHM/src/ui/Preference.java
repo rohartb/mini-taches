@@ -14,14 +14,15 @@ public class Preference extends JDialog {
 
     public Preference() {
         setTitle("Préférences");
-        setSize(500, 410);
-        setVisible(true);
+        setSize(315, 130);
+        setLayout(null);
         
         Image icone = Toolkit.getDefaultToolkit().getImage("Image/check.png");
         setIconImage(icone);
         
         JCheckBox box = new JCheckBox();
-        box.setText("Afficher de nouveau la fenêtre de démarrage");       
+        box.setText("Afficher de nouveau la fenêtre de démarrage");     
+        box.setBounds(10, 10, 315, 30);
         
         // On vérifie la valeur dans config.txt pour savoir si le text doit être cliquable ou pas
         String fichier = "config.txt";
@@ -51,18 +52,30 @@ public class Preference extends JDialog {
         ActionListener ecouteurPref = new EcouteurPreference();
         box.addActionListener(ecouteurPref);
         
+        JButton annuler = new JButton("Annuler");
+        annuler.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Preference.this.setVisible(false);
+            }        
+        });
+        annuler.setBounds(10,50, 130, 30);
+        
         JButton valider = new JButton("Valider");
         valider.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
                 Preference.this.setVisible(false);
             }        
-        });
+        });  
         
+        valider.setBounds(150,50, 130, 30);
         
+        add(box);
+        add(annuler);
+        add(valider);
         
-        add(box, BorderLayout.NORTH);
-        add(valider, BorderLayout.SOUTH);
+        setVisible(true);
         
         //fenetre centrer
         setLocationRelativeTo(null);
