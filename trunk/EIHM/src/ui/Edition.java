@@ -7,6 +7,7 @@ package ui;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -43,21 +44,21 @@ public class Edition {
     
     void coller() {
         if(cop!=null){
-            col = new Noeud(null,cop.nom,cop.type,cop.liaison);
-            col.propriete=cop.propriete;
-            col.fils = new ArrayList<Noeud>();
-            col=copieEtEcouteur(cop);//copie+ajout des écouteurs             
-            f.barreLaterale.bl.papa.ajouterFils(col);  
-            f.h.ajouterAnnuler(f.arbre.root);          
+            Noeud n = copieArbre(f.arbre.root);
+            //f.h.ajouterAnnuler(n);
+            //f.h.viderRetablir();
+            col=copieEtEcouteur(cop);//copie+ajout des écouteurs 
+            col.setPapa(f.barreLaterale.bl.papa);
+            f.barreLaterale.bl.papa.ajouterFils(col);          
             f.aire.repaint();
         }
     }
 
-    void annuler() {
-        Noeud nouvelArbre = f.h.annuler();
+    /*void annuler() {
+        //Noeud nouvelArbre = f.h.annuler();
         Noeud copie = copieArbre(f.arbre.root);
         if(nouvelArbre!=null){
-            f.h.ajouterRetablir(copie);
+            //f.h.ajouterRetablir(copie);
             Noeud res = copieEtEcouteur(nouvelArbre);
             f.aire.removePanel(f.arbre.root);
             f.arbre.supprimerArbre(f.arbre.root);
@@ -65,9 +66,9 @@ public class Edition {
             f.aire.noeud = res;
             f.aire.repaint();
         }    
-    }
+    }*/
 
-    void retablir() {
+    /*void retablir() {
         Noeud nouvelArbre = f.h.retablir();
         Noeud copie = copieArbre(f.arbre.root);
         if(nouvelArbre!=null){
@@ -79,18 +80,18 @@ public class Edition {
             f.aire.noeud = res;
             f.aire.repaint();
         }
-    }
+    }*/
 
     Noeud copieArbre(Noeud cop) {
         Noeud res;
         if(cop.fils.isEmpty()){
             res = new Noeud(null,cop.nom,cop.type,cop.liaison);
-            res.propriete=cop.propriete;           
+            System.arraycopy(cop.propriete, 0, res.propriete, 0, 3);
             res.fils = new ArrayList<Noeud>();
             return res;
         }else{
             Noeud p = new Noeud(null,cop.nom,cop.type,cop.liaison);
-            p.propriete=cop.propriete;
+            System.arraycopy(cop.propriete, 0, p.propriete, 0, 3);
             p.fils = new ArrayList<Noeud>();
             while(i<cop.fils.size()){
                 res = copieArbre(cop.fils.get(i));
@@ -107,13 +108,14 @@ public class Edition {
         Noeud res;
         if(cop.fils.isEmpty()){
             res = new Noeud(null,cop.nom,cop.type,cop.liaison);
-            res.propriete=cop.propriete;
+            System.arraycopy(cop.propriete, 0, res.propriete, 0, 3);
             res.fils = new ArrayList<Noeud>();
             ajouterEcouteur(res);
             return res;
         }else{
             Noeud p = new Noeud(null,cop.nom,cop.type,cop.liaison);
-            p.propriete=cop.propriete;
+            System.arraycopy(cop.propriete, 0, p.propriete, 0, 3);
+
             p.fils = new ArrayList<Noeud>();
             while(i<cop.fils.size()){
                 res = copieEtEcouteur(cop.fils.get(i));
@@ -126,9 +128,11 @@ public class Edition {
             return p;
         }
     }
+    
+    
 
     private void ajouterEcouteur(Noeud n) {
-        EcouteurNoeud souris = new EcouteurNoeud(f, n);
+        EcouteurNoeud souris = new EcouteurNoeud(f, n);       
         n.panel.addMouseListener(souris);
         n.panel.addMouseMotionListener(souris);
         switch (n.type){

@@ -17,7 +17,7 @@ public class Fenetre extends JFrame implements Runnable {
     Arbre arbre;
     FenetreDemarrage fd;
     Preference p;
-    Historique h;
+    //Historique h;
     Edition e;
     EcouteurNoeud souris;
     Propriete prop;
@@ -26,7 +26,7 @@ public class Fenetre extends JFrame implements Runnable {
 
     public Fenetre(String name) {
         this.name = name;
-        h = new Historique(this);
+        //h = new Historique(this);
         e= new Edition(this);
         
     }
@@ -40,6 +40,18 @@ public class Fenetre extends JFrame implements Runnable {
         arbre.root.panel.addMouseListener(souris);
         arbre.root.panel.addMouseMotionListener(souris);
         arbre.root.panel.add(new JLabel(new ImageIcon("Image/user.png")));
+        
+        barre.barreOutil.couper.setEnabled(false);
+        barre.barreOutil.coller.setEnabled(false);
+        barre.barreOutil.supprimer.setEnabled(false);
+        menubar.couper.setEnabled(false);
+        menubar.coller.setEnabled(false);
+        
+        barre.barreOutil.annuler.setEnabled(false);
+        menubar.annuler.setEnabled(false);
+        barre.barreOutil.retablir.setEnabled(false);
+        menubar.retablir.setEnabled(false); 
+        
         aire.repaint();
         barreLaterale.bl.setPapa(arbre.root);
         barreInfo.setInfo("nouveau");
