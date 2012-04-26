@@ -17,7 +17,7 @@ class EcouteurPreference implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         JCheckBox box = (JCheckBox)ae.getSource();
         if (box.isSelected()){
-            System.out.println("Test1");
+            //System.out.println("Test1");
             String fichier = "config.txt";
             File config = new File(fichier);
             if (config.exists()) {
