@@ -18,7 +18,7 @@ public class Historique {
     Historique(Fenetre f){
         annuler = new ArrayList<Noeud>();
         retablir = new ArrayList<Noeud>();
-        this.f=f;
+        this.f=f;      
     }
 
    /* boolean annulerVide(){
