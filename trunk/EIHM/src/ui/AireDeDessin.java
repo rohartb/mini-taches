@@ -28,6 +28,7 @@ public class AireDeDessin extends JComponent {
     Boolean zoom = false;
     ArrayList<JLabel> label = new ArrayList<JLabel>();
     
+    
     public AireDeDessin(Fenetre f) {
         this.f = f;
         noeud = f.arbre.root;
@@ -131,6 +132,7 @@ public class AireDeDessin extends JComponent {
         this.validate();
         
         it = n.fils.iterator();
+        int h=etage*n.hauteur;
         while(it.hasNext()){
             y+=etage*n.hauteur;
             hauteur++;
@@ -138,6 +140,7 @@ public class AireDeDessin extends JComponent {
             y-=etage*n.hauteur;
         }
         hauteur--;
+
 
     }
     

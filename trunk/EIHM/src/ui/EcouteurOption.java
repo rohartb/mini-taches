@@ -64,7 +64,11 @@ public class EcouteurOption implements ActionListener {
         }
         
         else if(ae.getActionCommand().equals("dimn")){
+
+           // f.barreLaterale.bl.papa.hauteur--;
+
             f.barreLaterale.bl.papa.hauteur--; 
+
             f.aire.repaint();
         }
         

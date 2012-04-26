@@ -130,6 +130,8 @@ public class Fenetre extends JFrame implements Runnable {
         if (etat.equals("prop")) {
             prop = new Propriete(this);
         }
+        
+        
     }
 
     public void run() {
@@ -209,12 +211,12 @@ public class Fenetre extends JFrame implements Runnable {
         //setDefaultLookAndFeelDecorated(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);       
         
-        setMinimumSize(new Dimension(1000, 550));
-        setExtendedState(this.MAXIMIZED_BOTH);
+        //setMinimumSize(new Dimension(1000, 550));
+        
 
 
         addWindowListener(new EcouteurFenetreIcone(this, fd));
-        //setMinimumSize(new Dimension(1000, 800));
+        
         setVisible(true);
 
         // On vérifie si il faut afficher la fenetre de démarrage
@@ -248,5 +250,6 @@ public class Fenetre extends JFrame implements Runnable {
             fd.setVisible(true);
         }
         pack();
+        setExtendedState(this.MAXIMIZED_BOTH);
     }
 }
