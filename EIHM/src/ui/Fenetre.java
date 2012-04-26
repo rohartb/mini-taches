@@ -69,6 +69,8 @@ public class Fenetre extends JFrame implements Runnable {
                 } else if (choix == JOptionPane.NO_OPTION) {
                     reinitialiser();
                 }
+            } else {
+                
             }
         }
 
